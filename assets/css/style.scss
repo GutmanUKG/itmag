@@ -1,0 +1,227 @@
+@import "var";
+
+
+//header
+header{
+  background: $grey_bg;
+  padding-top: 16px;
+  padding-bottom: 28px;
+  .header_bar{
+    margin-bottom: 28px;
+  }
+  .header_phones{
+    display: flex;
+    align-items: center;
+    a{
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      gap: 5px;
+      margin-left: 16px;
+      font-family: $inter;
+      font-style: normal;
+      font-weight: 400;
+      font-size: $size_14;
+      line-height: 20px;
+      color: $dark_grey;
+      &:after{
+        content: '';
+        display: block;
+        width: 1px;
+        height: 16px;
+        background: $grey;
+        margin-left: calc(16px - 5px);
+      }
+      &:last-child{
+        &:after{
+          display: none;
+        }
+      }
+      &:first-child{
+        margin-left: 0;
+      }
+    }
+  }
+  .menu_col{
+    ul{
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 32px;
+      justify-content: flex-end;
+      li{
+        list-style: none;
+        a{
+          text-decoration: none;
+          font-family: $inter;
+          font-style: normal;
+          font-weight: 400;
+          font-size: $size_14;
+          line-height: 20px;
+          color: $dark_grey;
+          @include greenLine
+        }
+      }
+    }
+  }
+
+  .header_info{
+    #search{
+      width: 100%;
+      position: relative;
+      input{
+        width: 100%;
+        background: $white;
+        border-radius: 40px;
+        outline: none;
+        border: none;
+        padding: 10px 10px 10px 48px;
+        box-sizing: border-box;
+        font-family: $inter;
+        font-style: normal;
+        font-weight: 400;
+        font-size: $size_16;
+        color: $ligth_grey;
+      }
+      &:before{
+        content: '';
+        display: block;
+        width: 24px;
+        height: 24px;
+        position: absolute;
+        background: url("../img/icons/Search_icon.png") center no-repeat;
+        background-size: contain;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 10px;
+      }
+    }
+  }
+  .trigger_icons{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 33px;
+    .items_count{
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 33px;
+      a{
+        position: relative;
+        z-index: 20;
+        img{
+          width: 24px;
+          height: 24px;
+          object-fit: cover;
+          z-index: 20;
+          position: relative;
+        }
+        .dark{
+          display: block;
+        }
+        .green{
+          display: none;
+        }
+        .count{
+          z-index: 20;
+          position: relative;
+          position: absolute;
+          display: flex;
+          background: $three_green;
+          width: 20px;
+          height: 20px;
+          font-family: $inter;
+          font-style: normal;
+          font-weight: 500;
+          font-size: $size_14;
+          color: $white;
+          border-radius: 50%;
+          justify-content: center;
+          align-items: center;
+          top: 0;
+          right: 0;
+          transform: translate(50%, -50%);
+        }
+        &:after{
+          content: '';
+          display: block;
+          width: 44px;
+          height: 44px;
+          background: $white;
+          border-radius: 50%;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%) scale(0);
+          z-index: 1;
+          transition: 0.3s all;
+        }
+        &:hover{
+          &:after{
+            transform: translate(-50%, -50%) scale(1);
+          }
+          .dark{
+            display: none;
+          }
+          .green{
+            display: block;
+          }
+        }
+      }
+      &:after{
+        content: '';
+        display: block;
+        width: 1px;
+        height: 24px;
+        background: $grey;
+      }
+    }
+    .user{
+      display: block;
+      position: relative;
+      z-index: 20;
+      text-decoration: none;
+      .dark{
+        display: block;
+      }
+      .green{
+        display: none;
+      }
+      &:after{
+        content: '';
+        display: block;
+        width: 44px;
+        height: 44px;
+        background: $white;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        z-index: 1;
+        transition: 0.3s all;
+      }
+      img{
+        width: 24px;
+        height: 24px;
+        position: relative;
+        z-index: 20;
+      }
+      &:hover{
+        &:after{
+          transform: translate(-50%, -50%) scale(1);
+        }
+        .dark{
+          display: none;
+        }
+        .green{
+          display: block;
+        }
+      }
+    }
+
+  }
+}
+//
+

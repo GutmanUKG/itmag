@@ -1,0 +1,75 @@
+//colors
+$first_green: #91FF44;
+$second_green: #54CC00;
+$three_green: #3BB200;
+$four_green: #339900;
+
+$first_light: #F4F4F4;
+$second_light: #E9E8EC;
+
+$blue: #733EFF;
+
+$dark: #1A1A1A;
+
+$orange: #FFCD3C;
+
+$red: #EE1B56;
+
+$white: #fff;
+
+$grey:#ccc;
+$ligth_grey: #999999;
+$dark_grey: #666666;
+
+$grey_bg: #F2F2F2;
+//end colors
+//font-size
+$size_14: calc( (100vw - 360px)/(1920 - 360) * (14 - 14) + 14px);
+$size_16: calc( (100vw - 360px)/(1920 - 360) * (16 - 12) + 12px);
+//end font-size
+//fonts
+@font-face {
+  font-family: 'Inter';
+  src: url("../fonts/Inter/Inter-VariableFont_slnt,wght.ttf");
+}
+$inter:'Inter',sans-serif;
+//end fonts
+@mixin green_btn{
+  background: $three_green;
+  font-family: $inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: $size_14;
+  color: $white;
+  padding: 10px 16px 10px 10px;
+  box-sizing: border-box;
+  text-decoration: none;
+  border-radius: 22px;
+  transition: 0.3s all;
+  width: max-content;
+  &:hover{
+    background: $second_green;
+  }
+}
+
+@mixin greenLine{
+
+  position: relative;
+  &:after{
+    content: '';
+    display: block;
+    width: 20px;
+    height: 1px;
+    background: $three_green;
+    transition: 0.3s all;
+    transform: translateX(-50%) scale(0) ;
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 50%;
+  }
+  &:hover{
+    &:after{
+      transform:translateX(-50%) scale(1) ;
+    }
+  }
+}
