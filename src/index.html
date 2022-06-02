@@ -6,6 +6,11 @@
     <link rel="stylesheet" href="./css/bootstrap-reboot.min.css">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/style.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="./js/main.js"></script>
 </head>
 <body>
     <header>
@@ -74,7 +79,7 @@
                                 </mask>
                                 <g mask="url(#mask0_140_3361)">
                                     <circle cx="4.56038" cy="4.57161" r="140.972" fill="#1A1A1A"/>
-                                    <circle cx="4.56038" cy="4.00448" r="1.83333" fill="#54CC00"/>
+                                    <circle cx="4.56038" cy="4.00448" r="1.83333" fill="#54CC00" class="green_mask"/>
                                 </g>
                                 <path d="M0.555908 4.00442L4.56045 0L8.56499 4.00442L4.56045 8.00883L0.555908 4.00442Z" fill="#54CC00"/>
                             </svg>
@@ -118,9 +123,372 @@
                 </div>
             </div>
         </div>
+        <div class="menu_wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-2 d-flex align-items-center catalog_btns">
+                        <a href="" id="catalog_btn">
+                            <div class="icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" id="catalog_svg">
+                                    <path d="M22 9C22.5523 9 23 8.55228 23 8C23 7.44772 22.5523 7 22 7V9ZM2 7C1.44772 7 1 7.44772 1 8C1 8.55228 1.44772 9 2 9V7ZM22 7L2 7V9L22 9V7Z" fill="#F2F2F2"/>
+                                    <path d="M12 17C12.5523 17 13 16.5523 13 16C13 15.4477 12.5523 15 12 15V17ZM2 15C1.44771 15 1 15.4477 1 16C1 16.5523 1.44771 17 2 17V15ZM12 15L2 15V17H12V15Z" fill="#F2F2F2" class="default_line"/>
+                                    <path d="M22 17C22.5523 17 23 16.5523 23 16C23 15.4477 22.5523 15 22 15V17ZM2 15C1.44772 15 1 15.4477 1 16C1 16.5523 1.44772 17 2 17V15ZM22 15L2 15V17L22 17V15Z" fill="#F2F2F2" class="active_line"/>
+                                </svg>
+                            </div>
+                        </a>
+                        <a href="#">
+                            Каталог
+                        </a>
+                    </div>
+                    <div class="col-5  action_menu">
+                        <ul class="default_menu_theme">
+                            <li>
+                                <a href="#">
+                                    <img src="./img/icons/new_default.png" alt="new_default" class="default">
+                                    <img src="./img/icons/new_active.png" alt="new_active.png" class="active">
+                                    Новинки
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="./img/icons/hot_default.png" alt="hot_default.png" class="default">
+                                    <img src="./img/icons/hot_active.png" alt="hot_active.png" class="active">
+                                    Популярное
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="./img/icons/sale_icon.png" alt="sale_icon.png" class="default">
+                                    <img src="./img/icons/sale_active.png" alt="sale_active.png" class="active">
+                                    Скидки
+                                </a>
+                            </li>
+                            <li>
+
+                                <a href="#">
+                                    <img src="./img/icons/box_icon.png" alt="box_icon.png" class="default">
+                                    <img src="./img/icons/box_active.png" alt="box_active.png" class="active">
+                                    Акции
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-5 info_menu">
+                        <ul class="default_menu_theme">
+                            <li>
+                                <a href="#">
+                                    Новости и статьи
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Бизнесу
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Условия возврата
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Услуги
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
     <main>
-
+        <section class="banners_slider owl-carousel owl-theme">
+            <div class="item">
+                <img src="./img/banner_1.png" alt="">
+                <div class="container">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-6 banners_slider_text">
+                            <h2>
+                                Logitech™ <br>
+                                StreamCam
+                            </h2>
+                            <div class="descr col-8">
+                                Веб-камера премиум-класса для прямой трансляции в формате HD и создания контента
+                            </div>
+                            <a href="#" class="btn btn_slider">
+                                В корзину
+                            </a>
+                            <img src="./img/banner_img.png" alt="" class="banner_text_img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="./img/banner_1.png" alt="">
+            </div>
+        </section>
     </main>
+    <!--Боковое меню каталога-->
+    <div class="left_menu_catalog  col-3">
+        <div class="row">
+            <div class="close_btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4.5 4.5L19.5 19.5" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M19.5 4.5L4.5 19.5" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <div class="col-12 left_menu_catalog_list">
+                <ul>
+                    <li>
+                        <a href="#">
+                            <img src="./img/icons/server_icon_menu.png" alt="" class="default">
+                            <img src="./img/icons/server_icon_menu_active.png" alt="" class="active">
+                            Серверы / СХД / NAS
+                            <ul class="sub_menu_list">
+                                <div class="item_list">
+                                    <div class="accardion_trigger active">
+                                        <h3 class="txt">
+                                            Серверы
+                                        </h3>
+                                    </div>
+                                    <ul class="popup_list popup_list_show">
+                                        <li>
+                                            <a href="#">
+                                                Серверы HP (28)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Серверы DELL (11)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Серверы Lenovo (7)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Сервер на INTEL (38)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Сервер на AMD (3)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Сервер Xeon (37)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Серверы стоечные RACK (28)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Серверы башенные TOWER (10)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Сервер 1U (15)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Сервер 2U (12)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Сервер 4U (6)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Файловый сервер (30)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Двухпроцессорный сервер (28)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Сервер под 1С (13)
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="item_list">
+                                    <div class="accardion_trigger">
+                                        <h3 class="txt">
+                                            Системы хранения данных
+                                        </h3>
+                                    </div>
+                                    <ul class="popup_list">
+                                        <li>
+                                            <a href="#">
+                                                Дисковые СХД (6)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Ленточные СХД (5)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Сетевые хранилища данных (18)
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </ul>
+                        </a>
+
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="./img/icons/laptop_default.png" alt="" class="default">
+                            <img src="./img/icons/laptop_active.png" alt="" class="active">
+                            Ноутбуки и аксессуары
+                            <ul class="sub_menu_list">
+                                <div class="item_list">
+                                    <div class="accardion_trigger active">
+                                        <h3 class="txt">
+                                            Ноутбуки
+                                        </h3>
+                                    </div>
+                                    <ul class="popup_list popup_list_show">
+                                        <li>
+                                            <a href="#">
+                                                Ноутбуки Apple (8)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Ноутбуки HP (72)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Ноутбуки DELL (33)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Ноутбуки Lenovo (45)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Ноутбуки Acer (19)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Ноутбуки Asus (18)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Игровые ноутбуки (12)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Ноутбуки для работы (140)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Ноутбуки для дома (20)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Сенсорные ноутбуки (10)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Ультрабуки (207)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Файловый сервер (30)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Ноутбук Core i5 (67)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Ноутбук Core i3 (29)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Ноутбук Core i7 (34)
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="item_list">
+                                    <div class="accardion_trigger">
+                                        <h3 class="txt">
+                                            Планшеты
+                                        </h3>
+                                    </div>
+                                    <ul class="popup_list">
+                                        <li>
+                                            <a href="#">
+                                                Планшеты (13)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Чехлы и сумки для планшетов (25)
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="item_list">
+                                    <div class="accardion_trigger">
+                                        <h3 class="txt">
+                                            Подставки для охлаждения
+                                        </h3>
+                                    </div>
+                                    <ul class="popup_list">
+                                        <li>
+                                            <a href="#">
+                                                Планшеты (13)
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </ul>
+                        </a>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--Боковое меню каталога-->
+    <!--  overlay  -->
+    <div class="overlay"></div>
+    <!--  overlay  -->
+    <script src="./js/animate.js"></script>
 </body>
 </html>
