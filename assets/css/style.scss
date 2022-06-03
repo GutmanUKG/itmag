@@ -12,6 +12,7 @@ header{
   .header_phones{
     display: flex;
     align-items: center;
+    padding-left: calc(var(--bs-gutter-x) * 1.6);
     a{
       display: flex;
       align-items: center;
@@ -70,7 +71,14 @@ header{
 
   .header_info{
     margin-bottom: 28px;
+    .col-6{
+      transition: 0.3s all;
+      padding: 0;
+      padding-left: 2%;
+    }
     .logo{
+      position: relative;
+      z-index: 25;
       a{
         svg{
           .green_mask{
@@ -90,6 +98,22 @@ header{
     #search{
       width: 100%;
       position: relative;
+      z-index: 25;
+      display: flex;
+      gap: 16px;
+      .btn_search{
+        @include green_btn;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        position: absolute;
+        left: calc(100% + 16px);
+        z-index: 25;
+        display: none;
+        img{
+          filter: invert(1);
+        }
+      }
       input{
         width: 100%;
         background: $white;
@@ -120,14 +144,15 @@ header{
   }
   .trigger_icons{
     display: flex;
-    justify-content: flex-end;
+    //justify-content: flex-end;
     align-items: center;
-    gap: 33px;
+    gap: 19px;
+    padding-left: 6%;
     .items_count{
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      gap: 33px;
+      gap: 42px;
       a{
         position: relative;
         z-index: 20;
@@ -244,6 +269,9 @@ header{
 
   }
   .menu_wrapper{
+    background: $dark;
+    padding: 10px 0;
+    box-sizing: border-box;
     .catalog_btns{
       gap: 20px;
       #catalog_btn{
@@ -258,9 +286,6 @@ header{
         }
       }
     }
-    background: $dark;
-    padding: 16px 0;
-    box-sizing: border-box;
     a{
       text-decoration: none;
       font-family: $inter;
@@ -364,42 +389,14 @@ header{
   height: 100vh;
   left: -200%;
   transition: 0.3s all;
+  .row>*{
+    padding-left: calc(var(--bs-gutter-x) * .5);
+  }
   &_active{
     left: 0;
   }
   .close_btn{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: max-content;
     position: relative;
-    svg{
-      position: relative;
-      z-index: 21;
-      transition: 0.3s all;
-    }
-    &:before{
-      content: '';
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%) scale(0);
-      width: 44px;
-      height: 44px;
-      background: transparent;
-      z-index: 20;
-      border-radius: 50%;
-      transition: 0.3s all;
-    }
-    &:hover{
-      svg{
-        transform: rotate(180deg);
-      }
-      &:before{
-        background: #EDFAE6;
-        transform: translate(-50%, -50%) scale(1);
-      }
-    }
   }
   .row{
     padding: 64px 0 0 64px;
@@ -584,13 +581,16 @@ header{
         height: 520px;
         align-items: center;
         .banners_slider_text{
+          margin: 0 19%;
           padding: 32px;
-          background: #91FF44;
           display: flex;
           flex-direction: column;
           gap: 24px;
           align-items: flex-start;
           position: relative;
+          background: #91FF44;
+          background-blend-mode: multiply;
+          backdrop-filter: blur(16px);
           h2{
             font-family: $inter;
             font-style: normal;
@@ -669,6 +669,211 @@ header{
           height: 10px !important;
         }
       }
+    }
+  }
+}
+
+
+.serach_result{
+  background: rgba(242, 242, 242, 0.9);
+  backdrop-filter: blur(100px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  width: 100%;
+  z-index: 20;
+  display: none;
+  overflow: hidden;
+  height: 100vh;
+  .container{
+    position: relative;
+  }
+  .close_btn{
+    position: absolute;
+    right: 0;
+    left: 100%;
+    top: calc(0vh + (24px + 44px) );
+    transform: translateY(50%);
+  }
+  &_active{
+    display: block;
+  }
+
+  .result_list{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top:calc(0vh + (185px) + 60px);
+    margin: 0 auto;
+    gap: 24px;
+    .item{
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      padding-bottom: 24px;
+      box-sizing: border-box;
+      border-bottom: 1px solid $grey;
+      .top{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        h4{
+          font-family: $inter;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 12px;
+          line-height: 20px;
+          letter-spacing: 0.1em;
+          color: $ligth_grey;
+        }
+        .section_link{
+            @include link_btn;
+          position: relative;
+          display: flex;
+          align-items: center;
+
+          &:after{
+            content: '';
+            display: block;
+            width: 20px;
+            height: 20px;
+            transform: scale(0);
+            transition: 0.3s all;
+            margin-right: -20px;
+            background: url("../img/icons/arrow_green.png") center no-repeat;
+          }
+          &.animate_after{
+            &:after{
+              transform: scale(1);
+            }
+          }
+        }
+      }
+
+      ul{
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        li{
+          list-style: none;
+          a{
+            text-decoration: none;
+            font-family: $inter;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 24px;
+            color: $dark_grey;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .count{
+              font-family: $inter;
+              font-style: normal;
+              font-weight: 350;
+              font-size:$size_16;
+              line-height: 24px;
+              color: $dark_grey;
+            }
+          }
+        }
+      }
+      .items_list{
+        padding: 0;
+        margin: 0;
+        li{
+          a{
+            display: flex;
+            gap: 24px;
+            justify-content: flex-start;
+            align-items: center;
+            img{
+              width: 72px;
+              height: 72px;
+              object-fit: cover;
+            }
+            .descr{
+              display: flex;
+              flex-direction: column;
+              //gap: 4px;
+              justify-content: flex-start;
+              h4{
+                font-family: $inter;
+                font-style: normal;
+                font-weight: 400;
+                font-size: $size_14;
+                line-height: 20px;
+                color: #808080;
+              }
+              .txt{
+                font-family: $inter;
+                font-style: normal;
+                font-weight: 350;
+                font-size: $size_16;
+                line-height: 24px;
+                color: $dark_grey;
+              }
+            }
+            .info{
+              flex: 1 0 0;
+              display: flex;
+              flex-direction: column;
+              justify-content: flex-end;
+              align-items: flex-end;
+              gap: 8px;
+              .price{
+                font-family: $inter;
+                font-style: normal;
+                font-weight: 600;
+                font-size: $size_20;
+                line-height: 24px;
+                color: $dark;
+              }
+              .stars{
+                font-family: $inter;
+                font-style: normal;
+                font-weight: 400;
+                font-size: $size_14;
+                line-height: 16px;
+                color: #808080;
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                &:before{
+                  content: '';
+                  display: block;
+                  background: url("../img/icons/stars.png") center no-repeat;
+                  width: 16px;
+                  height: 16px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.active_serach{
+  header{
+    .header_info{
+      .col-6{
+        flex: 0 0 auto;
+        width: 41.66666667%;
+        #search{
+          .btn_search{
+            display: flex;
+          }
+        }
+      }
+
     }
   }
 }

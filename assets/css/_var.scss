@@ -27,6 +27,7 @@ $grey_bg: #F2F2F2;
 $size_14: calc( (100vw - 360px)/(1920 - 360) * (14 - 14) + 14px);
 $size_16: calc( (100vw - 360px)/(1920 - 360) * (16 - 12) + 12px);
 $size_18:  calc( (100vw - 360px)/(1920 - 360) * (18 - 12) + 12px);
+$size_20: calc( (100vw - 360px)/(1920 - 360) * (20 - 14) + 14px);
 //end font-size
 //fonts
 @font-face {
@@ -71,6 +72,62 @@ $inter:'Inter',sans-serif;
   &:hover{
     &:after{
       transform:translateX(-50%) scale(1) ;
+    }
+  }
+}
+
+@mixin link_btn{
+  text-decoration: none;
+  display: block;
+  font-family: $inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: $size_14;
+  line-height: 20px;
+  color: $four_green;
+}
+
+
+@media(min-width: 1400px){
+  .container{
+    max-width: 1380px;
+  }
+}
+.row>*{
+  padding-left: calc(var(--bs-gutter-x) * 1.7);
+}
+
+.close_btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  cursor: pointer;
+  svg{
+    position: relative;
+    z-index: 21;
+    transition: 0.3s all;
+  }
+  &:before{
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    z-index: 20;
+    border-radius: 50%;
+    transition: 0.3s all;
+  }
+  &:hover{
+    svg{
+      transform: rotate(180deg);
+    }
+    &:before{
+      background: #EDFAE6;
+      transform: translate(-50%, -50%) scale(1);
     }
   }
 }

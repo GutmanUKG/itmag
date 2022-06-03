@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="./css/bootstrap-reboot.min.css">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/style.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@350;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -89,7 +92,11 @@
                 </div>
                 <div class="col-6 offset-1">
                     <form action="" id="search">
-                        <input type="text" placeholder="Поиск">
+                        <input type="text" placeholder="Поиск" class="search_input">
+                        <button class="btn btn_search">
+                            <img src="./img/icons/Search_icon.png" alt="">
+                            Искать
+                        </button>
                     </form>
                 </div>
                 <div class="col-3 trigger_icons">
@@ -206,7 +213,7 @@
             <div class="item">
                 <img src="./img/banner_1.png" alt="">
                 <div class="container">
-                    <div class="row d-flex justify-content-center">
+                    <div class="row d-flex">
                         <div class="col-6 banners_slider_text">
                             <h2>
                                 Logitech™ <br>
@@ -481,11 +488,292 @@
                         </a>
 
                     </li>
+                    <li>
+                        <a href="#">
+                            <img src="./img/icons/server_icon_menu.png" alt="" class="default">
+                            <img src="./img/icons/server_icon_menu_active.png" alt="" class="active">
+                            Настольные компьютеры
+                            <ul class="sub_menu_list">
+                                <div class="item_list">
+                                    <div class="accardion_trigger active">
+                                        <h3 class="txt">
+                                            Персональные компьютеры
+                                        </h3>
+                                    </div>
+                                    <ul class="popup_list popup_list_show">
+                                        <li>
+                                            <a href="#">
+                                                Персональные компьютеры Acer (1)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Персональные компьютеры DELL (8)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Персональные компьютеры HP (27)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Персональные компьютеры Lenovo (4)
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="item_list">
+                                    <div class="accardion_trigger">
+                                        <h3 class="txt">
+                                            Рабочие станции
+                                        </h3>
+                                    </div>
+                                    <ul class="popup_list">
+                                        <li>
+                                            <a href="#">
+                                                Рабочие станции DELL (0)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Рабочие станции HP (3)
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="item_list">
+                                    <div class="accardion_trigger">
+                                        <h3 class="txt">
+                                            Моноблоки
+                                        </h3>
+                                    </div>
+                                    <ul class="popup_list">
+                                        <li>
+                                            <a href="#">
+                                                Моноблоки Acer (1)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Моноблоки DELL (4)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Моноблоки HP (33)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Моноблоки Lenovo (14)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Моноблоки белого цвета (3)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Моноблоки для офиса (28)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Моноблоки на Intel Core i5 (16)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Моноблоки с 23,8 дюйма (16)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Моноблоки с SSD (24)
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </ul>
+                        </a>
+
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="./img/icons/sound_default.png" alt="" class="default">
+                            <img src="./img/icons/sound_active.png" alt="" class="active">
+                            Периферия
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="./img/icons/printers_default.png" alt="" class="default">
+                            <img src="./img/icons/printers_active.png" alt="" class="active">
+                            Оргтехника
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
     </div>
     <!--Боковое меню каталога-->
+    <!--Выпадашка поисковика-->
+    <div class="serach_result">
+        <div class="container">
+            <div class="close_btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4.5 4.5L19.5 19.5" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M19.5 4.5L4.5 19.5" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+            </div>
+            <div class="result_list col-8">
+                <div class="manufacturer item">
+                    <div class="top">
+                        <h4>
+                            ПРОИЗВОДИТЕЛИ
+                        </h4>
+                    </div>
+                    <ul>
+                        <li>
+                            <a href="#">
+                                A4tech
+                                <span class="count">
+                                    14
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                PROA4
+                                <span class="count">
+                                    5
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                A4smart
+                                <span class="count">
+                                    7
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="items item">
+                    <div class="top">
+                        <h4>
+                            ТОВАРЫ
+                        </h4>
+                        <a href="#" class="section_link">
+                            Смотреть все товары
+                        </a>
+                    </div>
+                    <ul class="items_list">
+                        <li>
+                            <a href="#">
+                                <img src="./img/serach_img_1.png" alt="">
+                                <div class="descr">
+                                    <h4>
+                                        Наушники
+                                    </h4>
+                                    <div class="txt">
+                                        Наушники+микрофон A4tech <br>
+                                        FH200U-Blue Fstyler
+                                    </div>
+                                </div>
+                                <span class="info">
+                                    <span class="price">
+                                        8 049,00 тг.
+                                    </span>
+                                    <span class="stars">
+                                        4.3
+                                    </span>
+                                </span>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="./img/serach_img_1.png" alt="">
+                                <div class="descr">
+                                    <h4>
+                                        Наушники
+                                    </h4>
+                                    <div class="txt">
+                                        Наушники+микрофон A4tech <br>
+                                        FH200U-Blue Fstyler
+                                    </div>
+                                </div>
+                                <span class="info">
+                                    <span class="price">
+                                        8 049,00 тг.
+                                    </span>
+                                    <span class="stars">
+                                        4.3
+                                    </span>
+                                </span>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="./img/serach_img_1.png" alt="">
+                                <div class="descr">
+                                    <h4>
+                                        Наушники
+                                    </h4>
+                                    <div class="txt">
+                                        Наушники+микрофон A4tech <br>
+                                        FH200U-Blue Fstyler
+                                    </div>
+                                </div>
+                                <span class="info">
+                                    <span class="price">
+                                        8 049,00 тг.
+                                    </span>
+                                    <span class="stars">
+                                        4.3
+                                    </span>
+                                </span>
+                            </a>
+
+                        </li>
+                    </ul>
+                </div>
+                <div class="categories item">
+                    <div class="top">
+                        <h4>
+                            КАТЕГОРИИ
+                        </h4>
+
+                    </div>
+                    <ul class="">
+                        <li>
+                            <a href="#">
+                                Бумага для принтера A4
+                                <span class="count">
+                                    14
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Акустические системы A4
+                                <span class="count">
+                                    5
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Выпадашка поисковика-->
     <!--  overlay  -->
     <div class="overlay"></div>
     <!--  overlay  -->

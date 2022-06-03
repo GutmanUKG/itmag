@@ -1,6 +1,7 @@
 "use strict"
 document.addEventListener('DOMContentLoaded', ()=>{
     //Саня на jquery не переписывай
+    //Аккардион для меню
     class AccardionMenu{
         constructor({
                         container= null,
@@ -27,24 +28,25 @@ document.addEventListener('DOMContentLoaded', ()=>{
             })
         }
     }
-
-    const accardionMenu = new AccardionMenu({
-        container: '.left_menu_catalog ',
-        classElements: '.item_list',
-        btnClass: '.accardion_trigger',
-        toggleElClass: '.popup_list',
-        classActive: 'popup_list_show'
-    })
-    accardionMenu.init()
-
+    //Переключатель классов
     class TogglerClases{
-        constructor({triger = null, toggleEl = null, listener = 'click', classActive = null , closeBtn='.close_btn', overlay = '.overlay'}) {
+        constructor({triger = null,
+                        toggleEl = null,
+                        listener = 'click',
+                        classActive = null ,
+                        closeBtn='.close_btn',
+                        overlay = '.overlay',
+                        showOveraly = true,
+                        bodyClass = ''
+                    }) {
             this.triger = document.querySelector(triger)
             this.listener = listener
             this.classActive = classActive
             this.toggleEl = document.querySelector(toggleEl)
             this.closeBtn = closeBtn
             this.overlay = document.querySelector(overlay)
+            this.showOveraly = showOveraly
+            this.bodyClass = bodyClass
         }
 
         init(){
@@ -58,6 +60,9 @@ document.addEventListener('DOMContentLoaded', ()=>{
                 e.preventDefault()
                 this.toggleEl.classList.remove(this.classActive)
                 this.overlay.style.display = ''
+                if(this.bodyClass){
+                    document.body.classList.remove(this.bodyClass)
+                }
             })
         }
 
@@ -65,11 +70,90 @@ document.addEventListener('DOMContentLoaded', ()=>{
             this.triger.addEventListener(this.listener , (e)=>{
                 e.preventDefault()
                 this.toggleEl.classList.add(this.classActive)
-                this.overlay.style.display = 'block'
+                if(this.showOveraly){
+                    this.overlay.style.display = 'block'
+                }
+                if(this.bodyClass) {
+                    document.body.classList.add(this.bodyClass)
+                }
             })
         }
     }
 
+    //Анимация для кнопок
+    class animateTranslate{
+        constructor({elements = null,
+                        classActive = '',
+                        listener = 'mouseover',
+                        listenerOut = null}){
+            this.elements = document.querySelectorAll(elements);
+            this.listener = listener;
+            this.listenerOut = listenerOut;
+            this.classActive = classActive;
+        }
+
+
+
+        animateEl(){
+            let isOn = false;
+            let tl = anime.timeline({
+                duration: 400,
+                // easing: 'linear',
+                easing: 'spring(1, 80, 10, 0)',
+                // direction: 'alternate',
+                loop:false
+            })
+            this.elements.forEach(item=>{
+                item.addEventListener(this.listener, (e)=>{
+                    isOn = true
+                    if(isOn){
+                        item.classList.add(this.classActive)
+                        e.preventDefault()
+                        tl.add({
+                            targets: item,
+                            translateX: -20,
+                            easing: 'spring',
+                        })
+                    }
+                    if(this.listenerOut != null){
+                        // item.addEventListener(this.listenerOut, (e)=>{
+                        //     isOn = false
+                        //     item.classList.remove(this.classActive)
+                        //     tl.add({
+                        //         targets: item,
+                        //         translateX: 20,
+                        //         easing: 'spring',
+                        //     })
+                        // })
+                    }
+                })
+
+            })
+        }
+    }
+
+    //Анимация кнопки в поиске
+    const sectionLink = new animateTranslate({
+        elements: '.section_link',
+        classActive: 'animate_after',
+
+    })
+    sectionLink.animateEl()
+
+
+
+
+    //Подлючение аккардиона к меню
+    const accardionMenu = new AccardionMenu({
+        container: '.left_menu_catalog ',
+        classElements: '.item_list',
+        btnClass: '.accardion_trigger',
+        toggleElClass: '.popup_list',
+        classActive: 'popup_list_show'
+    })
+    accardionMenu.init()
+
+    //Вызов меню каталога
     try {
         const ShowCatalogLeft = new TogglerClases({
             triger: '#catalog_btn',
@@ -81,6 +165,19 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
     }
 
+    //Вызов поисковика
+    try{
+        const serachToggle = new TogglerClases({
+            triger: '.search_input',
+            toggleEl: '.serach_result',
+            classActive: 'serach_result_active',
+            showOveraly: false,
+            bodyClass: 'active_serach'
+        })
+        serachToggle.init()
+    }catch(e){
+
+    }
 
     //slider
     $('.banners_slider').owlCarousel({
