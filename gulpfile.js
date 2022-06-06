@@ -9,7 +9,14 @@ const sourcemaps = require('gulp-sourcemaps');
 const browserSync = require('browser-sync');
 
 
-
+gulp.task('build_js', function(){
+    return gulp.src('assets/js/*')
+        .pipe(babel({
+            presets: ['@babel/env']
+        }))
+        .pipe(gulp.dest('src/js'))
+        .pipe(browserSync.stream());
+})
 
 gulp.task('server', function() {
 
@@ -20,6 +27,7 @@ gulp.task('server', function() {
     });
 
     gulp.watch("src/*.html").on('change', browserSync.reload);
+
 });
 
 gulp.task('styles', function() {
@@ -34,9 +42,10 @@ gulp.task('styles', function() {
 
 gulp.task('watch', function() {
     gulp.watch("assets/css/**/*.+(scss|sass)", gulp.parallel('styles'));
+
+})
+gulp.task('watch_js', function(){
+    gulp.watch("assets/js/*.js", gulp.parallel('build_js'));
 })
 
-gulp.task('watch_js', ()=>{
-    gulp.watch('src/js/**/*').on('change',browserSync.reload);
-})
-gulp.task('default', gulp.parallel('watch', 'watch_js', 'server', 'styles'));
+gulp.task('default', gulp.parallel('watch', 'server', 'styles', 'build_js', 'watch_js'));

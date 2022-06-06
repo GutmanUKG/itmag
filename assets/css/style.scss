@@ -274,6 +274,7 @@ header{
     box-sizing: border-box;
     .catalog_btns{
       gap: 20px;
+      //padding-left: 0;
       #catalog_btn{
         display: flex;
         gap: 20px;
@@ -675,13 +676,11 @@ header{
 
 
 .serach_result{
-  background: rgba(242, 242, 242, 0.9);
-  backdrop-filter: blur(100px);
+  background: rgba(242, 242, 242, 1);
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-
   width: 100%;
   z-index: 20;
   display: none;
@@ -709,6 +708,12 @@ header{
     padding-top:calc(0vh + (185px) + 60px);
     margin: 0 auto;
     gap: 24px;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    &::-webkit-scrollbar { /* webkit */
+      width: 0;
+      height: 0;
+    }
     .item{
       display: flex;
       flex-direction: column;
@@ -796,6 +801,7 @@ header{
               width: 72px;
               height: 72px;
               object-fit: cover;
+              @include multiplyImg;
             }
             .descr{
               display: flex;
@@ -874,6 +880,248 @@ header{
         }
       }
 
+    }
+  }
+}
+
+
+
+//special
+
+.special{
+      .special_item_list{
+        gap: 16px;
+        justify-content: space-between;
+      }
+     .special_item{
+       display: flex;
+       align-items: center;
+       gap:20px;
+       padding: 20px;
+       box-sizing: border-box;
+       background: $grey_bg;
+       transition: 0.3s all;
+       position: relative;
+       width: calc(25% - 16px);
+       &.active{
+         a{
+          @include animateLinks;
+           &:after{
+             transform: scale(1);
+           }
+         }
+       }
+        img{
+          width: 120px;
+          height: 120px;
+          object-fit: cover;
+          @include multiplyImg;
+        }
+       .txt{
+         display: flex;
+         flex-direction: column;
+         justify-content: space-between;
+         font-family: $inter;
+         font-style: normal;
+         font-size: $size_16;
+         text-transform: uppercase;
+         color: $dark;
+         font-weight: 300;
+       }
+       h4{
+         font-family: $inter;
+         font-style: normal;
+         font-size: $size_16;
+         text-transform: uppercase;
+         color: $dark;
+         font-weight: 300;
+         line-height: 24px;
+       }
+       b{
+         font-family: $inter;
+         font-style: normal;
+         font-weight: 600;
+         font-size: $size_16;
+         text-transform: uppercase;
+         color: $dark;
+       }
+
+       a{
+         text-decoration: none;
+         font-family: $inter;
+         font-style: normal;
+         font-weight: 500;
+         font-size: $size_14;
+         color: $dark_grey;
+         margin-top: 28px;
+         display: flex;
+         align-items: center;
+         gap: 20px;
+         width: max-content;
+         text-transform: capitalize;
+         &:after{
+           content: '';
+           display: block;
+           width: 20px;
+           height: 20px;
+           background: url("../img/icons/arrow_green.png") center no-repeat;
+           transform: scale(0);
+           transition: 0.3s all;
+         }
+       }
+       &:before{
+         content: '';
+         background: rgba(255, 255, 255, 0.3);
+         position: absolute;
+         top: 100%;
+          z-index: -1;
+         left: 0;
+         right: 0;
+         bottom: 0;
+         transition: 0.3s all;
+       }
+       &:hover{
+         a{
+           z-index: 22;
+           color: $four_green;
+         }
+         &:before{
+           top: 0%;
+           z-index: 20;
+         }
+       }
+     }
+}
+//popular
+
+.popular{
+  padding-bottom: 60px;
+  .top{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+  }
+  .popular_items_list{
+    gap: 32px;
+    .item{
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      border-bottom: 1px solid #E6E6E6;
+      width: calc(33.33% - 32px);
+      &:nth-last-child(-n + 3){
+        border-bottom: none;
+      }
+      img{
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+        @include multiplyImg;
+      }
+      a{
+        font-family: $inter;
+        font-style: normal;
+        font-weight: 400;
+        font-size: $size_18;
+        color: $dark;
+        text-decoration: none;
+        transition: 0.3s all;
+        @include greenLine;
+        &:after{
+          left: 0;
+          transform: translateX(0%) scale(0);
+        }
+        &:hover{
+          color: $four_green;
+          &:after{
+            left: 0;
+            transform: translateX(0%) scale(1);
+          }
+        }
+      }
+    }
+  }
+}
+//adv
+
+.adv{
+  padding-bottom: 60px;
+  .adv_list{
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    .item{
+      width: calc(25% - 16px);
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      cursor: pointer;
+      &:hover{
+        h5{
+          color: $dark;
+          &:after{
+            transform: scale(1);
+          }
+        }
+        span{
+          color: #808080;
+        }
+        .icon{
+          background: #FFFFFF;
+          box-shadow: 0px 12px 24px -8px rgba(64, 115, 38, 0.25);
+          .default{
+            display: none;
+          }
+          .active{
+            display: block;
+          }
+        }
+      }
+      h5{
+        font-family: $inter;
+        font-style: normal;
+        font-weight: 400;
+        font-size: $size_16;
+        color: $dark_grey;
+        line-height: 24px;
+        &:after{
+          content: '';
+          display: block;
+          width: 20px;
+          height: 1px;
+          background: $dark;
+          transform: scale(0);
+          transition: 0.3s all;
+        }
+      }
+      span{
+        font-family: $inter;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 13px;
+        color: #808080;
+        line-height: 20px;
+      }
+      .icon{
+        width: 60px;
+        min-width: 60px;
+        height: 60px;
+        background: #F2F2F2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        transition: 0.3s all;
+        img{
+          object-fit: contain;
+          width: 40px;
+          height: 40px;
+        }
+        .active{
+          display: none;
+        }
+      }
     }
   }
 }
