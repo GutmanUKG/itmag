@@ -1327,17 +1327,26 @@ header{
   .recommended_list{
     display: flex;
     gap: 16px;
+    flex-wrap: wrap;
+    transition: 0.3s all;
     .item{
       flex: 0 0 auto;
       width: calc(25% - 16px);
       text-decoration: none;
       display: flex;
       flex-direction: column;
+      transition: 0.3s all;
+      height: max-content;
       &:hover{
         .icon{
           img{
             transform: scale(1.1);
           }
+        }
+        .popup_btns{
+          transform: scale(1);
+          height: max-content;
+          margin-top: 16px;
         }
 
       }
@@ -1345,11 +1354,24 @@ header{
         padding: 48px;
         box-sizing: border-box;
         background: $grey_bg;
-
+        position: relative;
+        .info_icon{
+          position: absolute;
+          display: flex;
+          align-items: center;
+          gap: 4px;
+          right: 20px;
+          img{
+            width: 20px;
+            height: 20px;
+            @include multiplyImg;
+          }
+        }
         img{
-          width: 224px;
+          max-width: 224px;
           height: 224px;
-          object-fit: cover;
+          width: 100%;
+          object-fit: contain;
           @include multiplyImg;
           transition: 0.3s all;
         }
@@ -1400,6 +1422,87 @@ header{
           }
         }
       }
+      .count{
+        font-family: $inter;
+        font-style: normal;
+        font-weight: 400;
+        font-size: $size_14;
+        line-height: 16px;
+        margin-top: 16px;
+        display: block;
+        &.green{
+          color: $four_green;
+        }
+      }
+      .price{
+        margin-top: 16px;
+        font-family: $inter;
+        font-style: normal;
+        font-weight: 500;
+        font-size: $size_20;
+        line-height: 24px;
+        letter-spacing: -0.02em;
+        color: $dark;
+      }
+      .old_price{
+        font-family: $inter;
+        font-style: normal;
+        font-weight: 350;
+        font-size: $size_14;
+        line-height: 20px;
+        color: $ligth_grey;
+        margin-top: 2px;
+        text-decoration: line-through;
+      }
+      .popup_btns{
+        display: flex;
+        align-items: center;
+        transform: scale(0);
+        transition: 0.3s all;
+        height: 0;
+        .count_btns{
+          display: flex;
+          width: 50%;
+          align-items: center;
+          justify-content: space-between;
+          position: relative;
+          z-index: 50;
+
+          .decriment,
+          .increment{
+            cursor: pointer;
+            padding: 0 20px;
+            box-sizing: border-box;
+          }
+          .count{
+            font-family: $inter;
+            font-style: normal;
+            font-weight: 400;
+            font-size: $size_16;
+            line-height: 24px;
+            text-align: center;
+            color: $dark;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 0;
+          }
+        }
+        .add_cart{
+          width: 50%;
+          @include priceBtn;
+        }
+      }
     }
   }
 }
+
+
+
+
+
+
+
+
+
+

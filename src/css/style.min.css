@@ -156,6 +156,52 @@
     transform: scale3d(1, 1, 1);
   }
 }
+.hover_icon {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 28px;
+  border-radius: 32px;
+  padding: 0 8px 0 4px;
+  box-sizing: border-box;
+  background: transparent;
+  transition: 0.3s all;
+  width: 28px;
+}
+.hover_icon span {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  color: #fff;
+  font-size: 0;
+  transition: 0.3s all;
+  width: 0;
+  height: 0;
+}
+.hover_icon:hover {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+.hover_icon:hover span {
+  font-size: calc((100vw - 360px) / 1560 * 0 + 14px);
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+}
+
+.hit:hover {
+  background: #F7B800;
+}
+
+.sale:hover {
+  background: #E8003A;
+}
+
 header {
   background: #F2F2F2;
   padding-top: 16px;
@@ -1434,6 +1480,8 @@ header .menu_wrapper .info_menu ul li a:hover {
 .recommended .recommended_list {
   display: flex;
   gap: 16px;
+  flex-wrap: wrap;
+  transition: 0.3s all;
 }
 .recommended .recommended_list .item {
   flex: 0 0 auto;
@@ -1441,20 +1489,45 @@ header .menu_wrapper .info_menu ul li a:hover {
   text-decoration: none;
   display: flex;
   flex-direction: column;
+  transition: 0.3s all;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
 }
 .recommended .recommended_list .item:hover .icon img {
   transform: scale(1.1);
+}
+.recommended .recommended_list .item:hover .popup_btns {
+  transform: scale(1);
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  margin-top: 16px;
 }
 .recommended .recommended_list .item .icon {
   padding: 48px;
   box-sizing: border-box;
   background: #F2F2F2;
+  position: relative;
+}
+.recommended .recommended_list .item .icon .info_icon {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  right: 20px;
+}
+.recommended .recommended_list .item .icon .info_icon img {
+  width: 20px;
+  height: 20px;
+  mix-blend-mode: multiply;
 }
 .recommended .recommended_list .item .icon img {
-  width: 224px;
+  max-width: 224px;
   height: 224px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
   mix-blend-mode: multiply;
   transition: 0.3s all;
 }
@@ -1503,4 +1576,88 @@ header .menu_wrapper .info_menu ul li a:hover {
   line-height: 20px;
   text-align: right;
   color: #1A1A1A;
+}
+.recommended .recommended_list .item .count {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: calc((100vw - 360px) / 1560 * 0 + 14px);
+  line-height: 16px;
+  margin-top: 16px;
+  display: block;
+}
+.recommended .recommended_list .item .count.green {
+  color: #339900;
+}
+.recommended .recommended_list .item .price {
+  margin-top: 16px;
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: calc((100vw - 360px) / 1560 * 6 + 14px);
+  line-height: 24px;
+  letter-spacing: -0.02em;
+  color: #1A1A1A;
+}
+.recommended .recommended_list .item .old_price {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 350;
+  font-size: calc((100vw - 360px) / 1560 * 0 + 14px);
+  line-height: 20px;
+  color: #999999;
+  margin-top: 2px;
+  text-decoration: line-through;
+}
+.recommended .recommended_list .item .popup_btns {
+  display: flex;
+  align-items: center;
+  transform: scale(0);
+  transition: 0.3s all;
+  height: 0;
+}
+.recommended .recommended_list .item .popup_btns .count_btns {
+  display: flex;
+  width: 50%;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 50;
+}
+.recommended .recommended_list .item .popup_btns .count_btns .decriment,
+.recommended .recommended_list .item .popup_btns .count_btns .increment {
+  cursor: pointer;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+.recommended .recommended_list .item .popup_btns .count_btns .count {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: calc((100vw - 360px) / 1560 * 4 + 12px);
+  line-height: 24px;
+  text-align: center;
+  color: #1A1A1A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0;
+}
+.recommended .recommended_list .item .popup_btns .add_cart {
+  width: 50%;
+  background: #3BB200;
+  height: 52px;
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: calc((100vw - 360px) / 1560 * 0 + 14px);
+  line-height: 20px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s all;
+}
+.recommended .recommended_list .item .popup_btns .add_cart:hover {
+  background: #54CC00;
 }
