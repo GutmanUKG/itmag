@@ -214,7 +214,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }]);
 
     return animateTranslate;
-  }();
+  }(); //Анимация animate.css
+
 
   var animateVariable = /*#__PURE__*/function () {
     function animateVariable(_ref4) {
@@ -259,8 +260,71 @@ document.addEventListener('DOMContentLoaded', function () {
     }]);
 
     return animateVariable;
-  }(); //Анимация кнопки в поиске
+  }(); //Табы
 
+
+  var ToggleTabs = /*#__PURE__*/function () {
+    function ToggleTabs(_ref5) {
+      var _ref5$itemsTabs = _ref5.itemsTabs,
+          itemsTabs = _ref5$itemsTabs === void 0 ? null : _ref5$itemsTabs,
+          _ref5$wrapperItemsCon = _ref5.wrapperItemsContent,
+          wrapperItemsContent = _ref5$wrapperItemsCon === void 0 ? null : _ref5$wrapperItemsCon,
+          _ref5$itemsContent = _ref5.itemsContent,
+          itemsContent = _ref5$itemsContent === void 0 ? null : _ref5$itemsContent,
+          _ref5$classActive = _ref5.classActive,
+          classActive = _ref5$classActive === void 0 ? 'show' : _ref5$classActive,
+          _ref5$animationName = _ref5.animationName,
+          animationName = _ref5$animationName === void 0 ? 'animate__fadeInRight' : _ref5$animationName;
+
+      _classCallCheck(this, ToggleTabs);
+
+      this.itemsTabs = document.querySelectorAll(itemsTabs);
+      this.wrapperItemsContent = document.querySelectorAll(wrapperItemsContent);
+      this.classActive = classActive;
+      this.animationName = animationName;
+    }
+
+    _createClass(ToggleTabs, [{
+      key: "clearClass",
+      value: function clearClass(id) {
+        for (var i = 0; i < this.itemsTabs.length; i++) {
+          this.itemsTabs[i].classList.remove('item_active');
+          this.wrapperItemsContent[i].classList.remove(this.classActive);
+          this.wrapperItemsContent[i].classList.remove(this.animationName);
+        }
+
+        this.wrapperItemsContent[id].classList.add(this.classActive);
+        this.wrapperItemsContent[id].classList.add(this.animationName);
+      }
+    }, {
+      key: "init",
+      value: function init() {
+        var _this6 = this;
+
+        this.itemsTabs[0].classList.add('item_active');
+        this.wrapperItemsContent[0].classList.add(this.classActive);
+        this.itemsTabs.forEach(function (item, id) {
+          item.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            _this6.clearClass(id);
+
+            if (!item.classList.contains('item_active')) {
+              item.classList.add('item_active');
+            }
+          });
+        });
+      }
+    }]);
+
+    return ToggleTabs;
+  }();
+
+  var tabs = new ToggleTabs({
+    itemsTabs: '.item_tab',
+    wrapperItemsContent: '.items_wrapper'
+  });
+  tabs.init(); //Анимация кнопки в поиске
 
   var sectionLink = new animateTranslate({
     elements: '.section_link',

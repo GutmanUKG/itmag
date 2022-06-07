@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         }
     }
 
-
+    //Анимация animate.css
     class animateVariable{
         constructor({elements = null, listener = 'mouseover', listenerOut= null, animateName = ''}){
             this.elements = document.querySelectorAll(elements)
@@ -181,6 +181,61 @@ document.addEventListener('DOMContentLoaded', ()=>{
             })
         }
     }
+
+    //Табы
+    class ToggleTabs{
+        constructor({
+                        itemsTabs = null,
+                        wrapperItemsContent = null,
+                        itemsContent= null,
+                        classActive='show',
+                        animationName='animate__fadeInRight'}) {
+            this.itemsTabs = document.querySelectorAll(itemsTabs)
+            this.wrapperItemsContent = document.querySelectorAll(wrapperItemsContent)
+            this.classActive = classActive
+            this.animationName = animationName
+        }
+        clearClass(id){
+            for(let i = 0; i <  this.itemsTabs.length; i++ ){
+                this.itemsTabs[i].classList.remove('item_active')
+                this.wrapperItemsContent[i].classList.remove(this.classActive)
+                this.wrapperItemsContent[i].classList.remove(this.animationName)
+            }
+            this.wrapperItemsContent[id].classList.add(this.classActive)
+            this.wrapperItemsContent[id].classList.add(this.animationName)
+        }
+        init(){
+            this.itemsTabs[0].classList.add('item_active')
+            this.wrapperItemsContent[0].classList.add(this.classActive)
+            this.itemsTabs.forEach((item,id)=>{
+                item.addEventListener('click', (e)=>{
+                    e.preventDefault()
+                    this.clearClass(id)
+                    if(!item.classList.contains('item_active')){
+                        item.classList.add('item_active')
+                    }
+                })
+            })
+        }
+    }
+
+    const tabs = new ToggleTabs({
+        itemsTabs: '.item_tab',
+        wrapperItemsContent: '.items_wrapper',
+
+    })
+    tabs.init()
+
+
+
+
+
+
+
+
+
+
+
     //Анимация кнопки в поиске
     const sectionLink = new animateTranslate({
         elements: '.section_link',
