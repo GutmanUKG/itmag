@@ -376,4 +376,41 @@ document.addEventListener('DOMContentLoaded', function () {
     nav: false,
     items: 1
   });
+  $('.brands_list').owlCarousel({
+    loop: true,
+    nav: false,
+    items: 6,
+    dots: false
+  });
+  var owl = $('.brands_list');
+  owl.owlCarousel(); // Go to the next item
+
+  $('.arrow_btn_next_brands').click(function () {
+    owl.trigger('next.owl.carousel');
+  }); // Go to the previous item
+
+  $('.arrow_btn_prev_brands').click(function () {
+    // With optional speed parameter
+    // Parameters has to be in square bracket '[]'
+    owl.trigger('prev.owl.carousel', [300]);
+  });
+  $('.reviews_list').owlCarousel({
+    loop: true,
+    nav: false,
+    items: 3,
+    dots: false,
+    margin: 16
+  });
+  var owlReviews = $('.reviews_list');
+  owlReviews.owlCarousel(); // Go to the next item
+
+  $('.arrow_btn_next_reviews').click(function () {
+    owlReviews.trigger('next.owl.carousel');
+  }); // Go to the previous item
+
+  $('.arrow_btn_prev_reviews').click(function () {
+    // With optional speed parameter
+    // Parameters has to be in square bracket '[]'
+    owlReviews.trigger('prev.owl.carousel', [300]);
+  });
 });

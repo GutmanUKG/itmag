@@ -24,6 +24,7 @@ $dark_grey: #666666;
 $grey_bg: #F2F2F2;
 //end colors
 //font-size
+$size_40:  calc( (100vw - 360px)/(1920 - 360) * (40 - 30) + 30px);
 $size_32: calc( (100vw - 360px)/(1920 - 360) * (32 - 18) + 18px);
 $size_14: calc( (100vw - 360px)/(1920 - 360) * (14 - 14) + 14px);
 $size_16: calc( (100vw - 360px)/(1920 - 360) * (16 - 12) + 12px);
@@ -165,6 +166,25 @@ $inter:'Inter',sans-serif;
   -webkit-animation-name: bounceIn;
   animation-name: bounceIn;
 }
+
+@mixin starsEl{
+  font-family: $inter;
+  font-style: normal;
+  font-weight: 400;
+  font-size: $size_14;
+  line-height: 16px;
+  color: #808080;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  &:before{
+    content: '';
+    display: block;
+    background: url("../img/icons/stars.png") center no-repeat;
+    width: 16px;
+    height: 16px;
+  }
+}
 .section{
   @include sectionPt;
 }
@@ -218,6 +238,36 @@ $inter:'Inter',sans-serif;
   }
 
 }
+
+.arrows{
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  .arrow_btn{
+    cursor: pointer;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background:url("../img/icons/arrow_slider.png") center no-repeat, #E6E6E6;
+    &:hover{
+      background:url("../img/icons/arrow_slider_light.png") center no-repeat, $second_green;
+    }
+  }
+  .arrow_btn_next{
+    transform: rotate(180deg);
+    &:hover{
+      background:url("../img/icons/arrow_slider_light.png") center no-repeat, $second_green;
+      transform: rotate(0deg) !important;
+    }
+  }
+  .arrow_btn_prev{
+    &:hover{
+      background:url("../img/icons/arrow_slider_light.png") center no-repeat, $second_green;
+      transform: rotate(180deg) !important;
+    }
+  }
+}
+
 .active_serach{
   overflow-y: hidden;
 }
@@ -324,6 +374,10 @@ $inter:'Inter',sans-serif;
   background: transparent;
   transition: 0.3s all;
   width: 28px;
+  overflow: hidden;
+  .active{
+    display: none;
+  }
   span{
     font-family: $inter;
     font-style: normal;
@@ -338,6 +392,13 @@ $inter:'Inter',sans-serif;
   }
   &:hover{
     width: max-content;
+    .active{
+      display: block;
+      mix-blend-mode: inherit !important;
+    }
+    .default{
+      display: none;
+    }
     span{
       font-size: $size_14;
       width: max-content;
@@ -354,5 +415,17 @@ $inter:'Inter',sans-serif;
 .sale{
   &:hover{
     background: #E8003A;
+  }
+}
+
+.stocks{
+  &:hover{
+    background: #733EFF;
+  }
+}
+
+.new{
+  &:hover{
+    background: #54CC00;
   }
 }
