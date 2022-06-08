@@ -83,11 +83,12 @@
   display: flex;
   align-items: center;
 }
-.section_link.animate_after {
+.section_link.animate__animated {
+  margin-right: 20px;
   color: #339900;
 }
-.section_link.animate_after:after {
-  transform: scale(1);
+.section_link.animate__animated:after {
+  transform: scale(1) !important;
 }
 .section_link:after {
   content: "";
@@ -125,6 +126,11 @@
 .arrows .arrow_btn_prev:hover {
   background: url("../img/icons/arrow_slider_light.png") center no-repeat, #54CC00;
   transform: rotate(180deg) !important;
+}
+
+.top {
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .active_serach {
@@ -343,7 +349,7 @@ header .header_info .logo a svg .green_mask {
   transition: 0.3s all;
 }
 header .header_info .logo a:hover svg .green_mask {
-  r: 120;
+  r: 120px;
 }
 header .header_info #search {
   width: 100%;
@@ -609,13 +615,13 @@ header .menu_wrapper .info_menu ul li a:hover {
 }
 #catalog_btn .icon svg .active_line {
   transition: 0.3s all;
-  transform: translateX(-50%);
+  transform: translateX(-50%) scaleX(0);
 }
 #catalog_btn:hover .icon svg path {
   fill: #3BB200;
 }
 #catalog_btn:hover .icon svg .active_line {
-  transform: translateX(0%);
+  transform: translateX(0%) scaleX(1);
 }
 
 .left_menu_catalog {
@@ -908,6 +914,9 @@ header .menu_wrapper .info_menu ul li a:hover {
   left: 100%;
   top: calc(0vh + 68px);
   transform: translateY(50%);
+}
+.serach_result .close_btn:before {
+  background: #fff;
 }
 .serach_result_active {
   display: block;
@@ -1341,7 +1350,12 @@ header .menu_wrapper .info_menu ul li a:hover {
 .tabs {
   padding-bottom: 60px;
 }
+.tabs .container {
+  overflow-x: hidden;
+}
 .tabs .top {
+  overflow-x: visible;
+  overflow-y: visible;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1516,6 +1530,7 @@ header .menu_wrapper .info_menu ul li a:hover {
   gap: 16px;
   flex-wrap: wrap;
   transition: 0.3s all;
+  justify-content: space-between;
 }
 .recommended .recommended_list .item,
 .catalog_list .recommended_list .item {
@@ -1798,7 +1813,7 @@ header .menu_wrapper .info_menu ul li a:hover {
   background: #91FF44;
 }
 .about .text ul {
-  padding: 0;
+  padding: 0 32px;
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -1806,7 +1821,6 @@ header .menu_wrapper .info_menu ul li a:hover {
   gap: 24px;
 }
 .about .text ul li {
-  list-style: none;
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 350;
@@ -1849,6 +1863,17 @@ header .menu_wrapper .info_menu ul li a:hover {
   border-radius: 8px;
   position: relative;
   margin-top: 20px;
+  cursor: pointer;
+  overflow: hidden;
+}
+.reviews .reviews_list .item .section_link {
+  display: none;
+}
+.reviews .reviews_list .item:hover .section_link {
+  display: flex;
+}
+.reviews .reviews_list .item:hover .date {
+  display: none;
 }
 .reviews .reviews_list .item .icon {
   background: #fff;

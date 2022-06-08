@@ -121,9 +121,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
             let isOn = false;
             let tl = anime.timeline({
                 duration: 400,
-                // easing: 'linear',
                 easing: 'spring(1, 80, 10, 0)',
-                // direction: 'alternate',
                 loop:false
             })
             this.elements.forEach(item=>{
@@ -267,22 +265,21 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
 
 
-
-
-
-
-
-
-
-
     //Анимация кнопки в поиске
-    const sectionLink = new animateTranslate({
+    // const sectionLink = new animateTranslate({
+    //     elements: '.section_link',
+    //     classActive: 'animate_after',
+    //
+    // })
+    // sectionLink.animateEl()
+
+
+    const sectionLink = new animateVariable({
         elements: '.section_link',
-        classActive: 'animate_after',
-
+        listener: 'mouseover',
+        animateName: 'animate__bounceIn',
     })
-    sectionLink.animateEl()
-
+    sectionLink.play()
 
 
 

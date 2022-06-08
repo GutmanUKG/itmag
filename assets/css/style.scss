@@ -88,7 +88,7 @@ header{
         &:hover{
           svg{
             .green_mask{
-              r: 120;
+              r: 120px;
             }
           }
         }
@@ -362,7 +362,8 @@ header{
       transition: 0.3s all;
       .active_line{
         transition: 0.3s all;
-        transform: translateX(-50%);
+
+        transform: translateX(-50%) scaleX(0);
       }
     }
   }
@@ -373,7 +374,7 @@ header{
          fill: $three_green;
        }
        .active_line{
-         transform: translateX(0%);
+         transform: translateX(0%) scaleX(1);
 
        }
      }
@@ -695,6 +696,9 @@ header{
     left: 100%;
     top: calc(0vh + (24px + 44px) );
     transform: translateY(50%);
+    &:before{
+      background: #fff;
+    }
   }
   &_active{
     display: block;
@@ -1115,7 +1119,12 @@ header{
 //tabs
 .tabs{
   padding-bottom: 60px;
+  .container{
+    overflow-x: hidden;
+  }
   .top{
+    overflow-x: visible;
+    overflow-y: visible;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1307,6 +1316,7 @@ header{
     gap: 16px;
     flex-wrap: wrap;
     transition: 0.3s all;
+    justify-content: space-between;
     .item{
       flex: 0 0 auto;
       width: calc(25% - 16px);
@@ -1541,14 +1551,14 @@ header{
     box-sizing: border-box;
     background: $first_green;
     ul{
-      padding: 0;
+      padding: 0 32px;
       margin: 0;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       gap: 24px;
       li{
-        list-style: none;
+        //list-style: none;
         font-family: $inter;
         font-style: normal;
         font-weight: 350;
@@ -1598,6 +1608,19 @@ header{
       border-radius: 8px;
       position: relative;
       margin-top: 20px;
+      cursor: pointer;
+      overflow: hidden;
+      .section_link{
+        display: none;
+      }
+      &:hover{
+        .section_link{
+          display: flex;
+        }
+        .date{
+          display: none;
+        }
+      }
       .icon{
         background: #fff;
         width: 60px;

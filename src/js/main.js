@@ -179,9 +179,7 @@ document.addEventListener('DOMContentLoaded', function () {
         var isOn = false;
         var tl = anime.timeline({
           duration: 400,
-          // easing: 'linear',
           easing: 'spring(1, 80, 10, 0)',
-          // direction: 'alternate',
           loop: false
         });
         this.elements.forEach(function (item) {
@@ -362,12 +360,19 @@ document.addEventListener('DOMContentLoaded', function () {
     line: true
   });
   tabs.init(); //Анимация кнопки в поиске
+  // const sectionLink = new animateTranslate({
+  //     elements: '.section_link',
+  //     classActive: 'animate_after',
+  //
+  // })
+  // sectionLink.animateEl()
 
-  var sectionLink = new animateTranslate({
+  var sectionLink = new animateVariable({
     elements: '.section_link',
-    classActive: 'animate_after'
+    listener: 'mouseover',
+    animateName: 'animate__bounceIn'
   });
-  sectionLink.animateEl(); //Подлючение аккардиона к меню
+  sectionLink.play(); //Подлючение аккардиона к меню
 
   var accardionMenu = new AccardionMenu({
     container: '.left_menu_catalog ',

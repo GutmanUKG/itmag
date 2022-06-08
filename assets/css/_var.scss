@@ -112,6 +112,7 @@ $inter:'Inter',sans-serif;
 @media(min-width: 1400px){
   .container{
     max-width: 1380px;
+
   }
 }
 //.row>*{
@@ -224,10 +225,12 @@ $inter:'Inter',sans-serif;
   position: relative;
   display: flex;
   align-items: center;
-  &.animate_after{
+
+  &.animate__animated {
+    margin-right: 20px;
     color: $four_green;
     &:after{
-      transform: scale(1);
+      transform: scale(1) !important;
     }
   }
   &:after{
@@ -271,7 +274,10 @@ $inter:'Inter',sans-serif;
     }
   }
 }
-
+.top{
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
 .active_serach{
   overflow-y: hidden;
 }
