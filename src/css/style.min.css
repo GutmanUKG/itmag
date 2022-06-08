@@ -37,6 +37,9 @@
 .close_btn:hover svg {
   transform: rotate(180deg);
 }
+.close_btn:hover svg path {
+  stroke: #3BB200;
+}
 .close_btn:hover:before {
   background: #EDFAE6;
   transform: translate(-50%, -50%) scale(1);
@@ -1349,6 +1352,14 @@ header .menu_wrapper .info_menu ul li a:hover {
   display: flex;
   gap: 60px;
   align-items: center;
+  position: relative;
+}
+.tabs .top .tabs_select #line {
+  width: 32px;
+  height: 2px;
+  position: absolute;
+  top: calc(100% + 4px);
+  transition: 0.3s all;
 }
 .tabs .top .tabs_select .item {
   font-family: "Inter", sans-serif;
@@ -1358,35 +1369,6 @@ header .menu_wrapper .info_menu ul li a:hover {
   color: #B3B3B3;
   cursor: pointer;
   transition: 0.3s all;
-  position: relative;
-}
-.tabs .top .tabs_select .item:after {
-  content: "";
-  display: block;
-  width: 20px;
-  height: 1px;
-  background: #3BB200;
-  transition: 0.3s all;
-  transform: translateX(-50%) scale(0);
-  position: absolute;
-  top: calc(100% + 5px);
-  left: 50%;
-}
-.tabs .top .tabs_select .item:hover:after {
-  transform: translateX(-50%) scale(1);
-}
-.tabs .top .tabs_select .item:nth-child(2):after {
-  background: #F7B800;
-}
-.tabs .top .tabs_select .item:nth-child(3):after {
-  background: #E8003A;
-}
-.tabs .top .tabs_select .item:nth-child(4):after {
-  background: #733EFF;
-}
-.tabs .top .tabs_select .item:after {
-  height: 2px;
-  width: 32px;
 }
 .tabs .top .tabs_select .item_active {
   color: #1A1A1A;

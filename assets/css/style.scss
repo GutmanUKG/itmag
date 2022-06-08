@@ -1125,6 +1125,15 @@ header{
       display: flex;
       gap: 60px;
       align-items: center;
+      position: relative;
+      #line{
+        width: 32px;
+        height: 2px;
+
+        position: absolute;
+        top: calc(100% + 4px);
+        transition: 0.3s all;
+      }
       .item{
         font-family: $inter;
         font-style: normal;
@@ -1133,26 +1142,6 @@ header{
         color: #B3B3B3;
         cursor: pointer;
         transition: 0.3s all;
-        @include greenLine;
-        &:nth-child(2){
-          &:after{
-            background: #F7B800;
-          }
-        }
-        &:nth-child(3){
-          &:after{
-            background: #E8003A;
-          }
-        }
-        &:nth-child(4){
-          &:after{
-            background: #733EFF;
-          }
-        }
-        &:after{
-          height: 2px;
-          width: 32px;
-        }
         &_active{
           color: $dark;
           &:after{

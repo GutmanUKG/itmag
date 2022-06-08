@@ -274,7 +274,11 @@ document.addEventListener('DOMContentLoaded', function () {
           _ref5$classActive = _ref5.classActive,
           classActive = _ref5$classActive === void 0 ? 'show' : _ref5$classActive,
           _ref5$animationName = _ref5.animationName,
-          animationName = _ref5$animationName === void 0 ? 'animate__fadeInRight' : _ref5$animationName;
+          animationName = _ref5$animationName === void 0 ? 'animate__fadeInRight' : _ref5$animationName,
+          _ref5$topLink = _ref5.topLink,
+          topLink = _ref5$topLink === void 0 ? null : _ref5$topLink,
+          _ref5$line = _ref5.line,
+          line = _ref5$line === void 0 ? false : _ref5$line;
 
       _classCallCheck(this, ToggleTabs);
 
@@ -282,6 +286,8 @@ document.addEventListener('DOMContentLoaded', function () {
       this.wrapperItemsContent = document.querySelectorAll(wrapperItemsContent);
       this.classActive = classActive;
       this.animationName = animationName;
+      this.topLink = topLink;
+      this.line = line;
     }
 
     _createClass(ToggleTabs, [{
@@ -301,16 +307,45 @@ document.addEventListener('DOMContentLoaded', function () {
       value: function init() {
         var _this6 = this;
 
+        var line = document.querySelector('#line');
         this.itemsTabs[0].classList.add('item_active');
         this.wrapperItemsContent[0].classList.add(this.classActive);
+
+        if (this.topLink != null) {
+          var l = document.querySelector(this.topLink);
+          l.textContent = this.itemsTabs[0].dataset.text;
+          l.href = this.itemsTabs[0].dataset.url;
+        }
+
+        if (this.line != false) {
+          var left = this.itemsTabs[0].offsetLeft,
+              elWidth = this.itemsTabs[0].offsetWidth,
+              color = this.itemsTabs[0].dataset.color;
+          line.style.cssText = "\n                        transform: translateX(".concat(left + elWidth / 2 - 15, "px);\n                        background: ").concat(color, ";\n            }\n          \n                    ");
+        }
+
         this.itemsTabs.forEach(function (item, id) {
           item.addEventListener('click', function (e) {
             e.preventDefault();
+
+            if (_this6.line) {
+              var _left = item.offsetLeft,
+                  _elWidth = item.offsetWidth,
+                  _color = item.dataset.color;
+              line.style.cssText = "\n                        transform: translateX(".concat(_left + _elWidth / 2 - 15, "px);\n                        background: ").concat(_color, ";\n                    ");
+            }
 
             _this6.clearClass(id);
 
             if (!item.classList.contains('item_active')) {
               item.classList.add('item_active');
+            }
+
+            if (_this6.topLink != null) {
+              var _l = document.querySelector(_this6.topLink);
+
+              _l.textContent = item.dataset.text;
+              _l.href = item.dataset.url;
             }
           });
         });
@@ -322,7 +357,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   var tabs = new ToggleTabs({
     itemsTabs: '.item_tab',
-    wrapperItemsContent: '.items_wrapper'
+    wrapperItemsContent: '.items_wrapper',
+    topLink: '#toggle_link',
+    line: true
   });
   tabs.init(); //Анимация кнопки в поиске
 

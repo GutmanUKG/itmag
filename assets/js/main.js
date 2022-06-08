@@ -189,11 +189,15 @@ document.addEventListener('DOMContentLoaded', ()=>{
                         wrapperItemsContent = null,
                         itemsContent= null,
                         classActive='show',
-                        animationName='animate__fadeInRight'}) {
+                        animationName='animate__fadeInRight',
+                        topLink = null,
+                        line = false}) {
             this.itemsTabs = document.querySelectorAll(itemsTabs)
             this.wrapperItemsContent = document.querySelectorAll(wrapperItemsContent)
             this.classActive = classActive
             this.animationName = animationName
+            this.topLink = topLink
+            this.line = line
         }
         clearClass(id){
             for(let i = 0; i <  this.itemsTabs.length; i++ ){
@@ -205,14 +209,47 @@ document.addEventListener('DOMContentLoaded', ()=>{
             this.wrapperItemsContent[id].classList.add(this.animationName)
         }
         init(){
+            let line = document.querySelector('#line')
             this.itemsTabs[0].classList.add('item_active')
             this.wrapperItemsContent[0].classList.add(this.classActive)
+            if(this.topLink != null){
+                let l = document.querySelector(this.topLink)
+                l.textContent = this.itemsTabs[0].dataset.text;
+                l.href = this.itemsTabs[0].dataset.url;
+            }
+            if(this.line != false) {
+                let left = this.itemsTabs[0].offsetLeft,
+                    elWidth = this.itemsTabs[0].offsetWidth,
+                    color = this.itemsTabs[0].dataset.color;
+                line.style.cssText = `
+                        transform: translateX(${(left + (elWidth / 2)) - 15}px);
+                        background: ${color};
+            }
+          
+                    `
+            }
             this.itemsTabs.forEach((item,id)=>{
                 item.addEventListener('click', (e)=>{
                     e.preventDefault()
+                    if(this.line){
+                        let left = item.offsetLeft,
+                            elWidth = item.offsetWidth,
+                            color = item.dataset.color;
+                        line.style.cssText = `
+                        transform: translateX(${(left + (elWidth / 2)) - 15}px);
+                        background: ${color};
+                    `
+                    }
+
+
                     this.clearClass(id)
                     if(!item.classList.contains('item_active')){
                         item.classList.add('item_active')
+                    }
+                    if(this.topLink != null){
+                        let l = document.querySelector(this.topLink)
+                        l.textContent = item.dataset.text;
+                        l.href = item.dataset.url;
                     }
                 })
             })
@@ -222,6 +259,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
     const tabs = new ToggleTabs({
         itemsTabs: '.item_tab',
         wrapperItemsContent: '.items_wrapper',
+        topLink: '#toggle_link',
+        line: true
 
     })
     tabs.init()

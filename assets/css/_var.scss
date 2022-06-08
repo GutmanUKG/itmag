@@ -124,6 +124,7 @@ $inter:'Inter',sans-serif;
   justify-content: center;
   width: max-content;
   cursor: pointer;
+
   svg{
     position: relative;
     z-index: 21;
@@ -145,6 +146,9 @@ $inter:'Inter',sans-serif;
   &:hover{
     svg{
       transform: rotate(180deg);
+      path{
+        stroke: #3BB200;
+      }
     }
     &:before{
       background: #EDFAE6;
