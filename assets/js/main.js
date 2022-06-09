@@ -1,5 +1,6 @@
 "use strict"
 document.addEventListener('DOMContentLoaded', ()=>{
+    let isToggle = true;
     //Саня на jquery не переписывай
     //Аккардион для меню
     class AccardionMenu{
@@ -28,6 +29,24 @@ document.addEventListener('DOMContentLoaded', ()=>{
             })
         }
     }
+
+
+
+    window.addEventListener('scroll', (e)=>{
+        let scrollDoc = window.scrollY
+        console.log(scrollDoc)
+        if(isToggle == true){
+            if(scrollDoc > 700){
+                document.body.classList.add('fixed_menu_active')
+                document.body.classList.add('is_scroll')
+            }else{
+                document.body.classList.remove('fixed_menu_active')
+                document.body.classList.remove('is_scroll')
+            }
+        }
+    })
+
+
     //Переключатель классов
     class TogglerClases{
         constructor({triger = null,
@@ -38,7 +57,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
                         overlay = '.overlay',
                         showOveraly = true,
                         bodyClass = '',
-                        listenerOut = null
+                        listenerOut = null,
+                        isScrollTop = false
                     }) {
             this.triger = document.querySelectorAll(triger)
             this.listener = listener
@@ -48,7 +68,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
             this.overlay = document.querySelector(overlay)
             this.showOveraly = showOveraly
             this.bodyClass = bodyClass
-            this.listenerOut = listenerOut
+            this.listenerOut = listenerOut,
+                this.isScrollTop = isScrollTop
         }
 
         init(){
@@ -61,6 +82,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
                 let closeBtn = this.toggleEl.querySelector(this.closeBtn)
                 closeBtn.addEventListener('click', (e)=>{
                     e.preventDefault()
+                    isToggle = true
                     this.toggleEl.classList.remove(this.classActive)
                     this.overlay.style.display = ''
                     if(this.bodyClass){
@@ -78,12 +100,23 @@ document.addEventListener('DOMContentLoaded', ()=>{
                     })
                 })
             }
+
+            if(document.body.classList.contains('is_scroll ')){
+
+                isToggle = true
+                document.body.classList.add('fixed_menu_active')
+            }
         }
 
         open(){
             this.triger.forEach(item=>{
                 item.addEventListener(this.listener, (e)=>{
                     e.preventDefault()
+                    if(this.isScrollTop){
+                        scrollTo(0,0)
+                        // isToggle = false
+                    }
+                    // isToggle = false
                     item.classList.add('active')
                     try{
                         this.toggleEl.classList.add(this.classActive)
@@ -96,6 +129,15 @@ document.addEventListener('DOMContentLoaded', ()=>{
                     }
                     if(this.bodyClass) {
                         document.body.classList.add(this.bodyClass)
+                    }
+
+                    if(document.body.classList.contains('is_scroll')){
+                        if(document.body.classList.contains('active_left_menu_from_fixed')){
+
+                        }else{
+                            document.body.classList.remove('fixed_menu_active')
+                        }
+
                     }
                 })
             })
@@ -254,6 +296,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
         }
     }
 
+
+try {
     const tabs = new ToggleTabs({
         itemsTabs: '.item_tab',
         wrapperItemsContent: '.items_wrapper',
@@ -262,17 +306,9 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
     })
     tabs.init()
+}catch (e) {
 
-
-
-    //Анимация кнопки в поиске
-    // const sectionLink = new animateTranslate({
-    //     elements: '.section_link',
-    //     classActive: 'animate_after',
-    //
-    // })
-    // sectionLink.animateEl()
-
+}
 
     const sectionLink = new animateVariable({
         elements: '.section_link',
@@ -301,6 +337,14 @@ document.addEventListener('DOMContentLoaded', ()=>{
             classActive: 'left_menu_catalog_active'
         })
         ShowCatalogLeft.init()
+
+        const ShowCatalogLeftFixed = new TogglerClases({
+            triger: '#catalog_btn_fixed',
+            toggleEl: '.left_menu_catalog',
+            classActive: 'left_menu_catalog_active',
+            bodyClass: 'active_left_menu_from_fixed'
+        })
+        ShowCatalogLeftFixed.init()
     }catch (e) {
 
     }
@@ -312,14 +356,15 @@ document.addEventListener('DOMContentLoaded', ()=>{
             toggleEl: '.serach_result',
             classActive: 'serach_result_active',
             showOveraly: false,
-            bodyClass: 'active_serach'
+            bodyClass: 'active_serach',
+            isScrollTop: true
         })
         serachToggle.init()
     }catch(e){
 
     }
 
-
+try {
     const specialItemAnimate = new TogglerClases({
         triger: '.special_item',
         listener: 'mouseover',
@@ -329,13 +374,16 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
     })
     specialItemAnimate.init()
+}catch (e) {
+
+}
 
 
 
 
 
 
-    //slider
+try{
     $('.banners_slider').owlCarousel({
         loop:true,
         nav:false,
@@ -363,24 +411,75 @@ document.addEventListener('DOMContentLoaded', ()=>{
         owl.trigger('prev.owl.carousel', [300]);
     })
 
+}catch (e) {
 
-    $('.reviews_list').owlCarousel({
-        loop:true,
-        nav:false,
-        items: 3,
-        dots:false,
-        margin: 16
-    })
-    let owlReviews = $('.reviews_list');
-    owlReviews.owlCarousel();
-    // Go to the next item
-    $('.arrow_btn_next_reviews').click(function() {
-        owlReviews.trigger('next.owl.carousel');
-    })
-    // Go to the previous item
-    $('.arrow_btn_prev_reviews').click(function() {
-        // With optional speed parameter
-        // Parameters has to be in square bracket '[]'
-        owlReviews.trigger('prev.owl.carousel', [300]);
-    })
+}
+    //slider
+   try{
+       $('.reviews_list').owlCarousel({
+           loop:true,
+           nav:false,
+           items: 3,
+           dots:false,
+           margin: 16
+       })
+       let owlReviews = $('.reviews_list');
+       owlReviews.owlCarousel();
+       // Go to the next item
+       $('.arrow_btn_next_reviews').click(function() {
+           owlReviews.trigger('next.owl.carousel');
+       })
+       // Go to the previous item
+       $('.arrow_btn_prev_reviews').click(function() {
+           // With optional speed parameter
+           // Parameters has to be in square bracket '[]'
+           owlReviews.trigger('prev.owl.carousel', [300]);
+       })
+   }catch (e) {
+
+   }
+
+
+
+    //catalog
+
+    class catalogSort{
+        constructor({elements=null, count=5}) {
+            this.elements = document.querySelectorAll(elements)
+            this.count = count
+
+        }
+
+        init(){
+            this.elements.forEach(item=>{
+                let menuElements = item.querySelector('ul')
+                let menulinks = menuElements.querySelectorAll('li')
+                let btnShow = menuElements.querySelector('.show_list')
+                if(menulinks.length > this.count){
+                    item.classList.add('popup_menu_item')
+                }
+                if(btnShow != undefined){
+                    btnShow.addEventListener('click', (e)=>{
+                        e.preventDefault()
+                        btnShow.classList.toggle('active')
+                        item.classList.toggle('popup_menu_item_active')
+                        if(btnShow.textContent.trim() == 'Паказать все' ){
+                            btnShow.textContent = 'Скрыть'
+                        }else{
+                            btnShow.textContent = 'Паказать все'
+                        }
+                    })
+                }
+            })
+
+        }
+    }
+
+
+        const catalogPageMenu = new catalogSort({
+            elements: '.catalog_list_toggler_item',
+            count: 6
+        })
+        catalogPageMenu.init()
+
 });

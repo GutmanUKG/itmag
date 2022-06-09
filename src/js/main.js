@@ -7,8 +7,9 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 
 document.addEventListener('DOMContentLoaded', function () {
-  //Саня на jquery не переписывай
+  var isToggle = true; //Саня на jquery не переписывай
   //Аккардион для меню
+
   var AccardionMenu = /*#__PURE__*/function () {
     function AccardionMenu(_ref) {
       var _ref$container = _ref.container,
@@ -50,8 +51,22 @@ document.addEventListener('DOMContentLoaded', function () {
     }]);
 
     return AccardionMenu;
-  }(); //Переключатель классов
+  }();
 
+  window.addEventListener('scroll', function (e) {
+    var scrollDoc = window.scrollY;
+    console.log(scrollDoc);
+
+    if (isToggle == true) {
+      if (scrollDoc > 700) {
+        document.body.classList.add('fixed_menu_active');
+        document.body.classList.add('is_scroll');
+      } else {
+        document.body.classList.remove('fixed_menu_active');
+        document.body.classList.remove('is_scroll');
+      }
+    }
+  }); //Переключатель классов
 
   var TogglerClases = /*#__PURE__*/function () {
     function TogglerClases(_ref2) {
@@ -72,7 +87,9 @@ document.addEventListener('DOMContentLoaded', function () {
           _ref2$bodyClass = _ref2.bodyClass,
           bodyClass = _ref2$bodyClass === void 0 ? '' : _ref2$bodyClass,
           _ref2$listenerOut = _ref2.listenerOut,
-          listenerOut = _ref2$listenerOut === void 0 ? null : _ref2$listenerOut;
+          listenerOut = _ref2$listenerOut === void 0 ? null : _ref2$listenerOut,
+          _ref2$isScrollTop = _ref2.isScrollTop,
+          isScrollTop = _ref2$isScrollTop === void 0 ? false : _ref2$isScrollTop;
 
       _classCallCheck(this, TogglerClases);
 
@@ -84,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function () {
       this.overlay = document.querySelector(overlay);
       this.showOveraly = showOveraly;
       this.bodyClass = bodyClass;
-      this.listenerOut = listenerOut;
+      this.listenerOut = listenerOut, this.isScrollTop = isScrollTop;
     }
 
     _createClass(TogglerClases, [{
@@ -102,6 +119,7 @@ document.addEventListener('DOMContentLoaded', function () {
           var closeBtn = this.toggleEl.querySelector(this.closeBtn);
           closeBtn.addEventListener('click', function (e) {
             e.preventDefault();
+            isToggle = true;
 
             _this2.toggleEl.classList.remove(_this2.classActive);
 
@@ -121,6 +139,11 @@ document.addEventListener('DOMContentLoaded', function () {
             });
           });
         }
+
+        if (document.body.classList.contains('is_scroll ')) {
+          isToggle = true;
+          document.body.classList.add('fixed_menu_active');
+        }
       }
     }, {
       key: "open",
@@ -130,6 +153,12 @@ document.addEventListener('DOMContentLoaded', function () {
         this.triger.forEach(function (item) {
           item.addEventListener(_this3.listener, function (e) {
             e.preventDefault();
+
+            if (_this3.isScrollTop) {
+              scrollTo(0, 0); // isToggle = false
+            } // isToggle = false
+
+
             item.classList.add('active');
 
             try {
@@ -142,6 +171,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (_this3.bodyClass) {
               document.body.classList.add(_this3.bodyClass);
+            }
+
+            if (document.body.classList.contains('is_scroll')) {
+              if (document.body.classList.contains('active_left_menu_from_fixed')) {} else {
+                document.body.classList.remove('fixed_menu_active');
+              }
             }
           });
         });
@@ -353,19 +388,15 @@ document.addEventListener('DOMContentLoaded', function () {
     return ToggleTabs;
   }();
 
-  var tabs = new ToggleTabs({
-    itemsTabs: '.item_tab',
-    wrapperItemsContent: '.items_wrapper',
-    topLink: '#toggle_link',
-    line: true
-  });
-  tabs.init(); //Анимация кнопки в поиске
-  // const sectionLink = new animateTranslate({
-  //     elements: '.section_link',
-  //     classActive: 'animate_after',
-  //
-  // })
-  // sectionLink.animateEl()
+  try {
+    var tabs = new ToggleTabs({
+      itemsTabs: '.item_tab',
+      wrapperItemsContent: '.items_wrapper',
+      topLink: '#toggle_link',
+      line: true
+    });
+    tabs.init();
+  } catch (e) {}
 
   var sectionLink = new animateVariable({
     elements: '.section_link',
@@ -390,6 +421,13 @@ document.addEventListener('DOMContentLoaded', function () {
       classActive: 'left_menu_catalog_active'
     });
     ShowCatalogLeft.init();
+    var ShowCatalogLeftFixed = new TogglerClases({
+      triger: '#catalog_btn_fixed',
+      toggleEl: '.left_menu_catalog',
+      classActive: 'left_menu_catalog_active',
+      bodyClass: 'active_left_menu_from_fixed'
+    });
+    ShowCatalogLeftFixed.init();
   } catch (e) {} //Вызов поисковика
 
 
@@ -399,60 +437,123 @@ document.addEventListener('DOMContentLoaded', function () {
       toggleEl: '.serach_result',
       classActive: 'serach_result_active',
       showOveraly: false,
-      bodyClass: 'active_serach'
+      bodyClass: 'active_serach',
+      isScrollTop: true
     });
     serachToggle.init();
   } catch (e) {}
 
-  var specialItemAnimate = new TogglerClases({
-    triger: '.special_item',
-    listener: 'mouseover',
-    classActive: 'animate',
-    showOveraly: false,
-    listenerOut: 'mouseout'
-  });
-  specialItemAnimate.init(); //slider
+  try {
+    var specialItemAnimate = new TogglerClases({
+      triger: '.special_item',
+      listener: 'mouseover',
+      classActive: 'animate',
+      showOveraly: false,
+      listenerOut: 'mouseout'
+    });
+    specialItemAnimate.init();
+  } catch (e) {}
 
-  $('.banners_slider').owlCarousel({
-    loop: true,
-    nav: false,
-    items: 1
-  });
-  $('.brands_list').owlCarousel({
-    loop: true,
-    nav: false,
-    items: 6,
-    dots: false
-  });
-  var owl = $('.brands_list');
-  owl.owlCarousel(); // Go to the next item
+  try {
+    $('.banners_slider').owlCarousel({
+      loop: true,
+      nav: false,
+      items: 1
+    });
+    $('.brands_list').owlCarousel({
+      loop: true,
+      nav: false,
+      items: 6,
+      dots: false
+    });
+    var owl = $('.brands_list');
+    owl.owlCarousel(); // Go to the next item
 
-  $('.arrow_btn_next_brands').click(function () {
-    owl.trigger('next.owl.carousel');
-  }); // Go to the previous item
+    $('.arrow_btn_next_brands').click(function () {
+      owl.trigger('next.owl.carousel');
+    }); // Go to the previous item
 
-  $('.arrow_btn_prev_brands').click(function () {
-    // With optional speed parameter
-    // Parameters has to be in square bracket '[]'
-    owl.trigger('prev.owl.carousel', [300]);
-  });
-  $('.reviews_list').owlCarousel({
-    loop: true,
-    nav: false,
-    items: 3,
-    dots: false,
-    margin: 16
-  });
-  var owlReviews = $('.reviews_list');
-  owlReviews.owlCarousel(); // Go to the next item
+    $('.arrow_btn_prev_brands').click(function () {
+      // With optional speed parameter
+      // Parameters has to be in square bracket '[]'
+      owl.trigger('prev.owl.carousel', [300]);
+    });
+  } catch (e) {} //slider
 
-  $('.arrow_btn_next_reviews').click(function () {
-    owlReviews.trigger('next.owl.carousel');
-  }); // Go to the previous item
 
-  $('.arrow_btn_prev_reviews').click(function () {
-    // With optional speed parameter
-    // Parameters has to be in square bracket '[]'
-    owlReviews.trigger('prev.owl.carousel', [300]);
+  try {
+    $('.reviews_list').owlCarousel({
+      loop: true,
+      nav: false,
+      items: 3,
+      dots: false,
+      margin: 16
+    });
+    var owlReviews = $('.reviews_list');
+    owlReviews.owlCarousel(); // Go to the next item
+
+    $('.arrow_btn_next_reviews').click(function () {
+      owlReviews.trigger('next.owl.carousel');
+    }); // Go to the previous item
+
+    $('.arrow_btn_prev_reviews').click(function () {
+      // With optional speed parameter
+      // Parameters has to be in square bracket '[]'
+      owlReviews.trigger('prev.owl.carousel', [300]);
+    });
+  } catch (e) {} //catalog
+
+
+  var catalogSort = /*#__PURE__*/function () {
+    function catalogSort(_ref6) {
+      var _ref6$elements = _ref6.elements,
+          elements = _ref6$elements === void 0 ? null : _ref6$elements,
+          _ref6$count = _ref6.count,
+          count = _ref6$count === void 0 ? 5 : _ref6$count;
+
+      _classCallCheck(this, catalogSort);
+
+      this.elements = document.querySelectorAll(elements);
+      this.count = count;
+    }
+
+    _createClass(catalogSort, [{
+      key: "init",
+      value: function init() {
+        var _this7 = this;
+
+        this.elements.forEach(function (item) {
+          var menuElements = item.querySelector('ul');
+          var menulinks = menuElements.querySelectorAll('li');
+          var btnShow = menuElements.querySelector('.show_list');
+
+          if (menulinks.length > _this7.count) {
+            item.classList.add('popup_menu_item');
+          }
+
+          if (btnShow != undefined) {
+            btnShow.addEventListener('click', function (e) {
+              e.preventDefault();
+              btnShow.classList.toggle('active');
+              item.classList.toggle('popup_menu_item_active');
+
+              if (btnShow.textContent.trim() == 'Паказать все') {
+                btnShow.textContent = 'Скрыть';
+              } else {
+                btnShow.textContent = 'Паказать все';
+              }
+            });
+          }
+        });
+      }
+    }]);
+
+    return catalogSort;
+  }();
+
+  var catalogPageMenu = new catalogSort({
+    elements: '.catalog_list_toggler_item',
+    count: 6
   });
+  catalogPageMenu.init();
 });
