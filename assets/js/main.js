@@ -205,19 +205,30 @@ document.addEventListener('DOMContentLoaded', ()=>{
         }
 
         play(){
+            let animate = false;
             this.elements.forEach(item=>{
                 item.addEventListener(this.listener, (e)=>{
                     e.preventDefault();
-                    item.classList.add(`animate__animated`)
-                    item.classList.add(`${this.animateName}`)
+                    animate = false;
+                   setTimeout(()=>{
+                       item.classList.add(`animate__animated`)
+                       item.classList.add(`${this.animateName}`)
+                   }, 100)
                 })
-                if(this.listenerOut != null){
-                    item.addEventListener(this.listenerOut, (e)=>{
-                        e.preventDefault();
-                        item.classList.remove(`animate__animated`)
-                        item.classList.remove(`${this.animateName}`)
-                    })
-                }
+                setTimeout(()=>{
+                    animate = true
+                    if(animate){
+                        if(this.listenerOut != null){
+                            item.addEventListener(this.listenerOut, (e)=>{
+                                e.preventDefault();
+                                item.classList.remove(`animate__animated`)
+                                item.classList.remove(`${this.animateName}`)
+                            })
+                        }
+                    }
+                },1500)
+
+
             })
         }
     }
@@ -314,6 +325,7 @@ try {
         elements: '.section_link',
         listener: 'mouseover',
         animateName: 'animate__bounceIn',
+        listenerOut: 'mouseout'
     })
     sectionLink.play()
 

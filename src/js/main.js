@@ -274,20 +274,29 @@ document.addEventListener('DOMContentLoaded', function () {
       value: function play() {
         var _this5 = this;
 
+        var animate = false;
         this.elements.forEach(function (item) {
           item.addEventListener(_this5.listener, function (e) {
             e.preventDefault();
-            item.classList.add("animate__animated");
-            item.classList.add("".concat(_this5.animateName));
+            animate = false;
+            setTimeout(function () {
+              item.classList.add("animate__animated");
+              item.classList.add("".concat(_this5.animateName));
+            }, 100);
           });
+          setTimeout(function () {
+            animate = true;
 
-          if (_this5.listenerOut != null) {
-            item.addEventListener(_this5.listenerOut, function (e) {
-              e.preventDefault();
-              item.classList.remove("animate__animated");
-              item.classList.remove("".concat(_this5.animateName));
-            });
-          }
+            if (animate) {
+              if (_this5.listenerOut != null) {
+                item.addEventListener(_this5.listenerOut, function (e) {
+                  e.preventDefault();
+                  item.classList.remove("animate__animated");
+                  item.classList.remove("".concat(_this5.animateName));
+                });
+              }
+            }
+          }, 1500);
         });
       }
     }]);
@@ -401,7 +410,8 @@ document.addEventListener('DOMContentLoaded', function () {
   var sectionLink = new animateVariable({
     elements: '.section_link',
     listener: 'mouseover',
-    animateName: 'animate__bounceIn'
+    animateName: 'animate__bounceIn',
+    listenerOut: 'mouseout'
   });
   sectionLink.play(); //Подлючение аккардиона к меню
 

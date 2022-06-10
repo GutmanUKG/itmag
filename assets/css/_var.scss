@@ -190,7 +190,9 @@ $inter:'Inter',sans-serif;
     height: 16px;
   }
 }
-
+body{
+  font-family: $inter;
+}
 .bardcrumbs{
   margin-top: 24px;
   margin-bottom: 24px;
@@ -273,7 +275,14 @@ $inter:'Inter',sans-serif;
   position: relative;
   display: flex;
   align-items: center;
-
+  //height: 32px;
+  padding: 10px 0;
+  box-sizing: border-box;
+  justify-content: flex-end;
+  //margin-right: -10px;
+  &:hover{
+    color: $four_green;
+  }
   &.animate__animated {
     margin-right: 20px;
     color: $four_green;
@@ -510,5 +519,25 @@ $inter:'Inter',sans-serif;
     width: 20px;
     height: 20px;
     background: url("../img/icons/Arrow.png") center (center/contain) no-repeat;
+  }
+}
+button.comparison{
+  background: url("../img/icons/comparison_icon.png") center no-repeat;
+  width: 24px;
+  height: 24px;
+  border:none;
+  outline: none;
+  &:hover{
+    background: url("../img/icons/Comparison_icon_green.png") center no-repeat;
+  }
+}
+button.favorite{
+  background: url("../img/icons/favorite_icon.png") center no-repeat;
+  width: 24px;
+  height: 24px;
+  border:none;
+  outline: none;
+  &:hover{
+    background: url("../img/icons/Favorite_icon_green.png") center no-repeat;
   }
 }

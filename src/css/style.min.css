@@ -45,6 +45,10 @@
   transform: translate(-50%, -50%) scale(1);
 }
 
+body {
+  font-family: "Inter", sans-serif;
+}
+
 .bardcrumbs {
   margin-top: 24px;
   margin-bottom: 24px;
@@ -127,6 +131,12 @@
   position: relative;
   display: flex;
   align-items: center;
+  padding: 10px 0;
+  box-sizing: border-box;
+  justify-content: flex-end;
+}
+.section_link:hover {
+  color: #339900;
 }
 .section_link.animate__animated {
   margin-right: 20px;
@@ -323,6 +333,28 @@
   width: 20px;
   height: 20px;
   background: url("../img/icons/Arrow.png") center center/contain no-repeat;
+}
+
+button.comparison {
+  background: url("../img/icons/comparison_icon.png") center no-repeat;
+  width: 24px;
+  height: 24px;
+  border: none;
+  outline: none;
+}
+button.comparison:hover {
+  background: url("../img/icons/Comparison_icon_green.png") center no-repeat;
+}
+
+button.favorite {
+  background: url("../img/icons/favorite_icon.png") center no-repeat;
+  width: 24px;
+  height: 24px;
+  border: none;
+  outline: none;
+}
+button.favorite:hover {
+  background: url("../img/icons/Favorite_icon_green.png") center no-repeat;
 }
 
 header {
@@ -1604,6 +1636,10 @@ header .menu_wrapper .info_menu ul li a:hover {
   height: -moz-max-content;
   height: max-content;
 }
+.recommended .recommended_list .item:hover .icon .btns,
+.catalog_list .recommended_list .item:hover .icon .btns {
+  opacity: 1;
+}
 .recommended .recommended_list .item:hover .icon img,
 .catalog_list .recommended_list .item:hover .icon img {
   transform: scale(1.1);
@@ -1626,6 +1662,17 @@ header .menu_wrapper .info_menu ul li a:hover {
   box-sizing: border-box;
   background: #F2F2F2;
   position: relative;
+}
+.recommended .recommended_list .item .icon .btns,
+.catalog_list .recommended_list .item .icon .btns {
+  position: absolute;
+  top: 22px;
+  left: 22px;
+  right: 22px;
+  display: flex;
+  justify-content: space-between;
+  opacity: 0;
+  transition: 0.3s all;
 }
 .recommended .recommended_list .item .icon .info_icon,
 .catalog_list .recommended_list .item .icon .info_icon {
@@ -1924,9 +1971,13 @@ header .menu_wrapper .info_menu ul li a:hover {
   position: relative;
   margin-top: 20px;
   cursor: pointer;
+  transition: 0.3s all;
 }
 .reviews .reviews_list .item .section_link {
   display: none;
+}
+.reviews .reviews_list .item:hover {
+  background: #F9F9F9;
 }
 .reviews .reviews_list .item:hover .section_link {
   display: flex;
@@ -2222,7 +2273,8 @@ footer .copy {
   display: flex;
   align-items: flex-start;
   gap: 20px;
-  height: 228px;
+  max-height: 228px;
+  align-self: normal;
   transition: 0.3s all;
   position: relative;
 }
@@ -2251,11 +2303,17 @@ footer .copy {
   height: -webkit-max-content;
   height: -moz-max-content;
   height: max-content;
+  max-height: -webkit-max-content;
+  max-height: -moz-max-content;
+  max-height: max-content;
 }
 .catalog .catalog_list_toggler .catalog_list_toggler_item.popup_menu_item_active ul {
   height: -webkit-max-content;
   height: -moz-max-content;
   height: max-content;
+  max-height: -webkit-max-content;
+  max-height: -moz-max-content;
+  max-height: max-content;
 }
 .catalog .catalog_list_toggler .catalog_list_toggler_item.popup_menu_item_active ul li {
   display: block;
@@ -2270,7 +2328,7 @@ footer .copy {
   padding: 0;
   margin: 0;
   width: 100%;
-  height: 228px;
+  max-height: 228px;
   overflow: hidden;
 }
 .catalog .catalog_list_toggler .catalog_list_toggler_item ul li {
@@ -2323,4 +2381,17 @@ footer .copy {
 }
 .catalog .catalog_list_toggler .catalog_list_toggler_item ul li:first-child a:hover:after {
   transform: scaleX(1);
+}
+
+.catalog_section .catalog_list_toggler .catalog_list_toggler_item:after {
+  top: 100%;
+}
+.catalog_section .catalog_list_toggler .catalog_list_toggler_item .catalog_item_img img {
+  width: 64px;
+  height: 64px;
+}
+
+.catalog_section_list .recommended_list .item {
+  flex: 0 0 auto;
+  width: calc(33.33333333% - 16px) !important;
 }

@@ -1321,6 +1321,9 @@ header{
       height: max-content;
       &:hover{
         .icon{
+          .btns{
+            opacity: 1;
+          }
           img{
             transform: scale(1.1);
           }
@@ -1339,6 +1342,16 @@ header{
         box-sizing: border-box;
         background: $grey_bg;
         position: relative;
+        .btns{
+          position: absolute;
+          top: 22px;
+          left: 22px;
+          right: 22px;
+          display: flex;
+          justify-content: space-between;
+          opacity: 0;
+          transition: 0.3s all;
+        }
         .info_icon{
           position: absolute;
           display: flex;
@@ -1604,11 +1617,12 @@ header{
       position: relative;
       margin-top: 20px;
       cursor: pointer;
-
+      transition: 0.3s all;
       .section_link{
         display: none;
       }
       &:hover{
+        background: #F9F9F9;
         .section_link{
           display: flex;
         }
@@ -1926,8 +1940,8 @@ footer{
       display: flex;
       align-items: flex-start;
       gap: 20px;
-      height: 228px;
-      //overflow: hidden;
+      max-height: 228px;
+      align-self: normal;
       transition: 0.3s all;
       position: relative;
       .show_list{
@@ -1957,8 +1971,10 @@ footer{
       }
       &.popup_menu_item_active{
         height: max-content;
+        max-height: max-content;
         ul{
           height: max-content;
+          max-height: max-content;
           li{
             display: block;
           }
@@ -1975,7 +1991,7 @@ footer{
         padding: 0;
         margin: 0;
         width: 100%;
-        height: 228px;
+        max-height: 228px;
         overflow: hidden;
         li{
           list-style: none;
@@ -2029,6 +2045,32 @@ footer{
           }
         }
       }
+    }
+  }
+}
+//catalog_section
+
+.catalog_section{
+  .catalog_list_toggler{
+    .catalog_list_toggler_item{
+      &:after{
+        top: 100%;
+      }
+      .catalog_item_img{
+        img{
+          width: 64px;
+          height: 64px;
+        }
+      }
+    }
+  }
+
+}
+.catalog_section_list{
+  .recommended_list{
+    .item{
+      flex: 0 0 auto;
+      width: calc(33.33333333% - 16px) !important;
     }
   }
 }
