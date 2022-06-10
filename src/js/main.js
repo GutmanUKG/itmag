@@ -410,7 +410,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var sectionLink = new animateVariable({
     elements: '.section_link',
     listener: 'mouseover',
-    animateName: 'animate__bounceIn',
+    animateName: 'section_link_animation',
     listenerOut: 'mouseout'
   });
   sectionLink.play(); //Подлючение аккардиона к меню

@@ -131,9 +131,6 @@ body {
   position: relative;
   display: flex;
   align-items: center;
-  padding: 10px 0;
-  box-sizing: border-box;
-  justify-content: flex-end;
 }
 .section_link:hover {
   color: #339900;
@@ -357,6 +354,50 @@ button.favorite:hover {
   background: url("../img/icons/Favorite_icon_green.png") center no-repeat;
 }
 
+.section_link_animation {
+  -webkit-animation: sectionLinkAnimate 0.1s linear;
+          animation: sectionLinkAnimate 0.1s linear;
+}
+.section_link_animation:after {
+  -webkit-animation: sectionLinkAnimate 0.1s linear;
+          animation: sectionLinkAnimate 0.1s linear;
+}
+
+@-webkit-keyframes sectionLinkAnimate {
+  0% {
+    transform: translateX(0%);
+  }
+  25% {
+    transform: translateX(-2%);
+  }
+  50% {
+    transform: translateX(0%);
+  }
+  75% {
+    transform: translateX(-2%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes sectionLinkAnimate {
+  0% {
+    transform: translateX(0%);
+  }
+  25% {
+    transform: translateX(-2%);
+  }
+  50% {
+    transform: translateX(0%);
+  }
+  75% {
+    transform: translateX(-2%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
 header {
   background: #F2F2F2;
   padding-top: 16px;

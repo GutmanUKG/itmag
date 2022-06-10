@@ -276,9 +276,9 @@ body{
   display: flex;
   align-items: center;
   //height: 32px;
-  padding: 10px 0;
-  box-sizing: border-box;
-  justify-content: flex-end;
+  //padding: 10px 0;
+  //box-sizing: border-box;
+  //justify-content: flex-end;
   //margin-right: -10px;
   &:hover{
     color: $four_green;
@@ -539,5 +539,28 @@ button.favorite{
   outline: none;
   &:hover{
     background: url("../img/icons/Favorite_icon_green.png") center no-repeat;
+  }
+}
+.section_link_animation{
+ animation: sectionLinkAnimate .1s linear;
+  &:after{
+    animation: sectionLinkAnimate .1s linear;
+  }
+}
+@keyframes sectionLinkAnimate {
+  0%{
+    transform: translateX(0%);
+  }
+  25%{
+    transform: translateX(-2%);
+  }
+  50%{
+    transform: translateX(0%);
+  }
+  75%{
+    transform: translateX(-2%);
+  }
+  100%{
+    transform: translateX(0%);
   }
 }
