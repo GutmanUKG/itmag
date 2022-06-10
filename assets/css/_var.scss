@@ -164,12 +164,13 @@ $inter:'Inter',sans-serif;
   box-sizing: border-box;
 }
 @mixin animateLinks{
-  -webkit-animation-duration: calc(1s * 0.75);
-  animation-duration: calc(1s * 0.75);
-  -webkit-animation-duration: calc(var(--animate-duration) * 0.75);
-  animation-duration: calc(var(--animate-duration) * 0.75);
-  -webkit-animation-name: bounceIn;
-  animation-name: bounceIn;
+  //-webkit-animation-duration: calc(1s * 0.75);
+  //animation-duration: calc(1s * 0.75);
+  //-webkit-animation-duration: calc(var(--animate-duration) * 0.75);
+  //animation-duration: calc(var(--animate-duration) * 0.75);
+  //-webkit-animation-name: bounceIn;
+  //animation-name: bounceIn;
+  animation: sectionLinkAnimate 1s linear;
 }
 
 @mixin starsEl{
