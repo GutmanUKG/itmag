@@ -10,9 +10,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@350;400;500;600&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
 </head>
@@ -442,28 +447,358 @@
         </div>
     </section>
 
-    <section class="section">
+    <section class="section section_catalog_items_list">
         <div class="container">
             <div class="row">
                 <div class="col-3 filter">
                     <span>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                         <path d="M22 3H2L10 12.46V19L14 21V12.46L22 3Z" stroke="#54CC00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
                         Фильтр
                     </span>
+                    <form action="" class="form_sort_fillter">
+                        <div class="group_fillter">
+                            <div class="title">
+                                Категории
+                            </div>
+                            <div class="category_list_fillter">
+                                <ul class="">
+                                    <li>
+                                        <a href="#">
+                                            Сканеры
+                                            <span>
+                                                (25)
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            Принтеры
+                                            <span>
+                                                (40)
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            Многофункциональные устройства
+                                            <span>
+                                                (75)
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            Плоттеры
+                                            <span>
+                                                (126)
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            3D Принтеры
+                                            <span>
+                                                (42)
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            Расходные материалы
+                                            <span>
+                                                (54)
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            Уничтожители бумаги (Шредеры)
+                                            <span>
+                                                (256)
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            Ламинаторы
+                                            <span>
+                                                (144)
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            Опции к принтерам и МФУ
+                                            <span>
+                                                (225)
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <a href="#" class="show_list">
+                                        Паказать все
+                                    </a>
+                                </ul>
+                            </div>
+
+                        </div>
+                        <div class="group_fillter">
+                            <div class="title">
+                                Цена
+                            </div>
+                                <!--price filter-->
+                                <div  class="price_filter_form">
+                                    <div class="price-range-block">
+                                        <div class="wrapper_inputs">
+                                            <input type="text" min="0" max="9900" oninput="validity.valid||(value='0 ');" class="min_price">
+                                            <input type="text" min="0" max="10000" oninput="validity.valid||(value='100000');" class="max_price">
+                                        </div>
+                                        <div class="slider-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content" name="rangeInput">
+                                            <div class="ui-slider-range ui-corner-all ui-widget-header" style="left: 0; right: 0; background: #F2F2F2;">
+                                            </div>
+                                            <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default">
+
+                                            </span>
+<!--                                            <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default">-->
+
+<!--                                            </span>-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--end price filter-->
+                        </div>
+                        <div class="group_fillter">
+                            <div class="title">
+                                Бренд
+                            </div>
+                            <div class="select_list">
+                               <ul>
+                                   <li>
+                                       <input type="checkbox"
+                                              class="custom-checkbox" id="apple"
+                                              name="apple"
+                                              value="yes">
+                                       <label for="apple">Apple</label>
+                                   </li>
+                                   <li>
+                                       <input type="checkbox"
+                                              class="custom-checkbox" id="Lenovo"
+                                              name="Lenovo"
+                                              value="yes">
+                                       <label for="Lenovo">Lenovo</label>
+                                   </li>
+                                   <li>
+                                       <input type="checkbox"
+                                              class="custom-checkbox" id="Canon"
+                                              name="Canon"
+                                              value="yes">
+                                       <label for="Canon">Canon</label>
+                                   </li>
+                                   <li>
+                                       <input type="checkbox"
+                                              class="custom-checkbox" id="Epson"
+                                              name="Epson"
+                                              value="yes">
+                                       <label for="Epson">Epson</label>
+                                   </li>
+                                   <li>
+                                       <input type="checkbox"
+                                              class="custom-checkbox" id="Samsung"
+                                              name="Samsung"
+                                              value="yes">
+                                       <label for="Samsung">Samsung</label>
+                                   </li>
+                                   <li>
+                                       <input type="checkbox"
+                                              class="custom-checkbox" id="Huawei"
+                                              name="Huawei"
+                                              value="yes">
+                                       <label for="Huawei">Huawei</label>
+                                   </li>
+                                   <li>
+                                       <input type="checkbox"
+                                              class="custom-checkbox" id="Panasonic"
+                                              name="Panasonic"
+                                              value="yes">
+                                       <label for="Panasonic">Panasonic</label>
+                                   </li>
+                                   <li>
+                                       <input type="checkbox"
+                                              class="custom-checkbox" id="Philips"
+                                              name="Philips"
+                                              value="yes">
+                                       <label for="Philips">Philips</label>
+                                   </li>
+                                   <li>
+                                       <input type="checkbox"
+                                              class="custom-checkbox" id="Xerox"
+                                              name="Xerox"
+                                              value="yes">
+                                       <label for="Xerox">Xerox</label>
+                                   </li>
+                                   <a href="#" class="show_list">
+                                       Паказать все
+                                   </a>
+                               </ul>
+                            </div>
+                        </div>
+                        <div class="group_fillter">
+                            <div class="title">
+                                Рейтинг
+                            </div>
+                            <div class="raiting_list">
+                                <input type="checkbox"
+                                       class="custom-checkbox" id="5"
+                                       name="5"
+                                       value="yes">
+                                <label for="5">
+                                    <svg width="84" height="16" viewBox="0 0 84 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7.41646 1.42397C7.60013 0.858677 8.39987 0.858677 8.58355 1.42397L10.0307 5.87773H14.7136C15.308 5.87773 15.5551 6.63833 15.0743 6.9877L11.2857 9.74028L12.7328 14.194C12.9165 14.7593 12.2695 15.2294 11.7886 14.88L8 12.1275L4.21141 14.88C3.73054 15.2294 3.08354 14.7593 3.26721 14.194L4.71433 9.74028L0.925732 6.9877C0.444865 6.63833 0.691997 5.87773 1.28638 5.87773H5.96934L7.41646 1.42397Z" fill="#FBB613"/>
+                                        <path d="M24.4165 1.42397C24.6001 0.858677 25.3999 0.858677 25.5835 1.42397L27.0307 5.87773H31.7136C32.308 5.87773 32.5551 6.63833 32.0743 6.9877L28.2857 9.74028L29.7328 14.194C29.9165 14.7593 29.2695 15.2294 28.7886 14.88L25 12.1275L21.2114 14.88C20.7305 15.2294 20.0835 14.7593 20.2672 14.194L21.7143 9.74028L17.9257 6.9877C17.4449 6.63833 17.692 5.87773 18.2864 5.87773H22.9693L24.4165 1.42397Z" fill="#FBB613"/>
+                                        <path d="M41.4165 1.42397C41.6001 0.858677 42.3999 0.858677 42.5835 1.42397L44.0307 5.87773H48.7136C49.308 5.87773 49.5551 6.63833 49.0743 6.9877L45.2857 9.74028L46.7328 14.194C46.9165 14.7593 46.2695 15.2294 45.7886 14.88L42 12.1275L38.2114 14.88C37.7305 15.2294 37.0835 14.7593 37.2672 14.194L38.7143 9.74028L34.9257 6.9877C34.4449 6.63833 34.692 5.87773 35.2864 5.87773H39.9693L41.4165 1.42397Z" fill="#FBB613"/>
+                                        <path d="M58.4165 1.42397C58.6001 0.858677 59.3999 0.858677 59.5835 1.42397L61.0307 5.87773H65.7136C66.308 5.87773 66.5551 6.63833 66.0743 6.9877L62.2857 9.74028L63.7328 14.194C63.9165 14.7593 63.2695 15.2294 62.7886 14.88L59 12.1275L55.2114 14.88C54.7305 15.2294 54.0835 14.7593 54.2672 14.194L55.7143 9.74028L51.9257 6.9877C51.4449 6.63833 51.692 5.87773 52.2864 5.87773H56.9693L58.4165 1.42397Z" fill="#FBB613"/>
+                                        <path d="M75.4165 1.42397C75.6001 0.858677 76.3999 0.858677 76.5835 1.42397L78.0307 5.87773H82.7136C83.308 5.87773 83.5551 6.63833 83.0743 6.9877L79.2857 9.74028L80.7328 14.194C80.9165 14.7593 80.2695 15.2294 79.7886 14.88L76 12.1275L72.2114 14.88C71.7305 15.2294 71.0835 14.7593 71.2672 14.194L72.7143 9.74028L68.9257 6.9877C68.4449 6.63833 68.692 5.87773 69.2864 5.87773H73.9693L75.4165 1.42397Z" fill="#FBB613"/>
+                                    </svg>
+                                  <span>
+                                        5
+                                  </span>
+                                </label>
+                                <input type="checkbox"
+                                       class="custom-checkbox" id="4"
+                                       name="4"
+                                       value="yes">
+                                <label for="4">
+                                    <svg width="84" height="16" viewBox="0 0 84 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7.41646 1.42397C7.60013 0.858677 8.39987 0.858677 8.58355 1.42397L10.0307 5.87773H14.7136C15.308 5.87773 15.5551 6.63833 15.0743 6.9877L11.2857 9.74028L12.7328 14.194C12.9165 14.7593 12.2695 15.2294 11.7886 14.88L8 12.1275L4.21141 14.88C3.73054 15.2294 3.08354 14.7593 3.26721 14.194L4.71433 9.74028L0.925732 6.9877C0.444865 6.63833 0.691997 5.87773 1.28638 5.87773H5.96934L7.41646 1.42397Z" fill="#FBB613"/>
+                                        <path d="M24.4165 1.42397C24.6001 0.858677 25.3999 0.858677 25.5835 1.42397L27.0307 5.87773H31.7136C32.308 5.87773 32.5551 6.63833 32.0743 6.9877L28.2857 9.74028L29.7328 14.194C29.9165 14.7593 29.2695 15.2294 28.7886 14.88L25 12.1275L21.2114 14.88C20.7305 15.2294 20.0835 14.7593 20.2672 14.194L21.7143 9.74028L17.9257 6.9877C17.4449 6.63833 17.692 5.87773 18.2864 5.87773H22.9693L24.4165 1.42397Z" fill="#FBB613"/>
+                                        <path d="M41.4165 1.42397C41.6001 0.858677 42.3999 0.858677 42.5835 1.42397L44.0307 5.87773H48.7136C49.308 5.87773 49.5551 6.63833 49.0743 6.9877L45.2857 9.74028L46.7328 14.194C46.9165 14.7593 46.2695 15.2294 45.7886 14.88L42 12.1275L38.2114 14.88C37.7305 15.2294 37.0835 14.7593 37.2672 14.194L38.7143 9.74028L34.9257 6.9877C34.4449 6.63833 34.692 5.87773 35.2864 5.87773H39.9693L41.4165 1.42397Z" fill="#FBB613"/>
+                                        <path d="M58.4165 1.42397C58.6001 0.858677 59.3999 0.858677 59.5835 1.42397L61.0307 5.87773H65.7136C66.308 5.87773 66.5551 6.63833 66.0743 6.9877L62.2857 9.74028L63.7328 14.194C63.9165 14.7593 63.2695 15.2294 62.7886 14.88L59 12.1275L55.2114 14.88C54.7305 15.2294 54.0835 14.7593 54.2672 14.194L55.7143 9.74028L51.9257 6.9877C51.4449 6.63833 51.692 5.87773 52.2864 5.87773H56.9693L58.4165 1.42397Z" fill="#FBB613"/>
+                                        <path d="M75.4165 1.42397C75.6001 0.858677 76.3999 0.858677 76.5835 1.42397L78.0307 5.87773H82.7136C83.308 5.87773 83.5551 6.63833 83.0743 6.9877L79.2857 9.74028L80.7328 14.194C80.9165 14.7593 80.2695 15.2294 79.7886 14.88L76 12.1275L72.2114 14.88C71.7305 15.2294 71.0835 14.7593 71.2672 14.194L72.7143 9.74028L68.9257 6.9877C68.4449 6.63833 68.692 5.87773 69.2864 5.87773H73.9693L75.4165 1.42397Z" fill="#B3B3B3"/>
+                                    </svg>
+                                   <span>
+                                        4 и выше
+                                   </span>
+                                </label>
+                                <input type="checkbox"
+                                       class="custom-checkbox" id="3"
+                                       name="3"
+                                       value="yes">
+                                <label for="3">
+                                    <svg width="84" height="16" viewBox="0 0 84 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7.41646 1.42397C7.60013 0.858677 8.39987 0.858677 8.58355 1.42397L10.0307 5.87773H14.7136C15.308 5.87773 15.5551 6.63833 15.0743 6.9877L11.2857 9.74028L12.7328 14.194C12.9165 14.7593 12.2695 15.2294 11.7886 14.88L8 12.1275L4.21141 14.88C3.73054 15.2294 3.08354 14.7593 3.26721 14.194L4.71433 9.74028L0.925732 6.9877C0.444865 6.63833 0.691997 5.87773 1.28638 5.87773H5.96934L7.41646 1.42397Z" fill="#FBB613"/>
+                                        <path d="M24.4165 1.42397C24.6001 0.858677 25.3999 0.858677 25.5835 1.42397L27.0307 5.87773H31.7136C32.308 5.87773 32.5551 6.63833 32.0743 6.9877L28.2857 9.74028L29.7328 14.194C29.9165 14.7593 29.2695 15.2294 28.7886 14.88L25 12.1275L21.2114 14.88C20.7305 15.2294 20.0835 14.7593 20.2672 14.194L21.7143 9.74028L17.9257 6.9877C17.4449 6.63833 17.692 5.87773 18.2864 5.87773H22.9693L24.4165 1.42397Z" fill="#FBB613"/>
+                                        <path d="M41.4165 1.42397C41.6001 0.858677 42.3999 0.858677 42.5835 1.42397L44.0307 5.87773H48.7136C49.308 5.87773 49.5551 6.63833 49.0743 6.9877L45.2857 9.74028L46.7328 14.194C46.9165 14.7593 46.2695 15.2294 45.7886 14.88L42 12.1275L38.2114 14.88C37.7305 15.2294 37.0835 14.7593 37.2672 14.194L38.7143 9.74028L34.9257 6.9877C34.4449 6.63833 34.692 5.87773 35.2864 5.87773H39.9693L41.4165 1.42397Z" fill="#FBB613"/>
+                                        <path d="M58.4165 1.42397C58.6001 0.858677 59.3999 0.858677 59.5835 1.42397L61.0307 5.87773H65.7136C66.308 5.87773 66.5551 6.63833 66.0743 6.9877L62.2857 9.74028L63.7328 14.194C63.9165 14.7593 63.2695 15.2294 62.7886 14.88L59 12.1275L55.2114 14.88C54.7305 15.2294 54.0835 14.7593 54.2672 14.194L55.7143 9.74028L51.9257 6.9877C51.4449 6.63833 51.692 5.87773 52.2864 5.87773H56.9693L58.4165 1.42397Z" fill="#B3B3B3"/>
+                                        <path d="M75.4165 1.42397C75.6001 0.858677 76.3999 0.858677 76.5835 1.42397L78.0307 5.87773H82.7136C83.308 5.87773 83.5551 6.63833 83.0743 6.9877L79.2857 9.74028L80.7328 14.194C80.9165 14.7593 80.2695 15.2294 79.7886 14.88L76 12.1275L72.2114 14.88C71.7305 15.2294 71.0835 14.7593 71.2672 14.194L72.7143 9.74028L68.9257 6.9877C68.4449 6.63833 68.692 5.87773 69.2864 5.87773H73.9693L75.4165 1.42397Z" fill="#B3B3B3"/>
+                                    </svg>
+                                    <span>
+                                        3 и выше
+                                    </span>
+                                </label>
+                                <input type="checkbox"
+                                       class="custom-checkbox" id="2"
+                                       name="2"
+                                       value="yes">
+                                <label for="2">
+                                    <svg width="84" height="16" viewBox="0 0 84 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7.41646 1.42397C7.60013 0.858677 8.39987 0.858677 8.58355 1.42397L10.0307 5.87773H14.7136C15.308 5.87773 15.5551 6.63833 15.0743 6.9877L11.2857 9.74028L12.7328 14.194C12.9165 14.7593 12.2695 15.2294 11.7886 14.88L8 12.1275L4.21141 14.88C3.73054 15.2294 3.08354 14.7593 3.26721 14.194L4.71433 9.74028L0.925732 6.9877C0.444865 6.63833 0.691997 5.87773 1.28638 5.87773H5.96934L7.41646 1.42397Z" fill="#FBB613"/>
+                                        <path d="M24.4165 1.42397C24.6001 0.858677 25.3999 0.858677 25.5835 1.42397L27.0307 5.87773H31.7136C32.308 5.87773 32.5551 6.63833 32.0743 6.9877L28.2857 9.74028L29.7328 14.194C29.9165 14.7593 29.2695 15.2294 28.7886 14.88L25 12.1275L21.2114 14.88C20.7305 15.2294 20.0835 14.7593 20.2672 14.194L21.7143 9.74028L17.9257 6.9877C17.4449 6.63833 17.692 5.87773 18.2864 5.87773H22.9693L24.4165 1.42397Z" fill="#FBB613"/>
+                                        <path d="M41.4165 1.42397C41.6001 0.858677 42.3999 0.858677 42.5835 1.42397L44.0307 5.87773H48.7136C49.308 5.87773 49.5551 6.63833 49.0743 6.9877L45.2857 9.74028L46.7328 14.194C46.9165 14.7593 46.2695 15.2294 45.7886 14.88L42 12.1275L38.2114 14.88C37.7305 15.2294 37.0835 14.7593 37.2672 14.194L38.7143 9.74028L34.9257 6.9877C34.4449 6.63833 34.692 5.87773 35.2864 5.87773H39.9693L41.4165 1.42397Z" fill="#B3B3B3"/>
+                                        <path d="M58.4165 1.42397C58.6001 0.858677 59.3999 0.858677 59.5835 1.42397L61.0307 5.87773H65.7136C66.308 5.87773 66.5551 6.63833 66.0743 6.9877L62.2857 9.74028L63.7328 14.194C63.9165 14.7593 63.2695 15.2294 62.7886 14.88L59 12.1275L55.2114 14.88C54.7305 15.2294 54.0835 14.7593 54.2672 14.194L55.7143 9.74028L51.9257 6.9877C51.4449 6.63833 51.692 5.87773 52.2864 5.87773H56.9693L58.4165 1.42397Z" fill="#B3B3B3"/>
+                                        <path d="M75.4165 1.42397C75.6001 0.858677 76.3999 0.858677 76.5835 1.42397L78.0307 5.87773H82.7136C83.308 5.87773 83.5551 6.63833 83.0743 6.9877L79.2857 9.74028L80.7328 14.194C80.9165 14.7593 80.2695 15.2294 79.7886 14.88L76 12.1275L72.2114 14.88C71.7305 15.2294 71.0835 14.7593 71.2672 14.194L72.7143 9.74028L68.9257 6.9877C68.4449 6.63833 68.692 5.87773 69.2864 5.87773H73.9693L75.4165 1.42397Z" fill="#B3B3B3"/>
+                                    </svg>
+                                   <span>
+                                        2 и выше
+                                   </span>
+                                </label>
+                                <input type="checkbox"
+                                       class="custom-checkbox" id="1"
+                                       name="1"
+                                       value="yes">
+                                <label for="1">
+                                    <svg width="84" height="16" viewBox="0 0 84 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7.41646 1.42397C7.60013 0.858677 8.39987 0.858677 8.58355 1.42397L10.0307 5.87773H14.7136C15.308 5.87773 15.5551 6.63833 15.0743 6.9877L11.2857 9.74028L12.7328 14.194C12.9165 14.7593 12.2695 15.2294 11.7886 14.88L8 12.1275L4.21141 14.88C3.73054 15.2294 3.08354 14.7593 3.26721 14.194L4.71433 9.74028L0.925732 6.9877C0.444865 6.63833 0.691997 5.87773 1.28638 5.87773H5.96934L7.41646 1.42397Z" fill="#FBB613"/>
+                                        <path d="M24.4165 1.42397C24.6001 0.858677 25.3999 0.858677 25.5835 1.42397L27.0307 5.87773H31.7136C32.308 5.87773 32.5551 6.63833 32.0743 6.9877L28.2857 9.74028L29.7328 14.194C29.9165 14.7593 29.2695 15.2294 28.7886 14.88L25 12.1275L21.2114 14.88C20.7305 15.2294 20.0835 14.7593 20.2672 14.194L21.7143 9.74028L17.9257 6.9877C17.4449 6.63833 17.692 5.87773 18.2864 5.87773H22.9693L24.4165 1.42397Z" fill="#B3B3B3"/>
+                                        <path d="M41.4165 1.42397C41.6001 0.858677 42.3999 0.858677 42.5835 1.42397L44.0307 5.87773H48.7136C49.308 5.87773 49.5551 6.63833 49.0743 6.9877L45.2857 9.74028L46.7328 14.194C46.9165 14.7593 46.2695 15.2294 45.7886 14.88L42 12.1275L38.2114 14.88C37.7305 15.2294 37.0835 14.7593 37.2672 14.194L38.7143 9.74028L34.9257 6.9877C34.4449 6.63833 34.692 5.87773 35.2864 5.87773H39.9693L41.4165 1.42397Z" fill="#B3B3B3"/>
+                                        <path d="M58.4165 1.42397C58.6001 0.858677 59.3999 0.858677 59.5835 1.42397L61.0307 5.87773H65.7136C66.308 5.87773 66.5551 6.63833 66.0743 6.9877L62.2857 9.74028L63.7328 14.194C63.9165 14.7593 63.2695 15.2294 62.7886 14.88L59 12.1275L55.2114 14.88C54.7305 15.2294 54.0835 14.7593 54.2672 14.194L55.7143 9.74028L51.9257 6.9877C51.4449 6.63833 51.692 5.87773 52.2864 5.87773H56.9693L58.4165 1.42397Z" fill="#B3B3B3"/>
+                                        <path d="M75.4165 1.42397C75.6001 0.858677 76.3999 0.858677 76.5835 1.42397L78.0307 5.87773H82.7136C83.308 5.87773 83.5551 6.63833 83.0743 6.9877L79.2857 9.74028L80.7328 14.194C80.9165 14.7593 80.2695 15.2294 79.7886 14.88L76 12.1275L72.2114 14.88C71.7305 15.2294 71.0835 14.7593 71.2672 14.194L72.7143 9.74028L68.9257 6.9877C68.4449 6.63833 68.692 5.87773 69.2864 5.87773H73.9693L75.4165 1.42397Z" fill="#B3B3B3"/>
+                                    </svg>
+                                   <span>
+                                        1 и выше
+                                   </span>
+                                </label>
+                            </div>
+                        </div>
+                    </form>
                 </div>
                 <div class="col-9 catalog_list catalog_section_list">
                    <div class="top">
                        <div class="popup_filter">
+                           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                               <path d="M2 5H22" stroke="#3BB200" stroke-width="2" stroke-linecap="round"/>
+                               <path d="M2 12H16" stroke="#3BB200" stroke-width="2" stroke-linecap="round"/>
+                               <path d="M2 19H10" stroke="#3BB200" stroke-width="2" stroke-linecap="round"/>
+                           </svg>
+
                            <span>
-                               По полуряности
+                               По популярности
                            </span>
+                           <div class="select_list">
+                               <div class="item">
+                                   По популярности
+                               </div>
+                               <div class="item">
+                                   Сначала новинки
+                               </div>
+                               <div class="item">
+                                   По цене
+                                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                       <path d="M7.75 13C7.75 12.5858 7.41421 12.25 7 12.25C6.58579 12.25 6.25 12.5858 6.25 13H7.75ZM6.25 17C6.25 17.4142 6.58579 17.75 7 17.75C7.41421 17.75 7.75 17.4142 7.75 17H6.25ZM12.75 10C12.75 9.58579 12.4142 9.25 12 9.25C11.5858 9.25 11.25 9.58579 11.25 10H12.75ZM11.25 17C11.25 17.4142 11.5858 17.75 12 17.75C12.4142 17.75 12.75 17.4142 12.75 17H11.25ZM17.75 7C17.75 6.58579 17.4142 6.25 17 6.25C16.5858 6.25 16.25 6.58579 16.25 7H17.75ZM16.25 17C16.25 17.4142 16.5858 17.75 17 17.75C17.4142 17.75 17.75 17.4142 17.75 17H16.25ZM7.75 17V13H6.25V17H7.75ZM12.75 17V10H11.25V17H12.75ZM17.75 17V7H16.25V17H17.75Z" fill="#666666"/>
+                                   </svg>
+
+                               </div>
+                               <div class="item">
+                                   По цене
+                                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                       <path d="M16.25 13C16.25 12.5858 16.5858 12.25 17 12.25C17.4142 12.25 17.75 12.5858 17.75 13H16.25ZM17.75 17C17.75 17.4142 17.4142 17.75 17 17.75C16.5858 17.75 16.25 17.4142 16.25 17H17.75ZM11.25 10C11.25 9.58579 11.5858 9.25 12 9.25C12.4142 9.25 12.75 9.58579 12.75 10H11.25ZM12.75 17C12.75 17.4142 12.4142 17.75 12 17.75C11.5858 17.75 11.25 17.4142 11.25 17H12.75ZM6.25 7C6.25 6.58579 6.58579 6.25 7 6.25C7.41421 6.25 7.75 6.58579 7.75 7H6.25ZM7.75 17C7.75 17.4142 7.41421 17.75 7 17.75C6.58579 17.75 6.25 17.4142 6.25 17H7.75ZM16.25 17V13H17.75V17H16.25ZM11.25 17V10H12.75V17H11.25ZM6.25 17V7H7.75V17H6.25Z" fill="#666666"/>
+                                   </svg>
+
+                               </div>
+                               <div class="item">
+                                   По рейтингу
+                                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                       <path d="M16.25 13C16.25 12.5858 16.5858 12.25 17 12.25C17.4142 12.25 17.75 12.5858 17.75 13H16.25ZM17.75 17C17.75 17.4142 17.4142 17.75 17 17.75C16.5858 17.75 16.25 17.4142 16.25 17H17.75ZM11.25 10C11.25 9.58579 11.5858 9.25 12 9.25C12.4142 9.25 12.75 9.58579 12.75 10H11.25ZM12.75 17C12.75 17.4142 12.4142 17.75 12 17.75C11.5858 17.75 11.25 17.4142 11.25 17H12.75ZM6.25 7C6.25 6.58579 6.58579 6.25 7 6.25C7.41421 6.25 7.75 6.58579 7.75 7H6.25ZM7.75 17C7.75 17.4142 7.41421 17.75 7 17.75C6.58579 17.75 6.25 17.4142 6.25 17H7.75ZM16.25 17V13H17.75V17H16.25ZM11.25 17V10H12.75V17H11.25ZM6.25 17V7H7.75V17H6.25Z" fill="#666666"/>
+                                   </svg>
+
+                               </div>
+                           </div>
                        </div>
-                       <nav aria-label="Page navigation example">
+                       <nav aria-label=" navigation">
                            <ul class="pagination">
-                               <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                               <li class="page-item"><a class="page-link" href="#">1</a></li>
-                               <li class="page-item"><a class="page-link" href="#">2</a></li>
-                               <li class="page-item"><a class="page-link" href="#">3</a></li>
-                               <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                               <li class="page-item">
+                                   <a class="page-link" href="#">
+                                       <svg width="100%" height="100%" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M21.5 17L18.5 20L21.5 23" stroke="#B3B3B3" stroke-width="1.5" stroke-linecap="round"/>
+                                        </svg>
+                                   </a>
+                               </li>
+                               <li class="page-item">
+                                   <a class="page-link" href="#">1</a>
+                               </li>
+                               <li class="page-item">
+                                   <a class="page-link" href="#">2</a>
+                               </li>
+                               <li class="page-item">
+                                   <a class="page-link" href="#">3</a>
+                               </li>
+                               <li class="page-item">
+                                   <a class="page-link" href="#">
+                                       <svg width="100%" height="100%" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M21.5 17L18.5 20L21.5 23" stroke="#B3B3B3" stroke-width="1.5" stroke-linecap="round"/>
+                                        </svg>
+                                   </a>
+                               </li>
                            </ul>
                        </nav>
                    </div>
@@ -874,7 +1209,849 @@
                                 </div>
                             </div>
                         </a>
+                        <a href="" class="item">
+                            <div class="icon">
+                                <img src="./img/rec_1.png" alt="">
+                                <div class="info_icon">
+                                    <div class="hit hover_icon">
+                                        <img src="./img/icons/info_icon_1.png" alt="" class="default">
+                                        <img src="./img/icons/info_icon_active.png" alt="" class="active">
+                                        <span>
+                                       Популярное
+                                   </span>
+                                    </div>
+                                    <div class="sale hover_icon">
+                                        <img src="./img/icons/info_icon_2.png" alt="" class="default">
+                                        <img src="./img/icons/info_icon_2_active.png" alt=""  class="active">
+                                        <span>
+                                       15% скидка
+                                   </span>
+                                    </div>
+                                    <div class="stocks hover_icon">
+                                        <img src="./img/icons/stocks_icon.png" alt="" class="default">
+                                        <img src="./img/icons/stocks_icon_active.png" alt="" class="active">
+
+                                        <span>
+                                      Акция
+                                   </span>
+                                    </div>
+                                    <div class="new hover_icon">
+                                        <img src="./img/icons/new_icon.png" alt="" class="default">
+                                        <img src="./img/icons/new_icon_active.png" alt="" class="active">
+                                        <span>
+                                      Новинка
+                                   </span>
+                                    </div>
+                                </div>
+                                <div class="btns">
+                                    <button class="comparison">
+
+                                    </button>
+                                    <button class="favorite">
+
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="descr">
+                           <span class="cat">
+                            Оргтехника
+                            </span>
+                                <h2>
+                                    МФУ HP LaserJet Pro M428dw (W1A31A)
+                                </h2>
+                                <ul class="option_list">
+                                    <li>
+                                        Модель процессора:
+                                        <span>
+                                       Pentium
+                                   </span>
+                                    </li>
+                                    <li>
+                                        Оперативная память:
+                                        <span>
+                                      8 Гб
+                                   </span>
+                                    </li>
+                                    <li>
+                                        Тип жесткого диска:
+                                        <span>
+                                      SSD
+                                   </span>
+                                    </li>
+                                    <li>
+                                        Объем жесткого диска:
+                                        <span>
+                                     256 Гб
+                                   </span>
+                                    </li>
+                                    <li>
+                                        Размер дисплея:
+                                        <span>
+                                    15,6"
+                                   </span>
+                                    </li>
+                                </ul>
+                                <span class="count green">
+                                Много (> 5 шт.)
+                               <span class="stars">
+                                        4.3
+                               </span>
+                           </span>
+                                <div class="price">
+                                    221 680,00 тг.
+                                </div>
+                                <div class="old_price">
+                                    254 000,00 тг.
+                                </div>
+                                <div class="popup_btns">
+                                    <div class="count_btns">
+                                        <div class="decriment">
+                                            <img src="./img/icons/decriment_icon.png" alt="">
+                                        </div>
+                                        <div class="count">
+                                            1
+                                        </div>
+                                        <div class="increment">
+                                            <img src="./img/icons/increment_icon.png" alt="">
+                                        </div>
+                                    </div>
+                                    <button class="btn add_cart">
+                                        В корзину
+                                    </button>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="" class="item">
+                            <div class="icon">
+                                <img src="./img/rec_2.png" alt="">
+                                <div class="info_icon">
+                                    <div class="stocks hover_icon">
+                                        <img src="./img/icons/stocks_icon.png" alt="" class="default">
+                                        <img src="./img/icons/stocks_icon_active.png" alt="" class="active">
+
+                                        <span>
+                                      Акция
+                                   </span>
+                                    </div>
+                                    <div class="new hover_icon">
+                                        <img src="./img/icons/new_icon.png" alt="" class="default">
+                                        <img src="./img/icons/new_icon_active.png" alt="" class="active">
+                                        <span>
+                                      Новинка
+                                   </span>
+                                    </div>
+                                </div>
+                                <div class="btns">
+                                    <button class="comparison">
+
+                                    </button>
+                                    <button class="favorite">
+
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="descr">
+                           <span class="cat">
+                            Оргтехника
+                            </span>
+                                <h2>
+                                    МФУ HP LaserJet Pro M428dw (W1A31A)
+                                </h2>
+                                <ul class="option_list">
+                                    <li>
+                                        Модель процессора:
+                                        <span>
+                                       Pentium
+                                   </span>
+                                    </li>
+                                    <li>
+                                        Оперативная память:
+                                        <span>
+                                      8 Гб
+                                   </span>
+                                    </li>
+                                    <li>
+                                        Тип жесткого диска:
+                                        <span>
+                                      SSD
+                                   </span>
+                                    </li>
+                                    <li>
+                                        Объем жесткого диска:
+                                        <span>
+                                     256 Гб
+                                   </span>
+                                    </li>
+                                    <li>
+                                        Размер дисплея:
+                                        <span>
+                                    15,6"
+                                   </span>
+                                    </li>
+                                </ul>
+                                <span class="count red">
+                                Мало (< 5 шт.)
+                                  <span class="stars">
+                                        4.3
+                               </span>
+                           </span>
+                                <div class="price">
+                                    221 680,00 тг.
+                                </div>
+                                <div class="old_price">
+                                    254 000,00 тг.
+                                </div>
+                                <div class="popup_btns">
+                                    <div class="count_btns">
+                                        <div class="decriment">
+                                            <img src="./img/icons/decriment_icon.png" alt="">
+                                        </div>
+                                        <div class="count">
+                                            1
+                                        </div>
+                                        <div class="increment">
+                                            <img src="./img/icons/increment_icon.png" alt="">
+                                        </div>
+                                    </div>
+                                    <button class="btn add_cart">
+                                        В корзину
+                                    </button>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="" class="item">
+                            <div class="icon">
+                                <img src="./img/rec_3.png" alt="">
+                                <div class="info_icon">
+                                    <div class="hit hover_icon">
+                                        <img src="./img/icons/info_icon_1.png" alt="" class="default">
+                                        <img src="./img/icons/info_icon_active.png" alt="" class="active">
+                                        <span>
+                                       Популярное
+                                   </span>
+                                    </div>
+                                    <div class="sale hover_icon">
+                                        <img src="./img/icons/info_icon_2.png" alt="" class="default">
+                                        <img src="./img/icons/info_icon_2_active.png" alt=""  class="active">
+                                        <span>
+                                       15% скидка
+                                   </span>
+                                    </div>
+                                </div>
+                                <div class="btns">
+                                    <button class="comparison">
+
+                                    </button>
+                                    <button class="favorite">
+
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="descr">
+                           <span class="cat">
+                            Оргтехника
+                            </span>
+                                <h2>
+                                    МФУ HP LaserJet Pro M428dw (W1A31A)
+                                </h2>
+                                <ul class="option_list">
+                                    <li>
+                                        Модель процессора:
+                                        <span>
+                                       Pentium
+                                   </span>
+                                    </li>
+                                    <li>
+                                        Оперативная память:
+                                        <span>
+                                      8 Гб
+                                   </span>
+                                    </li>
+                                    <li>
+                                        Тип жесткого диска:
+                                        <span>
+                                      SSD
+                                   </span>
+                                    </li>
+                                    <li>
+                                        Объем жесткого диска:
+                                        <span>
+                                     256 Гб
+                                   </span>
+                                    </li>
+                                    <li>
+                                        Размер дисплея:
+                                        <span>
+                                    15,6"
+                                   </span>
+                                    </li>
+                                </ul>
+                                <span class="count red">
+                                Мало (< 5 шт.)
+                                  <span class="stars">
+                                        4.3
+                               </span>
+                           </span>
+                                <div class="price">
+                                    221 680,00 тг.
+                                </div>
+                                <div class="old_price">
+                                    254 000,00 тг.
+                                </div>
+                                <div class="popup_btns">
+                                    <div class="count_btns">
+                                        <div class="decriment">
+                                            <img src="./img/icons/decriment_icon.png" alt="">
+                                        </div>
+                                        <div class="count">
+                                            1
+
+                                        </div>
+                                        <div class="increment">
+                                            <img src="./img/icons/increment_icon.png" alt="">
+                                        </div>
+                                    </div>
+                                    <button class="btn add_cart">
+                                        В корзину
+                                    </button>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="" class="item">
+                            <div class="icon">
+                                <img src="./img/rec_2.png" alt="">
+                                <div class="info_icon">
+                                    <div class="stocks hover_icon">
+                                        <img src="./img/icons/stocks_icon.png" alt="" class="default">
+                                        <img src="./img/icons/stocks_icon_active.png" alt="" class="active">
+
+                                        <span>
+                                      Акция
+                                   </span>
+                                    </div>
+                                    <div class="new hover_icon">
+                                        <img src="./img/icons/new_icon.png" alt="" class="default">
+                                        <img src="./img/icons/new_icon_active.png" alt="" class="active">
+                                        <span>
+                                      Новинка
+                                   </span>
+                                    </div>
+                                </div>
+                                <div class="btns">
+                                    <button class="comparison">
+
+                                    </button>
+                                    <button class="favorite">
+
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="descr">
+                           <span class="cat">
+                            Оргтехника
+                            </span>
+                                <h2>
+                                    МФУ HP LaserJet Pro M428dw (W1A31A)
+                                </h2>
+                                <ul class="option_list">
+                                    <li>
+                                        Модель процессора:
+                                        <span>
+                                       Pentium
+                                   </span>
+                                    </li>
+                                    <li>
+                                        Оперативная память:
+                                        <span>
+                                      8 Гб
+                                   </span>
+                                    </li>
+                                    <li>
+                                        Тип жесткого диска:
+                                        <span>
+                                      SSD
+                                   </span>
+                                    </li>
+                                    <li>
+                                        Объем жесткого диска:
+                                        <span>
+                                     256 Гб
+                                   </span>
+                                    </li>
+                                    <li>
+                                        Размер дисплея:
+                                        <span>
+                                    15,6"
+                                   </span>
+                                    </li>
+                                </ul>
+                                <span class="count red">
+                                Мало (< 5 шт.)
+                                  <span class="stars">
+                                        4.3
+                               </span>
+                           </span>
+                                <div class="price">
+                                    221 680,00 тг.
+                                </div>
+                                <div class="old_price">
+                                    254 000,00 тг.
+                                </div>
+                                <div class="popup_btns">
+                                    <div class="count_btns">
+                                        <div class="decriment">
+                                            <img src="./img/icons/decriment_icon.png" alt="">
+                                        </div>
+                                        <div class="count">
+                                            1
+                                        </div>
+                                        <div class="increment">
+                                            <img src="./img/icons/increment_icon.png" alt="">
+                                        </div>
+                                    </div>
+                                    <button class="btn add_cart">
+                                        В корзину
+                                    </button>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="" class="item">
+                            <div class="icon">
+                                <img src="./img/rec_1.png" alt="">
+                                <div class="info_icon">
+                                    <div class="hit hover_icon">
+                                        <img src="./img/icons/info_icon_1.png" alt="" class="default">
+                                        <img src="./img/icons/info_icon_active.png" alt="" class="active">
+                                        <span>
+                                       Популярное
+                                   </span>
+                                    </div>
+                                    <div class="sale hover_icon">
+                                        <img src="./img/icons/info_icon_2.png" alt="" class="default">
+                                        <img src="./img/icons/info_icon_2_active.png" alt=""  class="active">
+                                        <span>
+                                       15% скидка
+                                   </span>
+                                    </div>
+                                    <div class="stocks hover_icon">
+                                        <img src="./img/icons/stocks_icon.png" alt="" class="default">
+                                        <img src="./img/icons/stocks_icon_active.png" alt="" class="active">
+
+                                        <span>
+                                      Акция
+                                   </span>
+                                    </div>
+                                    <div class="new hover_icon">
+                                        <img src="./img/icons/new_icon.png" alt="" class="default">
+                                        <img src="./img/icons/new_icon_active.png" alt="" class="active">
+                                        <span>
+                                      Новинка
+                                   </span>
+                                    </div>
+                                </div>
+                                <div class="btns">
+                                    <button class="comparison">
+
+                                    </button>
+                                    <button class="favorite">
+
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="descr">
+                           <span class="cat">
+                            Оргтехника
+                            </span>
+                                <h2>
+                                    МФУ HP LaserJet Pro M428dw (W1A31A)
+                                </h2>
+                                <ul class="option_list">
+                                    <li>
+                                        Модель процессора:
+                                        <span>
+                                       Pentium
+                                   </span>
+                                    </li>
+                                    <li>
+                                        Оперативная память:
+                                        <span>
+                                      8 Гб
+                                   </span>
+                                    </li>
+                                    <li>
+                                        Тип жесткого диска:
+                                        <span>
+                                      SSD
+                                   </span>
+                                    </li>
+                                    <li>
+                                        Объем жесткого диска:
+                                        <span>
+                                     256 Гб
+                                   </span>
+                                    </li>
+                                    <li>
+                                        Размер дисплея:
+                                        <span>
+                                    15,6"
+                                   </span>
+                                    </li>
+                                </ul>
+                                <span class="count green">
+                                Много (> 5 шт.)
+                               <span class="stars">
+                                        4.3
+                               </span>
+                           </span>
+                                <div class="price">
+                                    221 680,00 тг.
+                                </div>
+                                <div class="old_price">
+                                    254 000,00 тг.
+                                </div>
+                                <div class="popup_btns">
+                                    <div class="count_btns">
+                                        <div class="decriment">
+                                            <img src="./img/icons/decriment_icon.png" alt="">
+                                        </div>
+                                        <div class="count">
+                                            1
+                                        </div>
+                                        <div class="increment">
+                                            <img src="./img/icons/increment_icon.png" alt="">
+                                        </div>
+                                    </div>
+                                    <button class="btn add_cart">
+                                        В корзину
+                                    </button>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="" class="item">
+                            <div class="icon">
+                                <img src="./img/rec_2.png" alt="">
+                                <div class="info_icon">
+                                    <div class="stocks hover_icon">
+                                        <img src="./img/icons/stocks_icon.png" alt="" class="default">
+                                        <img src="./img/icons/stocks_icon_active.png" alt="" class="active">
+
+                                        <span>
+                                      Акция
+                                   </span>
+                                    </div>
+                                    <div class="new hover_icon">
+                                        <img src="./img/icons/new_icon.png" alt="" class="default">
+                                        <img src="./img/icons/new_icon_active.png" alt="" class="active">
+                                        <span>
+                                      Новинка
+                                   </span>
+                                    </div>
+                                </div>
+                                <div class="btns">
+                                    <button class="comparison">
+
+                                    </button>
+                                    <button class="favorite">
+
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="descr">
+                           <span class="cat">
+                            Оргтехника
+                            </span>
+                                <h2>
+                                    МФУ HP LaserJet Pro M428dw (W1A31A)
+                                </h2>
+                                <ul class="option_list">
+                                    <li>
+                                        Модель процессора:
+                                        <span>
+                                       Pentium
+                                   </span>
+                                    </li>
+                                    <li>
+                                        Оперативная память:
+                                        <span>
+                                      8 Гб
+                                   </span>
+                                    </li>
+                                    <li>
+                                        Тип жесткого диска:
+                                        <span>
+                                      SSD
+                                   </span>
+                                    </li>
+                                    <li>
+                                        Объем жесткого диска:
+                                        <span>
+                                     256 Гб
+                                   </span>
+                                    </li>
+                                    <li>
+                                        Размер дисплея:
+                                        <span>
+                                    15,6"
+                                   </span>
+                                    </li>
+                                </ul>
+                                <span class="count red">
+                                Мало (< 5 шт.)
+                                  <span class="stars">
+                                        4.3
+                               </span>
+                           </span>
+                                <div class="price">
+                                    221 680,00 тг.
+                                </div>
+                                <div class="old_price">
+                                    254 000,00 тг.
+                                </div>
+                                <div class="popup_btns">
+                                    <div class="count_btns">
+                                        <div class="decriment">
+                                            <img src="./img/icons/decriment_icon.png" alt="">
+                                        </div>
+                                        <div class="count">
+                                            1
+                                        </div>
+                                        <div class="increment">
+                                            <img src="./img/icons/increment_icon.png" alt="">
+                                        </div>
+                                    </div>
+                                    <button class="btn add_cart">
+                                        В корзину
+                                    </button>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="" class="item">
+                            <div class="icon">
+                                <img src="./img/rec_3.png" alt="">
+                                <div class="info_icon">
+                                    <div class="hit hover_icon">
+                                        <img src="./img/icons/info_icon_1.png" alt="" class="default">
+                                        <img src="./img/icons/info_icon_active.png" alt="" class="active">
+                                        <span>
+                                       Популярное
+                                   </span>
+                                    </div>
+                                    <div class="sale hover_icon">
+                                        <img src="./img/icons/info_icon_2.png" alt="" class="default">
+                                        <img src="./img/icons/info_icon_2_active.png" alt=""  class="active">
+                                        <span>
+                                       15% скидка
+                                   </span>
+                                    </div>
+                                </div>
+                                <div class="btns">
+                                    <button class="comparison">
+
+                                    </button>
+                                    <button class="favorite">
+
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="descr">
+                           <span class="cat">
+                            Оргтехника
+                            </span>
+                                <h2>
+                                    МФУ HP LaserJet Pro M428dw (W1A31A)
+                                </h2>
+                                <ul class="option_list">
+                                    <li>
+                                        Модель процессора:
+                                        <span>
+                                       Pentium
+                                   </span>
+                                    </li>
+                                    <li>
+                                        Оперативная память:
+                                        <span>
+                                      8 Гб
+                                   </span>
+                                    </li>
+                                    <li>
+                                        Тип жесткого диска:
+                                        <span>
+                                      SSD
+                                   </span>
+                                    </li>
+                                    <li>
+                                        Объем жесткого диска:
+                                        <span>
+                                     256 Гб
+                                   </span>
+                                    </li>
+                                    <li>
+                                        Размер дисплея:
+                                        <span>
+                                    15,6"
+                                   </span>
+                                    </li>
+                                </ul>
+                                <span class="count red">
+                                Мало (< 5 шт.)
+                                  <span class="stars">
+                                        4.3
+                               </span>
+                           </span>
+                                <div class="price">
+                                    221 680,00 тг.
+                                </div>
+                                <div class="old_price">
+                                    254 000,00 тг.
+                                </div>
+                                <div class="popup_btns">
+                                    <div class="count_btns">
+                                        <div class="decriment">
+                                            <img src="./img/icons/decriment_icon.png" alt="">
+                                        </div>
+                                        <div class="count">
+                                            1
+
+                                        </div>
+                                        <div class="increment">
+                                            <img src="./img/icons/increment_icon.png" alt="">
+                                        </div>
+                                    </div>
+                                    <button class="btn add_cart">
+                                        В корзину
+                                    </button>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="" class="item">
+                            <div class="icon">
+                                <img src="./img/rec_2.png" alt="">
+                                <div class="info_icon">
+                                    <div class="stocks hover_icon">
+                                        <img src="./img/icons/stocks_icon.png" alt="" class="default">
+                                        <img src="./img/icons/stocks_icon_active.png" alt="" class="active">
+
+                                        <span>
+                                      Акция
+                                   </span>
+                                    </div>
+                                    <div class="new hover_icon">
+                                        <img src="./img/icons/new_icon.png" alt="" class="default">
+                                        <img src="./img/icons/new_icon_active.png" alt="" class="active">
+                                        <span>
+                                      Новинка
+                                   </span>
+                                    </div>
+                                </div>
+                                <div class="btns">
+                                    <button class="comparison">
+
+                                    </button>
+                                    <button class="favorite">
+
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="descr">
+                           <span class="cat">
+                            Оргтехника
+                            </span>
+                                <h2>
+                                    МФУ HP LaserJet Pro M428dw (W1A31A)
+                                </h2>
+                                <ul class="option_list">
+                                    <li>
+                                        Модель процессора:
+                                        <span>
+                                       Pentium
+                                   </span>
+                                    </li>
+                                    <li>
+                                        Оперативная память:
+                                        <span>
+                                      8 Гб
+                                   </span>
+                                    </li>
+                                    <li>
+                                        Тип жесткого диска:
+                                        <span>
+                                      SSD
+                                   </span>
+                                    </li>
+                                    <li>
+                                        Объем жесткого диска:
+                                        <span>
+                                     256 Гб
+                                   </span>
+                                    </li>
+                                    <li>
+                                        Размер дисплея:
+                                        <span>
+                                    15,6"
+                                   </span>
+                                    </li>
+                                </ul>
+                                <span class="count red">
+                                Мало (< 5 шт.)
+                                  <span class="stars">
+                                        4.3
+                               </span>
+                           </span>
+                                <div class="price">
+                                    221 680,00 тг.
+                                </div>
+                                <div class="old_price">
+                                    254 000,00 тг.
+                                </div>
+                                <div class="popup_btns">
+                                    <div class="count_btns">
+                                        <div class="decriment">
+                                            <img src="./img/icons/decriment_icon.png" alt="">
+                                        </div>
+                                        <div class="count">
+                                            1
+                                        </div>
+                                        <div class="increment">
+                                            <img src="./img/icons/increment_icon.png" alt="">
+                                        </div>
+                                    </div>
+                                    <button class="btn add_cart">
+                                        В корзину
+                                    </button>
+                                </div>
+                            </div>
+                        </a>
                     </div>
+                    <div class="d-flex justify-content-end mt-5">
+                        <nav aria-label=" navigation">
+                            <ul class="pagination">
+                                <li class="page-item">
+                                    <a class="page-link" href="#">
+                                        <svg width="100%" height="100%" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M21.5 17L18.5 20L21.5 23" stroke="#B3B3B3" stroke-width="1.5" stroke-linecap="round"/>
+                                        </svg>
+                                    </a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">1</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">2</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">3</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">
+                                        <svg width="100%" height="100%" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M21.5 17L18.5 20L21.5 23" stroke="#B3B3B3" stroke-width="1.5" stroke-linecap="round"/>
+                                        </svg>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+
                 </div>
             </div>
         </div>

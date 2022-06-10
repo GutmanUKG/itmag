@@ -395,7 +395,59 @@ document.addEventListener('DOMContentLoaded', function () {
     }]);
 
     return ToggleTabs;
+  }(); //Выпадашки селектор
+
+
+  var selectList = /*#__PURE__*/function () {
+    function selectList(_ref6) {
+      var _ref6$triggerEl = _ref6.triggerEl,
+          triggerEl = _ref6$triggerEl === void 0 ? null : _ref6$triggerEl,
+          _ref6$popupList = _ref6.popupList,
+          popupList = _ref6$popupList === void 0 ? "" : _ref6$popupList,
+          _ref6$classActive = _ref6.classActive,
+          classActive = _ref6$classActive === void 0 ? '' : _ref6$classActive;
+
+      _classCallCheck(this, selectList);
+
+      this.triggerEl = document.querySelectorAll(triggerEl);
+      this.popupList = popupList;
+      this.classActive = classActive;
+    }
+
+    _createClass(selectList, [{
+      key: "init",
+      value: function init() {
+        var _this7 = this;
+
+        this.triggerEl.forEach(function (item) {
+          item.addEventListener('click', function (e) {
+            e.preventDefault();
+            item.classList.toggle(_this7.classActive);
+            var list = item.querySelector(_this7.popupList);
+            list.addEventListener('click', function (e) {
+              e.preventDefault();
+              var target = e.target;
+              console.log(target);
+
+              if (target.classList.contains('item')) {
+                var text = item.querySelector('span');
+                text.textContent = target.textContent.trim();
+              }
+            });
+          });
+        });
+      }
+    }]);
+
+    return selectList;
   }();
+
+  var sortFilterTop = new selectList({
+    triggerEl: '.popup_filter',
+    popupList: '.select_list',
+    classActive: 'popup_active'
+  });
+  sortFilterTop.init();
 
   try {
     var tabs = new ToggleTabs({
@@ -462,7 +514,8 @@ document.addEventListener('DOMContentLoaded', function () {
       listenerOut: 'mouseout'
     });
     specialItemAnimate.init();
-  } catch (e) {}
+  } catch (e) {//Фильтр в каталоге
+  }
 
   try {
     $('.banners_slider').owlCarousel({
@@ -515,11 +568,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
   var catalogSort = /*#__PURE__*/function () {
-    function catalogSort(_ref6) {
-      var _ref6$elements = _ref6.elements,
-          elements = _ref6$elements === void 0 ? null : _ref6$elements,
-          _ref6$count = _ref6.count,
-          count = _ref6$count === void 0 ? 5 : _ref6$count;
+    function catalogSort(_ref7) {
+      var _ref7$elements = _ref7.elements,
+          elements = _ref7$elements === void 0 ? null : _ref7$elements,
+          _ref7$count = _ref7.count,
+          count = _ref7$count === void 0 ? 5 : _ref7$count;
 
       _classCallCheck(this, catalogSort);
 
@@ -530,14 +583,14 @@ document.addEventListener('DOMContentLoaded', function () {
     _createClass(catalogSort, [{
       key: "init",
       value: function init() {
-        var _this7 = this;
+        var _this8 = this;
 
         this.elements.forEach(function (item) {
           var menuElements = item.querySelector('ul');
           var menulinks = menuElements.querySelectorAll('li');
           var btnShow = menuElements.querySelector('.show_list');
 
-          if (menulinks.length > _this7.count) {
+          if (menulinks.length > _this8.count) {
             item.classList.add('popup_menu_item');
           }
 
@@ -561,9 +614,76 @@ document.addEventListener('DOMContentLoaded', function () {
     return catalogSort;
   }();
 
-  var catalogPageMenu = new catalogSort({
-    elements: '.catalog_list_toggler_item',
-    count: 6
+  try {
+    var catalogPageMenu = new catalogSort({
+      elements: '.catalog_list_toggler_item',
+      count: 6
+    });
+    catalogPageMenu.init();
+  } catch (e) {}
+
+  try {
+    var catalogPageMenuBrand = new catalogSort({
+      elements: '.select_list',
+      count: 6
+    });
+    catalogPageMenuBrand.init();
+  } catch (e) {}
+
+  var fillterCategoryList = new catalogSort({
+    elements: '.category_list_fillter',
+    count: 5
   });
-  catalogPageMenu.init();
+  fillterCategoryList.init();
+  var minToggle = document.querySelector('.min-toggle');
+  var maxToggle = document.querySelector('.max-toggle');
+  $('#price-range-submit').hide();
+  $(".min_price,.max_price").on('change', function () {
+    $('#price-range-submit').show();
+    var min_price_range = parseInt($(".min_price").val());
+    var max_price_range = parseInt($(".max_price").val());
+
+    if (min_price_range > max_price_range) {
+      $('.max_price').val(min_price_range);
+    }
+
+    $(".slider-range").slider({
+      values: [min_price_range, max_price_range]
+    });
+  });
+  $(".min_price,.max_price").on("paste keyup", function () {
+    $('#price-range-submit').show();
+    var min_price_range = parseInt($(".min_price").val());
+    var max_price_range = parseInt($(".max_price").val());
+
+    if (min_price_range == max_price_range) {
+      max_price_range = min_price_range + 100;
+      $(".min_price").val(min_price_range);
+      $(".max_price").val(max_price_range);
+    }
+
+    $(".slider-range").slider({
+      values: [min_price_range, max_price_range]
+    });
+  });
+  $(function () {
+    $(".slider-range").slider({
+      range: true,
+      orientation: "horizontal",
+      min: 0,
+      max: 100000,
+      values: [0, 100000],
+      step: 100,
+      slide: function slide(event, ui) {
+        if (ui.values[0] == ui.values[1]) {
+          return false;
+        }
+
+        $(".min_price").val("".concat(ui.values[0]));
+        $(".max_price").val("".concat(ui.values[1]));
+      }
+    });
+    $(".min_price").val($(".slider-range").slider("values", 0));
+    $(".max_price").val($(".slider-range").slider("values", 1));
+  });
 });

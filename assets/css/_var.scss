@@ -565,3 +565,116 @@ button.favorite{
     transform: translateX(0%);
   }
 }
+.popup_filter{
+  position: relative;
+  z-index: 200;
+  width: 240px;
+  padding: 10px 12px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  &:after{
+    content: '';
+    transition: 0.3s all;
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: url(../img/icons/Arrow.png) center center/contain no-repeat;
+  }
+  &:hover{
+    background: #F2F2F2;
+  }
+  .select_list{
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    z-index: 200;
+    display: none;
+    background: #fff;
+    width: 100%;
+    box-shadow: 0px 32px 40px -8px rgba(0, 0, 0, 0.25);
+    .item{
+      padding: 10px 12px;
+      border-radius: 4px;
+      &:hover{
+        background: #F2F2F2;
+        color: $four_green;
+        svg{
+          path{
+            fill: $four_green;
+          }
+        }
+      }
+    }
+  }
+  &.popup_active{
+    &:after{
+      transform: rotate(90deg);
+    }
+    .select_list{
+      display: block;
+    }
+  }
+}
+
+
+.pagination{
+  display: flex;
+  align-items: center;
+    li{
+      border: none;
+      a{
+        &.active{
+          background: $three_green;
+          color: #fff;
+        }
+        &:hover{
+          background: $three_green;
+          color: #fff;
+        }
+        font-family: $inter;
+        font-style: normal;
+        font-weight: 500;
+        font-size: $size_14;
+        line-height: 20px;
+        color: $dark_grey;
+        border: none;
+        border-radius: 4px;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        svg{
+          width: 100%;
+          object-fit: contain;
+        }
+
+
+      }
+      &:first-child a{
+        &:hover{
+          svg{
+            path{
+              stroke: #fff
+            }
+
+          }
+        }
+      }
+      &:last-child a{
+        transform: rotate(180deg);
+        &:hover{
+          svg{
+            path{
+              stroke: #fff
+            }
+
+          }
+        }
+      }
+    }
+}
+

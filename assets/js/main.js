@@ -307,6 +307,48 @@ document.addEventListener('DOMContentLoaded', ()=>{
         }
     }
 
+    //Выпадашки селектор
+    class selectList{
+        constructor({
+            triggerEl = null,
+            popupList = "",
+            classActive = ''
+                    }){
+            this.triggerEl = document.querySelectorAll(triggerEl)
+            this.popupList = popupList
+            this.classActive = classActive
+        }
+
+        init(){
+
+            this.triggerEl.forEach(item=>{
+                item.addEventListener('click', (e)=>{
+                    e.preventDefault();
+                    item.classList.toggle(this.classActive)
+                    let list = item.querySelector(this.popupList)
+                    list.addEventListener('click', (e)=>{
+                        e.preventDefault()
+                        let target = e.target;
+                        console.log(target)
+                        if(target.classList.contains('item')){
+                            let text = item.querySelector('span')
+                            text.textContent = target.textContent.trim()
+                        }
+                    })
+                })
+            })
+        }
+    }
+
+
+    const sortFilterTop = new selectList({
+        triggerEl: '.popup_filter',
+        popupList: '.select_list',
+        classActive: 'popup_active'
+    })
+    sortFilterTop.init()
+
+
 
 try {
     const tabs = new ToggleTabs({
@@ -387,6 +429,9 @@ try {
     })
     specialItemAnimate.init()
 }catch (e) {
+
+
+//Фильтр в каталоге
 
 }
 
@@ -487,11 +532,100 @@ try{
         }
     }
 
+try{
+    const catalogPageMenu = new catalogSort({
+        elements: '.catalog_list_toggler_item',
+        count: 6
+    })
+    catalogPageMenu.init()
+}catch(e){
 
-        const catalogPageMenu = new catalogSort({
-            elements: '.catalog_list_toggler_item',
+}
+try{
+        const catalogPageMenuBrand = new catalogSort({
+            elements: '.select_list',
             count: 6
         })
-        catalogPageMenu.init()
+    catalogPageMenuBrand.init()
+    }catch(e){
+
+    }
+
+
+    const fillterCategoryList = new catalogSort({
+        elements: '.category_list_fillter',
+        count: 5
+    })
+    fillterCategoryList.init()
+
+
+        let minToggle = document.querySelector('.min-toggle');
+        let maxToggle = document.querySelector('.max-toggle');
+
+        $('#price-range-submit').hide();
+
+        $(".min_price,.max_price").on('change', function () {
+
+            $('#price-range-submit').show();
+
+            var min_price_range = parseInt($(".min_price").val() );
+
+            var max_price_range = parseInt($(".max_price").val());
+
+            if (min_price_range > max_price_range) {
+                $('.max_price').val(min_price_range);
+            }
+
+            $(".slider-range").slider({
+                values: [min_price_range, max_price_range]
+            });
+
+        });
+
+
+        $(".min_price,.max_price").on("paste keyup", function () {
+            $('#price-range-submit').show();
+
+            var min_price_range = parseInt($(".min_price").val());
+
+            var max_price_range = parseInt($(".max_price").val());
+
+            if(min_price_range == max_price_range){
+
+                max_price_range = min_price_range + 100;
+
+                $(".min_price").val(min_price_range);
+                $(".max_price").val(max_price_range);
+            }
+
+            $(".slider-range").slider({
+                values: [min_price_range, max_price_range]
+            });
+
+        });
+
+        $(function () {
+            $(".slider-range").slider({
+                range: true,
+                orientation: "horizontal",
+                min: 0,
+                max: 100000,
+                values: [0, 100000],
+                step: 100,
+
+                slide: function (event, ui) {
+                    if (ui.values[0] == ui.values[1]) {
+                        return false;
+                    }
+
+                    $(".min_price").val(`${ui.values[0]}`);
+                    $(".max_price").val(`${ui.values[1]}`);
+                }
+            });
+
+            $(".min_price").val($(".slider-range").slider("values", 0));
+            $(".max_price").val($(".slider-range").slider("values", 1));
+
+        });
 
 });
