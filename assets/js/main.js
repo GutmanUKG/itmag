@@ -34,7 +34,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
     window.addEventListener('scroll', (e)=>{
         let scrollDoc = window.scrollY
-        console.log(scrollDoc)
         if(isToggle == true){
             if(scrollDoc > 700){
                 document.body.classList.add('fixed_menu_active')
@@ -341,6 +340,122 @@ document.addEventListener('DOMContentLoaded', ()=>{
     }
 
 
+    class toggleImgs{
+        constructor({mainImg = null, imgList = null}){
+            this.mainImg = document.querySelector(mainImg)
+            this.imgList = document.querySelector(imgList)
+        }
+
+        init(){
+            this.imgList.addEventListener('click', (e)=>{
+                let target = e.target
+                if(target.src){
+                    this.clearClass()
+                    target.parentNode.classList.add('active')
+                    this.mainImg.src = target.src
+                }
+            })
+        }
+        clearClass(){
+            let count = this.imgList.querySelectorAll('li')
+            for(let i = 0; i < count.length; i++){
+                this.imgList.children[i].classList.remove('active')
+            }
+        }
+
+    }
+
+
+    class catalogSort{
+        constructor({
+                        elements=null,
+                        count=5,
+                        showLenght = false
+                    }) {
+            this.elements = document.querySelectorAll(elements)
+            this.count = count
+            this.showLenght = showLenght
+        }
+
+        init(){
+            this.elements.forEach(item=>{
+                let menuElements = item.querySelector('ul')
+                let menulinks = menuElements.querySelectorAll('li')
+                let btnShow = menuElements.querySelector('.show_list')
+                if(menulinks.length >= this.count){
+                    item.classList.add('popup_menu_item')
+                }else{
+                    btnShow.remove()
+                }
+                if(btnShow != undefined){
+                    if(this.showLenght){
+                        let count = menulinks.length
+                        btnShow.innerHTML = `<span>+${count - 9}</span>`
+                        btnShow.classList.add('count')
+                        if(count - 9 < 1){
+                            btnShow.remove()
+                        }
+                    }
+                    btnShow.addEventListener('click', (e)=>{
+                        e.preventDefault()
+                        btnShow.classList.toggle('active')
+                        item.classList.toggle('popup_menu_item_active')
+                        if(!this.showLenght){
+                            if(btnShow.textContent.trim() == 'Паказать все' ){
+                                btnShow.textContent = 'Скрыть'
+                            }else{
+                                btnShow.textContent = 'Паказать все'
+                            }
+                        }
+
+
+                    })
+                }
+            })
+
+        }
+    }
+
+    class sliceText{
+        constructor({elements = null, count = 500}){
+            this.elements = document.querySelectorAll(elements)
+            this.count = count
+        }
+        slile(){
+            this.elements.forEach(item=>{
+                console.log(item.textContent.length)
+                if(item.textContent.length > this.count){
+                    let fullText = item.innerHTML.trim()
+                    let text = item.innerHTML.trim()
+                    item.innerHTML = `${text.slice(0, this.count)} ...`
+                    let btnShow = document.createElement('div')
+                    btnShow.classList.add('btn_show_text')
+                    item.appendChild(btnShow)
+                    btnShow.textContent = 'Подробнее'
+                    btnShow.addEventListener('click', ()=>{
+                        btnShow.classList.toggle('open')
+                            if(btnShow.classList.contains('open')){
+                                item.innerHTML = fullText
+                                item.appendChild(btnShow)
+                                btnShow.textContent = 'Скрыть'
+                            }else{
+                                item.innerHTML = `${text.slice(0, this.count)} ...`
+                                item.appendChild(btnShow)
+                                btnShow.textContent = 'Подробнее'
+                            }
+
+                    })
+                }
+            })
+        }
+    }
+
+    const detailDescrText = new sliceText({
+        elements: '.descr_slice',
+        count: 490
+    })
+    detailDescrText.slile()
+
     const sortFilterTop = new selectList({
         triggerEl: '.popup_filter',
         popupList: '.select_list',
@@ -499,43 +614,17 @@ try{
 
 
     //catalog
-
-    class catalogSort{
-        constructor({elements=null, count=5}) {
-            this.elements = document.querySelectorAll(elements)
-            this.count = count
-
-        }
-
-        init(){
-            this.elements.forEach(item=>{
-                let menuElements = item.querySelector('ul')
-                let menulinks = menuElements.querySelectorAll('li')
-                let btnShow = menuElements.querySelector('.show_list')
-                if(menulinks.length > this.count){
-                    item.classList.add('popup_menu_item')
-                }
-                if(btnShow != undefined){
-                    btnShow.addEventListener('click', (e)=>{
-                        e.preventDefault()
-                        btnShow.classList.toggle('active')
-                        item.classList.toggle('popup_menu_item_active')
-                        if(btnShow.textContent.trim() == 'Паказать все' ){
-                            btnShow.textContent = 'Скрыть'
-                        }else{
-                            btnShow.textContent = 'Паказать все'
-                        }
-                    })
-                }
-            })
-
-        }
-    }
+const optionalList = new catalogSort({
+    elements:'.wrapper_optional_list',
+    count: 5
+})
+    optionalList.init()
 
 try{
     const catalogPageMenu = new catalogSort({
         elements: '.catalog_list_toggler_item',
-        count: 6
+        count: 6,
+
     })
     catalogPageMenu.init()
 }catch(e){
@@ -550,6 +639,42 @@ try{
     }catch(e){
 
     }
+
+try {
+    const imgListDetail = new catalogSort({
+        elements: '.wrapper_imgs_list',
+        count: 8,
+        showLenght: true
+    })
+    imgListDetail.init()
+
+
+}catch(e){
+
+}
+try {
+    const toggleImgsDetailPage = new toggleImgs({
+        mainImg: '.full_img',
+        imgList: '.imgs_list'
+    })
+    toggleImgsDetailPage.init()
+}catch(e){}
+
+
+
+try{
+    const tabsDetailPage = new ToggleTabs({
+        itemsTabs: '.item_tab',
+        wrapperItemsContent: '.item_tab_content',
+        line: false,
+        classActive: 'show'
+    })
+    tabsDetailPage.init()
+}catch(e){
+
+}
+
+
 
 
     const fillterCategoryList = new catalogSort({

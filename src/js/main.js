@@ -55,7 +55,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   window.addEventListener('scroll', function (e) {
     var scrollDoc = window.scrollY;
-    console.log(scrollDoc);
 
     if (isToggle == true) {
       if (scrollDoc > 700) {
@@ -442,6 +441,168 @@ document.addEventListener('DOMContentLoaded', function () {
     return selectList;
   }();
 
+  var toggleImgs = /*#__PURE__*/function () {
+    function toggleImgs(_ref7) {
+      var _ref7$mainImg = _ref7.mainImg,
+          mainImg = _ref7$mainImg === void 0 ? null : _ref7$mainImg,
+          _ref7$imgList = _ref7.imgList,
+          imgList = _ref7$imgList === void 0 ? null : _ref7$imgList;
+
+      _classCallCheck(this, toggleImgs);
+
+      this.mainImg = document.querySelector(mainImg);
+      this.imgList = document.querySelector(imgList);
+    }
+
+    _createClass(toggleImgs, [{
+      key: "init",
+      value: function init() {
+        var _this8 = this;
+
+        this.imgList.addEventListener('click', function (e) {
+          var target = e.target;
+
+          if (target.src) {
+            _this8.clearClass();
+
+            target.parentNode.classList.add('active');
+            _this8.mainImg.src = target.src;
+          }
+        });
+      }
+    }, {
+      key: "clearClass",
+      value: function clearClass() {
+        var count = this.imgList.querySelectorAll('li');
+
+        for (var i = 0; i < count.length; i++) {
+          this.imgList.children[i].classList.remove('active');
+        }
+      }
+    }]);
+
+    return toggleImgs;
+  }();
+
+  var catalogSort = /*#__PURE__*/function () {
+    function catalogSort(_ref8) {
+      var _ref8$elements = _ref8.elements,
+          elements = _ref8$elements === void 0 ? null : _ref8$elements,
+          _ref8$count = _ref8.count,
+          count = _ref8$count === void 0 ? 5 : _ref8$count,
+          _ref8$showLenght = _ref8.showLenght,
+          showLenght = _ref8$showLenght === void 0 ? false : _ref8$showLenght;
+
+      _classCallCheck(this, catalogSort);
+
+      this.elements = document.querySelectorAll(elements);
+      this.count = count;
+      this.showLenght = showLenght;
+    }
+
+    _createClass(catalogSort, [{
+      key: "init",
+      value: function init() {
+        var _this9 = this;
+
+        this.elements.forEach(function (item) {
+          var menuElements = item.querySelector('ul');
+          var menulinks = menuElements.querySelectorAll('li');
+          var btnShow = menuElements.querySelector('.show_list');
+
+          if (menulinks.length >= _this9.count) {
+            item.classList.add('popup_menu_item');
+          } else {
+            btnShow.remove();
+          }
+
+          if (btnShow != undefined) {
+            if (_this9.showLenght) {
+              var count = menulinks.length;
+              btnShow.innerHTML = "<span>+".concat(count - 9, "</span>");
+              btnShow.classList.add('count');
+
+              if (count - 9 < 1) {
+                btnShow.remove();
+              }
+            }
+
+            btnShow.addEventListener('click', function (e) {
+              e.preventDefault();
+              btnShow.classList.toggle('active');
+              item.classList.toggle('popup_menu_item_active');
+
+              if (!_this9.showLenght) {
+                if (btnShow.textContent.trim() == 'Паказать все') {
+                  btnShow.textContent = 'Скрыть';
+                } else {
+                  btnShow.textContent = 'Паказать все';
+                }
+              }
+            });
+          }
+        });
+      }
+    }]);
+
+    return catalogSort;
+  }();
+
+  var sliceText = /*#__PURE__*/function () {
+    function sliceText(_ref9) {
+      var _ref9$elements = _ref9.elements,
+          elements = _ref9$elements === void 0 ? null : _ref9$elements,
+          _ref9$count = _ref9.count,
+          count = _ref9$count === void 0 ? 500 : _ref9$count;
+
+      _classCallCheck(this, sliceText);
+
+      this.elements = document.querySelectorAll(elements);
+      this.count = count;
+    }
+
+    _createClass(sliceText, [{
+      key: "slile",
+      value: function slile() {
+        var _this10 = this;
+
+        this.elements.forEach(function (item) {
+          console.log(item.textContent.length);
+
+          if (item.textContent.length > _this10.count) {
+            var fullText = item.innerHTML.trim();
+            var text = item.innerHTML.trim();
+            item.innerHTML = "".concat(text.slice(0, _this10.count), " ...");
+            var btnShow = document.createElement('div');
+            btnShow.classList.add('btn_show_text');
+            item.appendChild(btnShow);
+            btnShow.textContent = 'Подробнее';
+            btnShow.addEventListener('click', function () {
+              btnShow.classList.toggle('open');
+
+              if (btnShow.classList.contains('open')) {
+                item.innerHTML = fullText;
+                item.appendChild(btnShow);
+                btnShow.textContent = 'Скрыть';
+              } else {
+                item.innerHTML = "".concat(text.slice(0, _this10.count), " ...");
+                item.appendChild(btnShow);
+                btnShow.textContent = 'Подробнее';
+              }
+            });
+          }
+        });
+      }
+    }]);
+
+    return sliceText;
+  }();
+
+  var detailDescrText = new sliceText({
+    elements: '.descr_slice',
+    count: 490
+  });
+  detailDescrText.slile();
   var sortFilterTop = new selectList({
     triggerEl: '.popup_filter',
     popupList: '.select_list',
@@ -567,52 +728,11 @@ document.addEventListener('DOMContentLoaded', function () {
   } catch (e) {} //catalog
 
 
-  var catalogSort = /*#__PURE__*/function () {
-    function catalogSort(_ref7) {
-      var _ref7$elements = _ref7.elements,
-          elements = _ref7$elements === void 0 ? null : _ref7$elements,
-          _ref7$count = _ref7.count,
-          count = _ref7$count === void 0 ? 5 : _ref7$count;
-
-      _classCallCheck(this, catalogSort);
-
-      this.elements = document.querySelectorAll(elements);
-      this.count = count;
-    }
-
-    _createClass(catalogSort, [{
-      key: "init",
-      value: function init() {
-        var _this8 = this;
-
-        this.elements.forEach(function (item) {
-          var menuElements = item.querySelector('ul');
-          var menulinks = menuElements.querySelectorAll('li');
-          var btnShow = menuElements.querySelector('.show_list');
-
-          if (menulinks.length > _this8.count) {
-            item.classList.add('popup_menu_item');
-          }
-
-          if (btnShow != undefined) {
-            btnShow.addEventListener('click', function (e) {
-              e.preventDefault();
-              btnShow.classList.toggle('active');
-              item.classList.toggle('popup_menu_item_active');
-
-              if (btnShow.textContent.trim() == 'Паказать все') {
-                btnShow.textContent = 'Скрыть';
-              } else {
-                btnShow.textContent = 'Паказать все';
-              }
-            });
-          }
-        });
-      }
-    }]);
-
-    return catalogSort;
-  }();
+  var optionalList = new catalogSort({
+    elements: '.wrapper_optional_list',
+    count: 5
+  });
+  optionalList.init();
 
   try {
     var catalogPageMenu = new catalogSort({
@@ -628,6 +748,33 @@ document.addEventListener('DOMContentLoaded', function () {
       count: 6
     });
     catalogPageMenuBrand.init();
+  } catch (e) {}
+
+  try {
+    var imgListDetail = new catalogSort({
+      elements: '.wrapper_imgs_list',
+      count: 8,
+      showLenght: true
+    });
+    imgListDetail.init();
+  } catch (e) {}
+
+  try {
+    var toggleImgsDetailPage = new toggleImgs({
+      mainImg: '.full_img',
+      imgList: '.imgs_list'
+    });
+    toggleImgsDetailPage.init();
+  } catch (e) {}
+
+  try {
+    var tabsDetailPage = new ToggleTabs({
+      itemsTabs: '.item_tab',
+      wrapperItemsContent: '.item_tab_content',
+      line: false,
+      classActive: 'show'
+    });
+    tabsDetailPage.init();
   } catch (e) {}
 
   var fillterCategoryList = new catalogSort({
