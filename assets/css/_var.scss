@@ -650,6 +650,7 @@ button.favorite{
   display: flex;
   align-items: center;
   gap: 16px;
+  cursor: pointer;
   &:after{
     content: '';
     transition: 0.3s all;
@@ -673,6 +674,7 @@ button.favorite{
     .item{
       padding: 10px 12px;
       border-radius: 4px;
+      cursor: pointer;
       &:hover{
         background: #F2F2F2;
         color: $four_green;
@@ -763,4 +765,8 @@ button.favorite{
 
 .orange{
   color: #D6A100;
+}
+
+.btn_show_text{
+  cursor: pointer;
 }

@@ -653,16 +653,26 @@ header{
     top: calc(100% - 55px);
     left: 50%;
     .owl-dot{
+      &:hover{
+        span{
+          background: #54CC00 !important;
+
+          width: 30px !important;
+          height: 10px !important;
+        }
+      }
       span{
         background: #666666 !important;
         width: 10px !important;
         height: 10px !important;
+        transition: 0.3s all;
       }
       &.active{
         span{
           background: #54CC00 !important;
           width: 30px !important;
-          height: 10px !important;
+          //height: 10px !important;
+
         }
       }
     }
@@ -1011,15 +1021,18 @@ header{
         text-decoration: none;
         transition: 0.3s all;
         @include greenLine;
+
         &:after{
-          left: 0;
-          transform: translateX(0%) scale(0);
+          left: 0%;
+          transform: translateX(-100%) scaleX(0);
+          opacity: 0;
         }
         &:hover{
           color: $four_green;
           &:after{
             left: 0;
-            transform: translateX(0%) scale(1);
+            transform: translateX(0%) scaleX(1);
+            opacity: 1;
           }
         }
       }

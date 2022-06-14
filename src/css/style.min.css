@@ -456,6 +456,7 @@ button.favorite:hover {
   display: flex;
   align-items: center;
   gap: 16px;
+  cursor: pointer;
 }
 .popup_filter:after {
   content: "";
@@ -481,6 +482,7 @@ button.favorite:hover {
 .popup_filter .select_list .item {
   padding: 10px 12px;
   border-radius: 4px;
+  cursor: pointer;
 }
 .popup_filter .select_list .item:hover {
   background: #F2F2F2;
@@ -552,6 +554,10 @@ button.favorite:hover {
 
 .orange {
   color: #D6A100;
+}
+
+.btn_show_text {
+  cursor: pointer;
 }
 
 header {
@@ -1171,15 +1177,20 @@ header .menu_wrapper .info_menu ul li a:hover {
   top: calc(100% - 55px);
   left: 50%;
 }
+.banners_slider .owl-dots .owl-dot:hover span {
+  background: #54CC00 !important;
+  width: 30px !important;
+  height: 10px !important;
+}
 .banners_slider .owl-dots .owl-dot span {
   background: #666666 !important;
   width: 10px !important;
   height: 10px !important;
+  transition: 0.3s all;
 }
 .banners_slider .owl-dots .owl-dot.active span {
   background: #54CC00 !important;
   width: 30px !important;
-  height: 10px !important;
 }
 
 .serach_result {
@@ -1541,15 +1552,17 @@ header .menu_wrapper .info_menu ul li a:hover {
   transform: translateX(-50%) scale(1);
 }
 .popular .popular_items_list .item a:after {
-  left: 0;
-  transform: translateX(0%) scale(0);
+  left: 0%;
+  transform: translateX(-100%) scaleX(0);
+  opacity: 0;
 }
 .popular .popular_items_list .item a:hover {
   color: #339900;
 }
 .popular .popular_items_list .item a:hover:after {
   left: 0;
-  transform: translateX(0%) scale(1);
+  transform: translateX(0%) scaleX(1);
+  opacity: 1;
 }
 
 .adv {
