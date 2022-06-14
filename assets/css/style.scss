@@ -2648,6 +2648,161 @@ footer{
                 color: #999999;
               }
             }
+            .section_link{
+              margin-left: auto;
+            }
+          }
+        }
+        &.form_tab{
+          h5{
+            font-family: $inter;
+            font-style: normal;
+            font-weight: 500;
+            font-size: $size_18;
+            color: $dark;
+            margin-bottom: 8px;
+          }
+          .subtitle{
+            font-family: $inter;
+            font-style: normal;
+            font-weight: 350;
+            font-size: $size_16;
+            line-height: 24px;
+            color: $dark_grey;
+            margin-bottom: 48px;
+          }
+          form{
+            display: flex;
+            gap: 48px;
+            .form_group{
+              display: flex;
+              flex-direction: column;
+              gap: 32px;
+              position: relative;
+              span{
+                position: absolute;
+                top: -8px;
+                font-family: $inter;
+                background: $white;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 12px;
+                color: #999999;
+                background: $white;
+                left: 12px;
+              }
+              textarea{
+                border: 1px solid #CCCCCC;
+                border-radius: 4px;
+                height: 196px;
+                resize: none;
+                font-family: $inter;
+                background: $white;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 12px;
+                color: #999999;
+                width: 376px;
+                outline: none;
+                text-align: left;
+                padding: 12px;
+              }
+              button{
+                @include priceBtn;
+                outline: none;
+                border: none;
+                width: 180px;
+                border-radius: 4px;
+              }
+              label{
+                position: relative;
+                span{
+                  position: absolute;
+                  font-family: $inter;
+                  background: $white;
+                  font-style: normal;
+                  font-weight: 500;
+                  font-size: 12px;
+                  color: #999999;
+                  top: -8px;
+                  left: 12px;
+                }
+                input{
+                  background: $white;
+                  border: 1px solid #CCCCCC;
+                  border-radius: 4px;
+                  width: 376px;
+                  box-sizing: border-box;
+                  height: 44px;
+                  font-family: $inter;
+                  background: $white;
+                  font-style: normal;
+                  font-weight: 500;
+                  font-size: 12px;
+                  color: #999999;
+                  padding: 12px;
+                }
+              }
+            }
+          }
+        }
+        &.delivery{
+          h5{
+            font-family: $inter;
+            font-style: normal;
+            font-weight: 500;
+            font-size: $size_18;
+            color: $dark;
+            margin-bottom: 20px;
+          }
+          font-family: $inter;
+          font-style: normal;
+          font-weight: 350;
+          font-size: $size_16;
+          line-height: 32px;
+          color: $dark_grey;
+          .info{
+            div{
+              display: flex;
+              gap: 36px;
+              align-items: center;
+              font-family: $inter;
+              font-style: normal;
+              font-weight: 500;
+              font-size: $size_16;
+              color: $dark;
+              a{
+                font-family: $inter;
+                font-style: normal;
+                font-weight: 350;
+                font-size: $size_16;
+                color: $four_green;
+                text-decoration: none;
+              }
+            }
+          }
+        }
+        &.payment{
+          font-family: $inter;
+          font-style: normal;
+          font-weight: 350;
+          font-size: $size_16;
+          color: #666666;
+          a{
+            color: $four_green;
+          }
+          h5{
+            font-family: $inter;
+            font-style: normal;
+            font-weight: 500;
+            font-size: $size_18;
+            color: $dark;
+            margin-bottom: 20px;
+            margin-top: 20px;
+            &.title{
+              margin-bottom: 40px;
+              display: block;
+            }
           }
         }
         .wrapper_optional_list{
@@ -2712,6 +2867,222 @@ footer{
   }
 
   .right_info{
+    .prices{
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      .price{
+        font-family: $inter;
+        font-style: normal;
+        font-weight: 700;
+        font-size: $size_32;
+        color: $dark;
 
+      }
+      .old_price{
+        font-family: $inter;
+        font-style: normal;
+        font-weight: 350;
+        font-size: $size_20;
+        text-decoration-line: line-through;
+        color: $ligth_grey;
+      }
+    }
+    .info{
+      display: flex;
+      justify-content: space-between;
+      margin-top: 16px;
+      align-items: center;
+      .nds{
+        font-family: $inter;
+        font-style: normal;
+        font-weight: 400;
+        font-size: $size_16;
+        color: $dark_grey;
+        span{
+          font-weight: 600;
+        }
+      }
+      .count{
+        font-family: $inter;
+        font-style: normal;
+        font-weight: 400;
+        font-size: $size_14;
+        &.green{
+          color: $four_green;
+        }
+      }
+    }
+    .btns{
+      display: flex;
+      margin-top: 16px;
+      .count_btns{
+        width: 50%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 30px;
+        .decriment,
+        .increment{
+          cursor: pointer;
+        }
+      }
+      .add_cart{
+        width: 50%;
+        @include priceBtn
+      }
+    }
+    .btns_buy{
+      margin-top: 12px;
+      display: flex;
+      justify-content: space-between;
+      .btn_buy_one{
+        font-family: $inter;
+        font-style: normal;
+        font-weight: 500;
+        font-size: $size_14;
+        line-height: 20px;
+        color: $four_green;
+        text-decoration: none;
+        width: 280px;
+        height: 52px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid #3BB200;
+        border-radius: 4px;
+        transition: 0.3s all;
+        &:hover{
+          color: #3BB200;
+          background: #EDFAE6;
+        }
+      }
+    }
+    .btns_share{
+      display: flex;
+      justify-content: space-between;
+      padding-top: 42px;
+      padding-bottom:34px;
+      border-bottom: 1px solid #E6E6E6;
+      a{
+        display: flex;
+        text-decoration: none;
+        font-family: $inter;
+        font-style: normal;
+        font-weight: 400;
+        font-size: $size_14;
+        color: $dark_grey;
+        align-items: center;
+        gap: 8px;
+        transition: 0.3s all;
+        img{
+          width: 24px;
+          height: 24px;
+        }
+        &:hover{
+          color: $three_green;
+          .dark{
+            display: none;
+          }
+          .green{
+            display: block;
+          }
+        }
+        .green{
+          display: none;
+        }
+      }
+    }
+    .info_text{
+      display: flex;
+      align-items: center;
+      font-family: $inter;
+      font-style: normal;
+      font-weight: 400;
+      font-size: $size_16;
+      color: $dark_grey;
+      gap: 16px;
+      margin-top: 34px;
+      padding-bottom: 34px;
+      border-bottom: 1px solid #E6E6E6;
+      img{
+        width: 40px;
+        height: 40px;
+      }
+    }
+    .info_list{
+      margin-top: 34px;
+      ul{
+        margin: 0;
+        padding-left: 1rem;
+        li{
+          font-family: $inter;
+          font-style: normal;
+          font-weight: 350;
+          font-size: $size_16;
+          color: $dark_grey;
+          line-height: 44px;
+        }
+      }
+    }
+    .items_list{
+      margin-top: 48px;
+      .wrapper_items{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        .section_link{
+          margin: 42px auto 0 auto;
+        }
+        .item{
+          width: calc(50% - 16px);
+          text-decoration: none;
+          &:hover{
+            .icon{
+              img{
+                transform: scale(1.1);
+              }
+            }
+          }
+          .icon{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #F2F2F2;
+            padding: 32px;
+            box-sizing: border-box;
+            img{
+              width: 144px;
+              height: 144px;
+              @include multiplyImg;
+              transition: 0.3s all;
+            }
+          }
+          h3{
+            font-family: $inter;
+            font-style: normal;
+            font-weight: 350;
+            font-size: $size_16;
+            line-height: 24px;
+            color: $dark;
+            margin-top: 10px;
+          }
+          .count{
+            font-family: $inter;
+            font-style: normal;
+            font-weight: 400;
+            font-size: $size_14;
+          }
+          .price{
+            font-family: $inter;
+            font-style: normal;
+            font-weight: 500;
+            font-size: $size_20;
+            color: $dark;
+            margin-top: 12px;
+          }
+        }
+      }
+    }
   }
 }

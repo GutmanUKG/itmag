@@ -423,7 +423,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
         }
         slile(){
             this.elements.forEach(item=>{
-                console.log(item.textContent.length)
                 if(item.textContent.length > this.count){
                     let fullText = item.innerHTML.trim()
                     let text = item.innerHTML.trim()
@@ -463,7 +462,15 @@ document.addEventListener('DOMContentLoaded', ()=>{
     })
     sortFilterTop.init()
 
+try{
+        const seoText = new sliceText({
+            elements: '.seo_text',
+            count: 290
+        })
+        seoText.slile()
+}catch (e) {
 
+}
 
 try {
     const tabs = new ToggleTabs({
@@ -676,81 +683,94 @@ try{
 
 
 
+try {
 
     const fillterCategoryList = new catalogSort({
         elements: '.category_list_fillter',
         count: 5
     })
     fillterCategoryList.init()
+}catch (e) {
+
+}
+
+//Фильтр цены
 
 
-        let minToggle = document.querySelector('.min-toggle');
-        let maxToggle = document.querySelector('.max-toggle');
 
-        $('#price-range-submit').hide();
+try{
+    let minToggle = document.querySelector('.min-toggle');
+    let maxToggle = document.querySelector('.max-toggle');
 
-        $(".min_price,.max_price").on('change', function () {
+    $('#price-range-submit').hide();
 
-            $('#price-range-submit').show();
+    $(".min_price,.max_price").on('change', function () {
 
-            var min_price_range = parseInt($(".min_price").val() );
+        $('#price-range-submit').show();
 
-            var max_price_range = parseInt($(".max_price").val());
+        var min_price_range = parseInt($(".min_price").val() );
 
-            if (min_price_range > max_price_range) {
-                $('.max_price').val(min_price_range);
-            }
+        var max_price_range = parseInt($(".max_price").val());
 
-            $(".slider-range").slider({
-                values: [min_price_range, max_price_range]
-            });
+        if (min_price_range > max_price_range) {
+            $('.max_price').val(min_price_range);
+        }
 
+        $(".slider-range").slider({
+            values: [min_price_range, max_price_range]
         });
 
+    });
 
-        $(".min_price,.max_price").on("paste keyup", function () {
-            $('#price-range-submit').show();
 
-            var min_price_range = parseInt($(".min_price").val());
+    $(".min_price,.max_price").on("paste keyup", function () {
+        $('#price-range-submit').show();
 
-            var max_price_range = parseInt($(".max_price").val());
+        var min_price_range = parseInt($(".min_price").val());
 
-            if(min_price_range == max_price_range){
+        var max_price_range = parseInt($(".max_price").val());
 
-                max_price_range = min_price_range + 100;
+        if(min_price_range == max_price_range){
 
-                $(".min_price").val(min_price_range);
-                $(".max_price").val(max_price_range);
-            }
+            max_price_range = min_price_range + 100;
 
-            $(".slider-range").slider({
-                values: [min_price_range, max_price_range]
-            });
+            $(".min_price").val(min_price_range);
+            $(".max_price").val(max_price_range);
+        }
 
+        $(".slider-range").slider({
+            values: [min_price_range, max_price_range]
         });
 
-        $(function () {
-            $(".slider-range").slider({
-                range: true,
-                orientation: "horizontal",
-                min: 0,
-                max: 100000,
-                values: [0, 100000],
-                step: 100,
+    });
 
-                slide: function (event, ui) {
-                    if (ui.values[0] == ui.values[1]) {
-                        return false;
-                    }
+    $(function () {
+        $(".slider-range").slider({
+            range: true,
+            orientation: "horizontal",
+            min: 0,
+            max: 100000,
+            values: [0, 100000],
+            step: 100,
 
-                    $(".min_price").val(`${ui.values[0]}`);
-                    $(".max_price").val(`${ui.values[1]}`);
+            slide: function (event, ui) {
+                if (ui.values[0] == ui.values[1]) {
+                    return false;
                 }
-            });
 
-            $(".min_price").val($(".slider-range").slider("values", 0));
-            $(".max_price").val($(".slider-range").slider("values", 1));
-
+                $(".min_price").val(`${ui.values[0]}`);
+                $(".max_price").val(`${ui.values[1]}`);
+            }
         });
+
+        $(".min_price").val($(".slider-range").slider("values", 0));
+        $(".max_price").val($(".slider-range").slider("values", 1));
+
+    });
+
+}catch (e) {
+
+}
+
 
 });
