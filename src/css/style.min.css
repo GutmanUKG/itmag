@@ -3609,6 +3609,12 @@ footer .copy {
   text-decoration: none;
   margin-bottom: 40px;
 }
+.catalog_detail_section .right_info .items_list .wrapper_items .item:nth-last-child(-n+2) {
+  margin-bottom: 0;
+}
+.catalog_detail_section .right_info .items_list .wrapper_items .item:nth-last-child(-n+3) {
+  margin-bottom: 0;
+}
 .catalog_detail_section .right_info .items_list .wrapper_items .item:hover .icon img {
   transform: scale(1.1);
 }
