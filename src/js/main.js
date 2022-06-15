@@ -439,7 +439,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }]);
 
     return selectList;
-  }();
+  }(); //Переключатель картинок
+
 
   var toggleImgs = /*#__PURE__*/function () {
     function toggleImgs(_ref7) {
@@ -546,7 +547,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }]);
 
     return catalogSort;
-  }();
+  }(); //Класс для обрезки текста
+
 
   var sliceText = /*#__PURE__*/function () {
     function sliceText(_ref9) {
@@ -594,14 +596,15 @@ document.addEventListener('DOMContentLoaded', function () {
     }]);
 
     return sliceText;
-  }();
+  }(); //Фильтр на странице каталога
+
 
   var sortFilterTop = new selectList({
     triggerEl: '.popup_filter',
     popupList: '.select_list',
     classActive: 'popup_active'
   });
-  sortFilterTop.init();
+  sortFilterTop.init(); //обрезка текста
 
   try {
     var seoText = new sliceText({
@@ -609,7 +612,8 @@ document.addEventListener('DOMContentLoaded', function () {
       count: 290
     });
     seoText.slile();
-  } catch (e) {}
+  } catch (e) {} //Переключение табов на главной
+
 
   try {
     var tabs = new ToggleTabs({
@@ -619,7 +623,8 @@ document.addEventListener('DOMContentLoaded', function () {
       line: true
     });
     tabs.init();
-  } catch (e) {}
+  } catch (e) {} //Анимация ссылок
+
 
   var sectionLink = new animateVariable({
     elements: '.section_link',
@@ -665,7 +670,8 @@ document.addEventListener('DOMContentLoaded', function () {
       isScrollTop: true
     });
     serachToggle.init();
-  } catch (e) {}
+  } catch (e) {} //Анимация елементов под главным слайдером
+
 
   try {
     var specialItemAnimate = new TogglerClases({
@@ -676,7 +682,8 @@ document.addEventListener('DOMContentLoaded', function () {
       listenerOut: 'mouseout'
     });
     specialItemAnimate.init();
-  } catch (e) {}
+  } catch (e) {} //Слайдер основной на главной
+
 
   try {
     $('.banners_slider').owlCarousel({
@@ -702,7 +709,7 @@ document.addEventListener('DOMContentLoaded', function () {
       // Parameters has to be in square bracket '[]'
       owl.trigger('prev.owl.carousel', [300]);
     });
-  } catch (e) {} //slider
+  } catch (e) {} //Слайдеры на главной
 
 
   try {
@@ -725,14 +732,14 @@ document.addEventListener('DOMContentLoaded', function () {
       // Parameters has to be in square bracket '[]'
       owlReviews.trigger('prev.owl.carousel', [300]);
     });
-  } catch (e) {} //catalog
+  } catch (e) {} //Обрезка кол-ва елементов в меню каталога
 
 
   var optionalList = new catalogSort({
     elements: '.wrapper_optional_list',
     count: 5
   });
-  optionalList.init();
+  optionalList.init(); //Обрезка кол-во елементов меню
 
   try {
     var catalogPageMenu = new catalogSort({
@@ -740,7 +747,8 @@ document.addEventListener('DOMContentLoaded', function () {
       count: 6
     });
     catalogPageMenu.init();
-  } catch (e) {}
+  } catch (e) {} //Обрезка кол-во брендов в фильтре
+
 
   try {
     var catalogPageMenuBrand = new catalogSort({
@@ -748,7 +756,8 @@ document.addEventListener('DOMContentLoaded', function () {
       count: 6
     });
     catalogPageMenuBrand.init();
-  } catch (e) {}
+  } catch (e) {} //Обрезка кол-ва картинок в переключателе
+
 
   try {
     var imgListDetail = new catalogSort({
@@ -757,7 +766,8 @@ document.addEventListener('DOMContentLoaded', function () {
       showLenght: true
     });
     imgListDetail.init();
-  } catch (e) {}
+  } catch (e) {} //Переключение картинок на детальной странице
+
 
   try {
     var toggleImgsDetailPage = new toggleImgs({
@@ -765,7 +775,8 @@ document.addEventListener('DOMContentLoaded', function () {
       imgList: '.imgs_list'
     });
     toggleImgsDetailPage.init();
-  } catch (e) {}
+  } catch (e) {} //Табы на детальной странице товара
+
 
   try {
     var tabsDetailPage = new ToggleTabs({
@@ -775,7 +786,8 @@ document.addEventListener('DOMContentLoaded', function () {
       classActive: 'show'
     });
     tabsDetailPage.init();
-  } catch (e) {}
+  } catch (e) {} //Обрезка кол-во елементов в фильтре
+
 
   try {
     var fillterCategoryList = new catalogSort({

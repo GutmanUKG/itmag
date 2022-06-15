@@ -339,7 +339,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         }
     }
 
-
+    //Переключатель картинок
     class toggleImgs{
         constructor({mainImg = null, imgList = null}){
             this.mainImg = document.querySelector(mainImg)
@@ -416,6 +416,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         }
     }
 
+    //Класс для обрезки текста
     class sliceText{
         constructor({elements = null, count = 500}){
             this.elements = document.querySelectorAll(elements)
@@ -450,7 +451,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     }
 
 
-
+//Фильтр на странице каталога
     const sortFilterTop = new selectList({
         triggerEl: '.popup_filter',
         popupList: '.select_list',
@@ -458,47 +459,45 @@ document.addEventListener('DOMContentLoaded', ()=>{
     })
     sortFilterTop.init()
 
-try{
+
+//обрезка текста
+    try{
         const seoText = new sliceText({
             elements: '.seo_text',
             count: 290
         })
         seoText.slile()
-}catch (e) {
+    }catch (e) {}
+//Переключение табов на главной
+    try {
+        const tabs = new ToggleTabs({
+            itemsTabs: '.item_tab',
+            wrapperItemsContent: '.items_wrapper',
+            topLink: '#toggle_link',
+            line: true
 
-}
-
-try {
-    const tabs = new ToggleTabs({
-        itemsTabs: '.item_tab',
-        wrapperItemsContent: '.items_wrapper',
-        topLink: '#toggle_link',
-        line: true
-
-    })
-    tabs.init()
-}catch (e) {
-
-}
-
+        })
+        tabs.init()
+    }catch (e) {}
+//Анимация ссылок
     const sectionLink = new animateVariable({
-        elements: '.section_link',
-        listener: 'mouseover',
-        animateName: 'section_link_animation',
-        listenerOut: 'mouseout'
-    })
+            elements: '.section_link',
+            listener: 'mouseover',
+            animateName: 'section_link_animation',
+            listenerOut: 'mouseout'
+        })
     sectionLink.play()
 
 
 
-    //Подлючение аккардиона к меню
+//Подлючение аккардиона к меню
     const accardionMenu = new AccardionMenu({
-        container: '.left_menu_catalog ',
-        classElements: '.item_list',
-        btnClass: '.accardion_trigger',
-        toggleElClass: '.popup_list',
-        classActive: 'popup_list_show'
-    })
+            container: '.left_menu_catalog ',
+            classElements: '.item_list',
+            btnClass: '.accardion_trigger',
+            toggleElClass: '.popup_list',
+            classActive: 'popup_list_show'
+        })
     accardionMenu.init()
 
     //Вызов меню каталога
@@ -517,11 +516,9 @@ try {
             bodyClass: 'active_left_menu_from_fixed'
         })
         ShowCatalogLeftFixed.init()
-    }catch (e) {
+    }catch (e) {}
 
-    }
-
-    //Вызов поисковика
+//Вызов поисковика
     try{
         const serachToggle = new TogglerClases({
             triger: '.search_input',
@@ -532,245 +529,220 @@ try {
             isScrollTop: true
         })
         serachToggle.init()
-    }catch(e){
+    }catch(e){}
+//Анимация елементов под главным слайдером
+    try {
+        const specialItemAnimate = new TogglerClases({
+            triger: '.special_item',
+            listener: 'mouseover',
+            classActive: 'animate',
+            showOveraly: false,
+            listenerOut: 'mouseout'
 
-    }
-
-try {
-    const specialItemAnimate = new TogglerClases({
-        triger: '.special_item',
-        listener: 'mouseover',
-        classActive: 'animate',
-        showOveraly: false,
-        listenerOut: 'mouseout'
-
-    })
-    specialItemAnimate.init()
-}catch (e) {
-}
-
-
-
-
-
-
-try{
-    $('.banners_slider').owlCarousel({
-        loop:true,
-        nav:false,
-        items: 1,
-
-    })
-
-
-    $('.brands_list').owlCarousel({
-        loop:true,
-        nav:false,
-        items: 6,
-        dots:false
-    })
-    let owl = $('.brands_list');
-    owl.owlCarousel();
-    // Go to the next item
-    $('.arrow_btn_next_brands').click(function() {
-        owl.trigger('next.owl.carousel');
-    })
-    // Go to the previous item
-    $('.arrow_btn_prev_brands').click(function() {
-        // With optional speed parameter
-        // Parameters has to be in square bracket '[]'
-        owl.trigger('prev.owl.carousel', [300]);
-    })
-
-}catch (e) {
-
-}
-    //slider
-   try{
-       $('.reviews_list').owlCarousel({
-           loop:true,
-           nav:false,
-           items: 3,
-           dots:false,
-           margin: 16
-       })
-       let owlReviews = $('.reviews_list');
-       owlReviews.owlCarousel();
-       // Go to the next item
-       $('.arrow_btn_next_reviews').click(function() {
-           owlReviews.trigger('next.owl.carousel');
-       })
-       // Go to the previous item
-       $('.arrow_btn_prev_reviews').click(function() {
-           // With optional speed parameter
-           // Parameters has to be in square bracket '[]'
-           owlReviews.trigger('prev.owl.carousel', [300]);
-       })
-   }catch (e) {
-
-   }
-
-
-
-    //catalog
-const optionalList = new catalogSort({
-    elements:'.wrapper_optional_list',
-    count: 5
-})
-    optionalList.init()
-
-try{
-    const catalogPageMenu = new catalogSort({
-        elements: '.catalog_list_toggler_item',
-        count: 6,
-
-    })
-    catalogPageMenu.init()
-}catch(e){
-
-}
-try{
-        const catalogPageMenuBrand = new catalogSort({
-            elements: '.select_list',
-            count: 6
         })
-    catalogPageMenuBrand.init()
-    }catch(e){
-
-    }
-
-try {
-    const imgListDetail = new catalogSort({
-        elements: '.wrapper_imgs_list',
-        count: 8,
-        showLenght: true
-    })
-    imgListDetail.init()
-
-
-}catch(e){
-
-}
-try {
-    const toggleImgsDetailPage = new toggleImgs({
-        mainImg: '.full_img',
-        imgList: '.imgs_list'
-    })
-    toggleImgsDetailPage.init()
-}catch(e){}
+        specialItemAnimate.init()
+    }catch (e) {}
 
 
 
-try{
-    const tabsDetailPage = new ToggleTabs({
-        itemsTabs: '.item_tab',
-        wrapperItemsContent: '.item_tab_content',
-        line: false,
-        classActive: 'show'
-    })
-    tabsDetailPage.init()
-}catch(e){
-
-}
 
 
+//Слайдер основной на главной
+    try{
+        $('.banners_slider').owlCarousel({
+            loop:true,
+            nav:false,
+            items: 1,
 
-try {
+        })
 
-    const fillterCategoryList = new catalogSort({
-        elements: '.category_list_fillter',
+
+        $('.brands_list').owlCarousel({
+            loop:true,
+            nav:false,
+            items: 6,
+            dots:false
+        })
+        let owl = $('.brands_list');
+        owl.owlCarousel();
+        // Go to the next item
+        $('.arrow_btn_next_brands').click(function() {
+            owl.trigger('next.owl.carousel');
+        })
+        // Go to the previous item
+        $('.arrow_btn_prev_brands').click(function() {
+            // With optional speed parameter
+            // Parameters has to be in square bracket '[]'
+            owl.trigger('prev.owl.carousel', [300]);
+        })
+
+    }catch (e) {}
+
+//Слайдеры на главной
+    try{
+           $('.reviews_list').owlCarousel({
+               loop:true,
+               nav:false,
+               items: 3,
+               dots:false,
+               margin: 16
+           })
+           let owlReviews = $('.reviews_list');
+           owlReviews.owlCarousel();
+           // Go to the next item
+           $('.arrow_btn_next_reviews').click(function() {
+               owlReviews.trigger('next.owl.carousel');
+           })
+           // Go to the previous item
+           $('.arrow_btn_prev_reviews').click(function() {
+               // With optional speed parameter
+               // Parameters has to be in square bracket '[]'
+               owlReviews.trigger('prev.owl.carousel', [300]);
+           })
+       }catch (e) {}
+//Обрезка кол-ва елементов в меню каталога
+    const optionalList = new catalogSort({
+        elements:'.wrapper_optional_list',
         count: 5
     })
-    fillterCategoryList.init()
-}catch (e) {
+    optionalList.init()
+//Обрезка кол-во елементов меню
+    try{
+        const catalogPageMenu = new catalogSort({
+            elements: '.catalog_list_toggler_item',
+            count: 6,
 
-}
+        })
+        catalogPageMenu.init()
+    }catch(e){}
+//Обрезка кол-во брендов в фильтре
+    try{
+            const catalogPageMenuBrand = new catalogSort({
+                elements: '.select_list',
+                count: 6
+            })
+        catalogPageMenuBrand.init()
+        }catch(e){}
+//Обрезка кол-ва картинок в переключателе
+    try {
+        const imgListDetail = new catalogSort({
+            elements: '.wrapper_imgs_list',
+            count: 8,
+            showLenght: true
+        })
+        imgListDetail.init()
+
+
+    }catch(e){}
+//Переключение картинок на детальной странице
+    try {
+        const toggleImgsDetailPage = new toggleImgs({
+            mainImg: '.full_img',
+            imgList: '.imgs_list'
+        })
+        toggleImgsDetailPage.init()
+    }catch(e){}
+//Табы на детальной странице товара
+    try{
+        const tabsDetailPage = new ToggleTabs({
+            itemsTabs: '.item_tab',
+            wrapperItemsContent: '.item_tab_content',
+            line: false,
+            classActive: 'show'
+        })
+        tabsDetailPage.init()
+    }catch(e){}
+
+
+//Обрезка кол-во елементов в фильтре
+    try {
+        const fillterCategoryList = new catalogSort({
+            elements: '.category_list_fillter',
+            count: 5
+        })
+        fillterCategoryList.init()
+    }catch (e) {}
 
 //Фильтр цены
+    try{
+        let minToggle = document.querySelector('.min-toggle');
+        let maxToggle = document.querySelector('.max-toggle');
 
+        $('#price-range-submit').hide();
 
+        $(".min_price,.max_price").on('change', function () {
 
-try{
-    let minToggle = document.querySelector('.min-toggle');
-    let maxToggle = document.querySelector('.max-toggle');
+            $('#price-range-submit').show();
 
-    $('#price-range-submit').hide();
+            var min_price_range = parseInt($(".min_price").val() );
 
-    $(".min_price,.max_price").on('change', function () {
+            var max_price_range = parseInt($(".max_price").val());
 
-        $('#price-range-submit').show();
-
-        var min_price_range = parseInt($(".min_price").val() );
-
-        var max_price_range = parseInt($(".max_price").val());
-
-        if (min_price_range > max_price_range) {
-            $('.max_price').val(min_price_range);
-        }
-
-        $(".slider-range").slider({
-            values: [min_price_range, max_price_range]
-        });
-
-    });
-
-
-    $(".min_price,.max_price").on("paste keyup", function () {
-        $('#price-range-submit').show();
-
-        var min_price_range = parseInt($(".min_price").val());
-
-        var max_price_range = parseInt($(".max_price").val());
-
-        if(min_price_range == max_price_range){
-
-            max_price_range = min_price_range + 100;
-
-            $(".min_price").val(min_price_range);
-            $(".max_price").val(max_price_range);
-        }
-
-        $(".slider-range").slider({
-            values: [min_price_range, max_price_range]
-        });
-
-    });
-
-    $(function () {
-        $(".slider-range").slider({
-            range: true,
-            orientation: "horizontal",
-            min: 0,
-            max: 100000,
-            values: [0, 100000],
-            step: 100,
-
-            slide: function (event, ui) {
-                if (ui.values[0] == ui.values[1]) {
-                    return false;
-                }
-
-                $(".min_price").val(`${ui.values[0]}`);
-                $(".max_price").val(`${ui.values[1]}`);
+            if (min_price_range > max_price_range) {
+                $('.max_price').val(min_price_range);
             }
+
+            $(".slider-range").slider({
+                values: [min_price_range, max_price_range]
+            });
+
         });
 
-        $(".min_price").val($(".slider-range").slider("values", 0));
-        $(".max_price").val($(".slider-range").slider("values", 1));
 
-    });
+        $(".min_price,.max_price").on("paste keyup", function () {
+            $('#price-range-submit').show();
 
-}catch (e) {
+            var min_price_range = parseInt($(".min_price").val());
 
-}
-    //обрезка текста на подробной странице
-try{
-    const detailDescrText = new sliceText({
-        elements: '.descr_slice',
-        count: 490
-    })
-    detailDescrText.slile()
-}catch (e) {
-    
-}
+            var max_price_range = parseInt($(".max_price").val());
+
+            if(min_price_range == max_price_range){
+
+                max_price_range = min_price_range + 100;
+
+                $(".min_price").val(min_price_range);
+                $(".max_price").val(max_price_range);
+            }
+
+            $(".slider-range").slider({
+                values: [min_price_range, max_price_range]
+            });
+
+        });
+
+            $(function () {
+                $(".slider-range").slider({
+                    range: true,
+                    orientation: "horizontal",
+                    min: 0,
+                    max: 100000,
+                    values: [0, 100000],
+                    step: 100,
+
+                    slide: function (event, ui) {
+                        if (ui.values[0] == ui.values[1]) {
+                            return false;
+                        }
+
+                        $(".min_price").val(`${ui.values[0]}`);
+                        $(".max_price").val(`${ui.values[1]}`);
+                    }
+                });
+
+                $(".min_price").val($(".slider-range").slider("values", 0));
+                $(".max_price").val($(".slider-range").slider("values", 1));
+
+            });
+
+
+
+    }catch (e) {}
+//обрезка текста на подробной странице
+    try{
+        const detailDescrText = new sliceText({
+            elements: '.descr_slice',
+            count: 490
+        })
+        detailDescrText.slile()
+    }catch (e) {}
 });
