@@ -1,6 +1,6 @@
 @import "var";
-
-
+@import "mixin";
+@import "any";
 //header
 header{
   background: $grey_bg;
@@ -655,17 +655,18 @@ header{
     .owl-dot{
       &:hover{
         span{
+         animation: dotsSlider 0.2s linear;
+          width: 30px;
           background: #54CC00 !important;
 
-          width: 30px !important;
-          height: 10px !important;
         }
       }
       span{
         background: #666666 !important;
-        width: 10px !important;
-        height: 10px !important;
+        width: 10px ;
+        height: 10px ;
         transition: 0.3s all;
+
       }
       &.active{
         span{
@@ -1912,6 +1913,25 @@ footer{
      position: fixed;
       left: 50%;
       transform: translateX(-50%);
+      a{
+        svg{
+          g{
+            ellipse{
+              transition: 0.3s all;
+            }
+          }
+        }
+        &:hover{
+          svg{
+            g{
+              ellipse{
+                rx: 250px;
+                ry: 250px;
+              }
+            }
+          }
+        }
+      }
 
     }
     .action_menu_fixed{
@@ -3050,6 +3070,7 @@ footer{
         .item{
           width: calc(50% - 16px);
           text-decoration: none;
+          margin-bottom: 40px;
           &:hover{
             .icon{
               img{

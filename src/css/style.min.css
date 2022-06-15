@@ -244,6 +244,64 @@ body {
     transform: scale3d(1, 1, 1);
   }
 }
+@-webkit-keyframes sectionLinkAnimate {
+  0% {
+    transform: translateX(0%);
+  }
+  25% {
+    transform: translateX(-2%);
+  }
+  50% {
+    transform: translateX(0%);
+  }
+  75% {
+    transform: translateX(-2%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+@keyframes sectionLinkAnimate {
+  0% {
+    transform: translateX(0%);
+  }
+  25% {
+    transform: translateX(-2%);
+  }
+  50% {
+    transform: translateX(0%);
+  }
+  75% {
+    transform: translateX(-2%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+@-webkit-keyframes dotsSlider {
+  0% {
+    width: 10px;
+  }
+  50% {
+    width: 20px;
+  }
+  100% {
+    width: 30px;
+    background: #54CC00;
+  }
+}
+@keyframes dotsSlider {
+  0% {
+    width: 10px;
+  }
+  50% {
+    width: 20px;
+  }
+  100% {
+    width: 30px;
+    background: #54CC00;
+  }
+}
 .hover_icon {
   display: flex;
   align-items: center;
@@ -412,41 +470,6 @@ button.favorite:hover {
           animation: sectionLinkAnimate 0.1s linear;
 }
 
-@-webkit-keyframes sectionLinkAnimate {
-  0% {
-    transform: translateX(0%);
-  }
-  25% {
-    transform: translateX(-2%);
-  }
-  50% {
-    transform: translateX(0%);
-  }
-  75% {
-    transform: translateX(-2%);
-  }
-  100% {
-    transform: translateX(0%);
-  }
-}
-
-@keyframes sectionLinkAnimate {
-  0% {
-    transform: translateX(0%);
-  }
-  25% {
-    transform: translateX(-2%);
-  }
-  50% {
-    transform: translateX(0%);
-  }
-  75% {
-    transform: translateX(-2%);
-  }
-  100% {
-    transform: translateX(0%);
-  }
-}
 .popup_filter {
   position: relative;
   z-index: 200;
@@ -1178,14 +1201,15 @@ header .menu_wrapper .info_menu ul li a:hover {
   left: 50%;
 }
 .banners_slider .owl-dots .owl-dot:hover span {
+  -webkit-animation: dotsSlider 0.2s linear;
+          animation: dotsSlider 0.2s linear;
+  width: 30px;
   background: #54CC00 !important;
-  width: 30px !important;
-  height: 10px !important;
 }
 .banners_slider .owl-dots .owl-dot span {
   background: #666666 !important;
-  width: 10px !important;
-  height: 10px !important;
+  width: 10px;
+  height: 10px;
   transition: 0.3s all;
 }
 .banners_slider .owl-dots .owl-dot.active span {
@@ -2448,6 +2472,13 @@ footer .copy {
   left: 50%;
   transform: translateX(-50%);
 }
+.fixed_menu_active .fixed_left .logo_fixed a svg g ellipse {
+  transition: 0.3s all;
+}
+.fixed_menu_active .fixed_left .logo_fixed a:hover svg g ellipse {
+  rx: 250px;
+  ry: 250px;
+}
 .fixed_menu_active .fixed_left .action_menu_fixed {
   margin-left: 20px;
 }
@@ -3576,6 +3607,7 @@ footer .copy {
 .catalog_detail_section .right_info .items_list .wrapper_items .item {
   width: calc(50% - 16px);
   text-decoration: none;
+  margin-bottom: 40px;
 }
 .catalog_detail_section .right_info .items_list .wrapper_items .item:hover .icon img {
   transform: scale(1.1);

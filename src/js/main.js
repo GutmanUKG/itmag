@@ -596,11 +596,6 @@ document.addEventListener('DOMContentLoaded', function () {
     return sliceText;
   }();
 
-  var detailDescrText = new sliceText({
-    elements: '.descr_slice',
-    count: 490
-  });
-  detailDescrText.slile();
   var sortFilterTop = new selectList({
     triggerEl: '.popup_filter',
     popupList: '.select_list',
@@ -681,8 +676,7 @@ document.addEventListener('DOMContentLoaded', function () {
       listenerOut: 'mouseout'
     });
     specialItemAnimate.init();
-  } catch (e) {//Фильтр в каталоге
-  }
+  } catch (e) {}
 
   try {
     $('.banners_slider').owlCarousel({
@@ -844,5 +838,14 @@ document.addEventListener('DOMContentLoaded', function () {
       $(".min_price").val($(".slider-range").slider("values", 0));
       $(".max_price").val($(".slider-range").slider("values", 1));
     });
+  } catch (e) {} //обрезка текста на подробной странице
+
+
+  try {
+    var detailDescrText = new sliceText({
+      elements: '.descr_slice',
+      count: 490
+    });
+    detailDescrText.slile();
   } catch (e) {}
 });

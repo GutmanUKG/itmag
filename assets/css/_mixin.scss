@@ -1,0 +1,126 @@
+@mixin green_btn{
+  background: $three_green;
+  font-family: $inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: $size_14;
+  color: $white;
+  padding: 10px 16px 10px 10px;
+  box-sizing: border-box;
+  text-decoration: none;
+  border-radius: 22px;
+  transition: 0.3s all;
+  width: max-content;
+  &:hover{
+    background: $second_green;
+  }
+}
+@mixin priceBtn{
+  background: $three_green;
+  height: 52px;
+  font-family: $inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: $size_14;
+  line-height: 20px;
+  color: $white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s all;
+  &:hover{
+    background: $second_green;
+  }
+}
+@mixin form_btn{
+  font-family: $inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: $size_14;
+  color: #339900;
+  width: max-content;
+  text-decoration: none;
+  height: 52px;
+  padding: 0 34px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid $three_green;
+  border-radius: 60px;
+  transition: 0.3s all;
+  &:hover{
+    color: $three_green;
+    background: #EDFAE6;
+    border: 1px solid #EDFAE6;
+  }
+}
+@mixin multiplyImg{
+  mix-blend-mode: multiply;
+}
+@mixin greenLine{
+  position: relative;
+  &:after{
+    content: '';
+    display: block;
+    width: 20px;
+    height: 1px;
+    background: $three_green;
+    transition: 0.3s all;
+    transform: translateX(-50%) scale(0) ;
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 50%;
+  }
+  &:hover{
+    &:after{
+      transform:translateX(-50%) scale(1) ;
+    }
+  }
+}
+
+@mixin link_btn{
+  text-decoration: none;
+  display: block;
+  font-family: $inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: $size_14;
+  line-height: 20px;
+  color: $four_green;
+}
+
+
+@mixin sectionPt{
+  padding-top: 60px;
+  //padding-bottom: 60px;
+  box-sizing: border-box;
+}
+@mixin animateLinks{
+  //-webkit-animation-duration: calc(1s * 0.75);
+  //animation-duration: calc(1s * 0.75);
+  //-webkit-animation-duration: calc(var(--animate-duration) * 0.75);
+  //animation-duration: calc(var(--animate-duration) * 0.75);
+  //-webkit-animation-name: bounceIn;
+  //animation-name: bounceIn;
+  animation: sectionLinkAnimate 1s linear;
+}
+
+@mixin starsEl{
+  font-family: $inter;
+  font-style: normal;
+  font-weight: 400;
+  font-size: $size_14;
+  line-height: 16px;
+  color: #808080;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  &:before{
+    content: '';
+    display: block;
+    background: url("../img/icons/stars.png") center no-repeat;
+    width: 16px;
+    height: 16px;
+  }
+}

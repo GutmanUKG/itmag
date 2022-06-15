@@ -449,11 +449,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         }
     }
 
-    const detailDescrText = new sliceText({
-        elements: '.descr_slice',
-        count: 490
-    })
-    detailDescrText.slile()
+
 
     const sortFilterTop = new selectList({
         triggerEl: '.popup_filter',
@@ -551,10 +547,6 @@ try {
     })
     specialItemAnimate.init()
 }catch (e) {
-
-
-//Фильтр в каталоге
-
 }
 
 
@@ -771,6 +763,14 @@ try{
 }catch (e) {
 
 }
-
-
+    //обрезка текста на подробной странице
+try{
+    const detailDescrText = new sliceText({
+        elements: '.descr_slice',
+        count: 490
+    })
+    detailDescrText.slile()
+}catch (e) {
+    
+}
 });
