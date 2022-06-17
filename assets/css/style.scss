@@ -2969,6 +2969,7 @@ footer{
       margin-top: 12px;
       display: flex;
       justify-content: space-between;
+      gap: 12px;
       .btn_buy_one{
         font-family: $inter;
         font-style: normal;
@@ -3126,3 +3127,6 @@ footer{
     }
   }
 }
+
+
+@import "media";
