@@ -7,8 +7,37 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 
 document.addEventListener('DOMContentLoaded', function () {
-  var isToggle = true; //Саня на jquery не переписывай
+  var isToggle = true; // Функция throttle будет принимать 2 аргумента:
+  // - callee, функция, которую надо вызывать;
+  // - timeout, интервал в мс, с которым следует пропускать вызовы.
+
+  function throttle(callee, timeout) {
+    // Таймер будет определять,
+    // надо ли нам пропускать текущий вызов.
+    var timer = null; // Как результат возвращаем другую функцию.
+    // Это нужно, чтобы мы могли не менять другие части кода,
+    // чуть позже мы увидим, как это помогает.
+
+    return function perform() {
+      for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+        args[_key] = arguments[_key];
+      }
+
+      // Если таймер есть, то функция уже была вызвана,
+      // и значит новый вызов следует пропустить.
+      if (timer) return; // Если таймера нет, значит мы можем вызвать функцию:
+
+      timer = setTimeout(function () {
+        // Аргументы передаём неизменными в функцию-аргумент:
+        callee.apply(void 0, args); // По окончании очищаем таймер:
+
+        clearTimeout(timer);
+        timer = null;
+      }, timeout);
+    };
+  } //Саня на jquery не переписывай
   //Аккардион для меню
+
 
   var AccardionMenu = /*#__PURE__*/function () {
     function AccardionMenu(_ref) {
@@ -51,9 +80,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }]);
 
     return AccardionMenu;
-  }();
+  }(); //Функция считает сколько было проскроленно
 
-  window.addEventListener('scroll', function (e) {
+
+  function showScrollMenu() {
+    console.log('scroll');
     var scrollDoc = window.scrollY;
 
     if (isToggle == true) {
@@ -65,7 +96,11 @@ document.addEventListener('DOMContentLoaded', function () {
         document.body.classList.remove('is_scroll');
       }
     }
-  }); //Переключатель классов
+  } //Пропускает некоторые вызовы функции что бы не загружать страницу расчетами
+
+
+  var optimizedHandler = throttle(showScrollMenu, 250);
+  window.addEventListener("scroll", optimizedHandler); //Переключатель классов
 
   var TogglerClases = /*#__PURE__*/function () {
     function TogglerClases(_ref2) {
