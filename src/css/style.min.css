@@ -68,7 +68,7 @@ body {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: calc((100vw - 360px) / 1560 * 0 + 14px);
+  font-size: calc((100vw - 360px) / 1560 * 2 + 12px);
   line-height: 20px;
   color: #666666;
   display: flex;
@@ -103,7 +103,7 @@ body {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: calc((100vw - 360px) / 1560 * 8 + 16px);
+  font-size: calc((100vw - 360px) / 1560 * 10 + 14px);
   line-height: 32px;
   color: #1A1A1A;
   position: relative;
@@ -125,7 +125,7 @@ body {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: calc((100vw - 360px) / 1560 * 0 + 14px);
+  font-size: calc((100vw - 360px) / 1560 * 2 + 12px);
   line-height: 20px;
   color: #339900;
   position: relative;
@@ -342,7 +342,7 @@ body {
   display: none;
 }
 .hover_icon:hover span {
-  font-size: calc((100vw - 360px) / 1560 * 0 + 14px);
+  font-size: calc((100vw - 360px) / 1560 * 2 + 12px);
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
@@ -373,7 +373,7 @@ body {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: calc((100vw - 360px) / 1560 * 0 + 14px);
+  font-size: calc((100vw - 360px) / 1560 * 2 + 12px);
   line-height: 20px;
   display: flex;
   align-items: center;
@@ -532,7 +532,7 @@ button.favorite:hover {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: calc((100vw - 360px) / 1560 * 0 + 14px);
+  font-size: calc((100vw - 360px) / 1560 * 2 + 12px);
   line-height: 20px;
   color: #666666;
   border: none;
@@ -603,7 +603,7 @@ header .header_phones a {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: calc((100vw - 360px) / 1560 * 0 + 14px);
+  font-size: calc((100vw - 360px) / 1560 * 2 + 12px);
   line-height: 20px;
   color: #666666;
 }
@@ -639,7 +639,7 @@ header .menu_col ul li a {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: calc((100vw - 360px) / 1560 * 0 + 14px);
+  font-size: calc((100vw - 360px) / 1560 * 2 + 12px);
   line-height: 20px;
   color: #666666;
   position: relative;
@@ -688,7 +688,7 @@ header .header_info #search .btn_search {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: calc((100vw - 360px) / 1560 * 0 + 14px);
+  font-size: calc((100vw - 360px) / 1560 * 2 + 12px);
   color: #fff;
   padding: 10px 16px 10px 10px;
   box-sizing: border-box;
@@ -723,7 +723,7 @@ header .header_info #search input {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: calc((100vw - 360px) / 1560 * 4 + 12px);
+  font-size: calc((100vw - 360px) / 1560 * 0 + 16px);
   color: #999999;
 }
 header .header_info #search:before {
@@ -779,7 +779,7 @@ header .trigger_icons .items_count a .count {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: calc((100vw - 360px) / 1560 * 0 + 14px);
+  font-size: calc((100vw - 360px) / 1560 * 2 + 12px);
   color: #fff;
   border-radius: 50%;
   justify-content: center;
@@ -883,7 +883,7 @@ header .menu_wrapper a {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: calc((100vw - 360px) / 1560 * 4 + 12px);
+  font-size: calc((100vw - 360px) / 1560 * 0 + 16px);
   color: #B3B3B3;
   transition: 0.3s all;
   display: flex;
@@ -1007,7 +1007,7 @@ header .menu_wrapper .info_menu ul li a:hover {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: calc((100vw - 360px) / 1560 * 4 + 12px);
+  font-size: calc((100vw - 360px) / 1560 * 0 + 16px);
   color: #1A1A1A;
   position: relative;
 }
@@ -1055,7 +1055,7 @@ header .menu_wrapper .info_menu ul li a:hover {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: calc((100vw - 360px) / 1560 * 0 + 14px);
+  font-size: calc((100vw - 360px) / 1560 * 2 + 12px);
   color: #666666;
   transition: 0.3s all;
 }
@@ -1070,7 +1070,7 @@ header .menu_wrapper .info_menu ul li a:hover {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: calc((100vw - 360px) / 1560 * 6 + 12px);
+  font-size: calc((100vw - 360px) / 1560 * 2 + 16px);
   line-height: 32px;
   letter-spacing: -0.02em;
   color: #999999;
@@ -1289,7 +1289,7 @@ header .menu_wrapper .info_menu ul li a:hover {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: calc((100vw - 360px) / 1560 * 0 + 14px);
+  font-size: calc((100vw - 360px) / 1560 * 2 + 12px);
   line-height: 20px;
   color: #339900;
   position: relative;
@@ -1335,7 +1335,7 @@ header .menu_wrapper .info_menu ul li a:hover {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 350;
-  font-size: calc((100vw - 360px) / 1560 * 4 + 12px);
+  font-size: calc((100vw - 360px) / 1560 * 0 + 16px);
   line-height: 24px;
   color: #666666;
 }
@@ -1365,7 +1365,7 @@ header .menu_wrapper .info_menu ul li a:hover {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: calc((100vw - 360px) / 1560 * 0 + 14px);
+  font-size: calc((100vw - 360px) / 1560 * 2 + 12px);
   line-height: 20px;
   color: #808080;
 }
@@ -1373,7 +1373,7 @@ header .menu_wrapper .info_menu ul li a:hover {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 350;
-  font-size: calc((100vw - 360px) / 1560 * 4 + 12px);
+  font-size: calc((100vw - 360px) / 1560 * 0 + 16px);
   line-height: 24px;
   color: #666666;
 }
@@ -1397,7 +1397,7 @@ header .menu_wrapper .info_menu ul li a:hover {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: calc((100vw - 360px) / 1560 * 0 + 14px);
+  font-size: calc((100vw - 360px) / 1560 * 2 + 12px);
   line-height: 16px;
   color: #808080;
   display: flex;
@@ -1455,7 +1455,7 @@ header .menu_wrapper .info_menu ul li a:hover {
   justify-content: space-between;
   font-family: "Inter", sans-serif;
   font-style: normal;
-  font-size: calc((100vw - 360px) / 1560 * 4 + 12px);
+  font-size: calc((100vw - 360px) / 1560 * 0 + 16px);
   text-transform: uppercase;
   color: #1A1A1A;
   font-weight: 300;
@@ -1463,7 +1463,7 @@ header .menu_wrapper .info_menu ul li a:hover {
 .special .special_item h4 {
   font-family: "Inter", sans-serif;
   font-style: normal;
-  font-size: calc((100vw - 360px) / 1560 * 4 + 12px);
+  font-size: calc((100vw - 360px) / 1560 * 0 + 16px);
   text-transform: uppercase;
   color: #1A1A1A;
   font-weight: 300;
@@ -1473,7 +1473,7 @@ header .menu_wrapper .info_menu ul li a:hover {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 600;
-  font-size: calc((100vw - 360px) / 1560 * 4 + 12px);
+  font-size: calc((100vw - 360px) / 1560 * 0 + 16px);
   text-transform: uppercase;
   color: #1A1A1A;
 }
@@ -1482,7 +1482,7 @@ header .menu_wrapper .info_menu ul li a:hover {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: calc((100vw - 360px) / 1560 * 0 + 14px);
+  font-size: calc((100vw - 360px) / 1560 * 2 + 12px);
   color: #666666;
   margin-top: 28px;
   display: flex;
@@ -1554,7 +1554,7 @@ header .menu_wrapper .info_menu ul li a:hover {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: calc((100vw - 360px) / 1560 * 6 + 12px);
+  font-size: calc((100vw - 360px) / 1560 * 2 + 16px);
   color: #1A1A1A;
   text-decoration: none;
   transition: 0.3s all;
@@ -1627,7 +1627,7 @@ header .menu_wrapper .info_menu ul li a:hover {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: calc((100vw - 360px) / 1560 * 4 + 12px);
+  font-size: calc((100vw - 360px) / 1560 * 0 + 16px);
   color: #666666;
   line-height: 24px;
 }
@@ -1701,7 +1701,7 @@ header .menu_wrapper .info_menu ul li a:hover {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: calc((100vw - 360px) / 1560 * 8 + 16px);
+  font-size: calc((100vw - 360px) / 1560 * 10 + 14px);
   color: #B3B3B3;
   cursor: pointer;
   transition: 0.3s all;
@@ -1754,7 +1754,7 @@ header .menu_wrapper .info_menu ul li a:hover {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: calc((100vw - 360px) / 1560 * 0 + 14px);
+  font-size: calc((100vw - 360px) / 1560 * 2 + 12px);
   line-height: 16px;
   color: #1A1A1A;
 }
@@ -1795,7 +1795,7 @@ header .menu_wrapper .info_menu ul li a:hover {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: calc((100vw - 360px) / 1560 * 4 + 12px);
+  font-size: calc((100vw - 360px) / 1560 * 0 + 16px);
   line-height: 24px;
   color: #1A1A1A;
   position: relative;
@@ -1804,7 +1804,7 @@ header .menu_wrapper .info_menu ul li a:hover {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 600;
-  font-size: calc((100vw - 360px) / 1560 * 14 + 18px);
+  font-size: calc((100vw - 360px) / 1560 * 8 + 24px);
   line-height: 36px;
   letter-spacing: -0.04em;
   color: #1A1A1A;
@@ -1822,7 +1822,7 @@ header .menu_wrapper .info_menu ul li a:hover {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: calc((100vw - 360px) / 1560 * 0 + 14px);
+  font-size: calc((100vw - 360px) / 1560 * 2 + 12px);
   line-height: 20px;
   color: #fff;
   transition: 0.3s all;
@@ -1938,7 +1938,7 @@ header .menu_wrapper .info_menu ul li a:hover {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: calc((100vw - 360px) / 1560 * 0 + 14px);
+  font-size: calc((100vw - 360px) / 1560 * 2 + 12px);
   line-height: 20px;
   color: #808080;
 }
@@ -1947,7 +1947,7 @@ header .menu_wrapper .info_menu ul li a:hover {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 350;
-  font-size: calc((100vw - 360px) / 1560 * 4 + 12px);
+  font-size: calc((100vw - 360px) / 1560 * 0 + 16px);
   line-height: 24px;
   color: #1A1A1A;
   margin-top: 8px;
@@ -1985,7 +1985,7 @@ header .menu_wrapper .info_menu ul li a:hover {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: calc((100vw - 360px) / 1560 * 0 + 14px);
+  font-size: calc((100vw - 360px) / 1560 * 2 + 12px);
   line-height: 16px;
   margin-top: 16px;
   display: flex;
@@ -1997,7 +1997,7 @@ header .menu_wrapper .info_menu ul li a:hover {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: calc((100vw - 360px) / 1560 * 0 + 14px);
+  font-size: calc((100vw - 360px) / 1560 * 2 + 12px);
   line-height: 16px;
   color: #808080;
   display: flex;
@@ -2040,7 +2040,7 @@ header .menu_wrapper .info_menu ul li a:hover {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 350;
-  font-size: calc((100vw - 360px) / 1560 * 0 + 14px);
+  font-size: calc((100vw - 360px) / 1560 * 2 + 12px);
   line-height: 20px;
   color: #999999;
   margin-top: 2px;
@@ -2076,7 +2076,7 @@ header .menu_wrapper .info_menu ul li a:hover {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: calc((100vw - 360px) / 1560 * 4 + 12px);
+  font-size: calc((100vw - 360px) / 1560 * 0 + 16px);
   line-height: 24px;
   text-align: center;
   color: #1A1A1A;
@@ -2093,7 +2093,7 @@ header .menu_wrapper .info_menu ul li a:hover {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: calc((100vw - 360px) / 1560 * 0 + 14px);
+  font-size: calc((100vw - 360px) / 1560 * 2 + 12px);
   line-height: 20px;
   color: #fff;
   display: flex;
@@ -2133,7 +2133,7 @@ header .menu_wrapper .info_menu ul li a:hover {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 600;
-  font-size: calc((100vw - 360px) / 1560 * 10 + 30px);
+  font-size: calc((100vw - 360px) / 1560 * 16 + 24px);
   line-height: 52px;
   letter-spacing: -0.04em;
   color: #1A1A1A;
@@ -2161,7 +2161,7 @@ header .menu_wrapper .info_menu ul li a:hover {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 350;
-  font-size: calc((100vw - 360px) / 1560 * 4 + 12px);
+  font-size: calc((100vw - 360px) / 1560 * 0 + 16px);
   line-height: 24px;
   color: #1A1A1A;
 }
@@ -2236,7 +2236,7 @@ header .menu_wrapper .info_menu ul li a:hover {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 350;
-  font-size: calc((100vw - 360px) / 1560 * 4 + 12px);
+  font-size: calc((100vw - 360px) / 1560 * 0 + 16px);
   line-height: 24px;
   color: #666666;
 }
@@ -2250,7 +2250,7 @@ header .menu_wrapper .info_menu ul li a:hover {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: calc((100vw - 360px) / 1560 * 0 + 14px);
+  font-size: calc((100vw - 360px) / 1560 * 2 + 12px);
   line-height: 20px;
   color: #1A1A1A;
 }
@@ -2297,7 +2297,7 @@ footer .item_menu ul li a {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: calc((100vw - 360px) / 1560 * 0 + 14px);
+  font-size: calc((100vw - 360px) / 1560 * 2 + 12px);
   line-height: 20px;
   color: #666666;
 }
@@ -2326,7 +2326,7 @@ footer .info_footer .contacts a {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: calc((100vw - 360px) / 1560 * 4 + 12px);
+  font-size: calc((100vw - 360px) / 1560 * 0 + 16px);
   line-height: 24px;
   color: #666666;
   text-decoration: none;
@@ -2342,7 +2342,7 @@ footer .info_footer span {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: calc((100vw - 360px) / 1560 * 4 + 12px);
+  font-size: calc((100vw - 360px) / 1560 * 0 + 16px);
   line-height: 24px;
   color: #666666;
   display: flex;
@@ -2387,7 +2387,7 @@ footer .footer_row form input {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: calc((100vw - 360px) / 1560 * 4 + 12px);
+  font-size: calc((100vw - 360px) / 1560 * 0 + 16px);
   line-height: 24px;
   color: #999999;
 }
@@ -2406,7 +2406,7 @@ footer .copy {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: calc((100vw - 360px) / 1560 * 0 + 14px);
+  font-size: calc((100vw - 360px) / 1560 * 2 + 12px);
   line-height: 20px;
   text-align: center;
   color: #808080;
@@ -2489,7 +2489,7 @@ footer .copy {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: calc((100vw - 360px) / 1560 * 4 + 12px);
+  font-size: calc((100vw - 360px) / 1560 * 0 + 16px);
   line-height: 24px;
   color: #666666;
   text-decoration: none;
@@ -2581,7 +2581,7 @@ footer .copy {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: calc((100vw - 360px) / 1560 * 0 + 14px);
+  font-size: calc((100vw - 360px) / 1560 * 2 + 12px);
   line-height: 20px;
   color: #666666;
   transition: 0.3s all;
@@ -2596,7 +2596,7 @@ footer .copy {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: calc((100vw - 360px) / 1560 * 6 + 12px);
+  font-size: calc((100vw - 360px) / 1560 * 2 + 16px);
   line-height: 28px;
   color: #1A1A1A;
   display: flex;
@@ -2648,7 +2648,7 @@ footer .copy {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: calc((100vw - 360px) / 1560 * 4 + 12px);
+  font-size: calc((100vw - 360px) / 1560 * 0 + 16px);
   line-height: 24px;
   color: #1A1A1A;
   margin-bottom: 42px;
@@ -2660,7 +2660,7 @@ footer .copy {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: calc((100vw - 360px) / 1560 * 0 + 14px);
+  font-size: calc((100vw - 360px) / 1560 * 2 + 12px);
   line-height: 20px;
   color: #1A1A1A;
   margin-bottom: 16px;
@@ -2686,7 +2686,7 @@ footer .copy {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: calc((100vw - 360px) / 1560 * 0 + 14px);
+  font-size: calc((100vw - 360px) / 1560 * 2 + 12px);
   line-height: 20px;
   color: #666666;
   display: flex;
@@ -2698,7 +2698,7 @@ footer .copy {
   color: #339900;
 }
 .section_catalog_items_list .filter .group_fillter .category_list_fillter ul li a span {
-  font-size: calc((100vw - 360px) / 1560 * 0 + 14px);
+  font-size: calc((100vw - 360px) / 1560 * 2 + 12px);
   color: #666666;
   font-family: "Inter", sans-serif;
   margin: 0;
@@ -2732,7 +2732,7 @@ footer .copy {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: calc((100vw - 360px) / 1560 * 4 + 12px);
+  font-size: calc((100vw - 360px) / 1560 * 0 + 16px);
   line-height: 20px;
   color: #666666;
   width: calc(50% - 16px);
@@ -2853,7 +2853,7 @@ footer .copy {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: calc((100vw - 360px) / 1560 * 0 + 14px);
+  font-size: calc((100vw - 360px) / 1560 * 2 + 12px);
   line-height: 20px;
   color: #666666;
 }
@@ -2866,7 +2866,7 @@ footer .copy {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: calc((100vw - 360px) / 1560 * 14 + 18px);
+  font-size: calc((100vw - 360px) / 1560 * 8 + 24px);
   line-height: 36px;
   color: #1A1A1A;
 }
@@ -2883,7 +2883,7 @@ footer .copy {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: calc((100vw - 360px) / 1560 * 0 + 14px);
+  font-size: calc((100vw - 360px) / 1560 * 2 + 12px);
   color: #1A1A1A;
 }
 .catalog_detail_section .left_info .top_left_info .rev img {
@@ -2896,7 +2896,7 @@ footer .copy {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: calc((100vw - 360px) / 1560 * 0 + 14px);
+  font-size: calc((100vw - 360px) / 1560 * 2 + 12px);
   color: #666666;
 }
 .catalog_detail_section .left_info .top_left_info .article {
@@ -2906,7 +2906,7 @@ footer .copy {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: calc((100vw - 360px) / 1560 * 0 + 14px);
+  font-size: calc((100vw - 360px) / 1560 * 2 + 12px);
   line-height: 16px;
   color: #fff;
   width: -webkit-max-content;
@@ -2938,7 +2938,7 @@ footer .copy {
   height: 20px;
 }
 .catalog_detail_section .left_info .wrapper_imgs .main_img .info_icon .hover_icon span {
-  font-size: calc((100vw - 360px) / 1560 * 0 + 14px);
+  font-size: calc((100vw - 360px) / 1560 * 2 + 12px);
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
@@ -3034,7 +3034,7 @@ footer .copy {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: calc((100vw - 360px) / 1560 * 8 + 16px);
+  font-size: calc((100vw - 360px) / 1560 * 10 + 14px);
   color: #B3B3B3;
   position: relative;
 }
@@ -3067,7 +3067,7 @@ footer .copy {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: calc((100vw - 360px) / 1560 * 6 + 12px);
+  font-size: calc((100vw - 360px) / 1560 * 2 + 16px);
   color: #1A1A1A;
   margin-bottom: 20px;
 }
@@ -3078,14 +3078,14 @@ footer .copy {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 350;
-  font-size: calc((100vw - 360px) / 1560 * 4 + 12px);
+  font-size: calc((100vw - 360px) / 1560 * 0 + 16px);
   color: #666666;
 }
 .catalog_detail_section .left_info .content_tabs .item_tab_content .descr .btn_show_text {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: calc((100vw - 360px) / 1560 * 0 + 14px);
+  font-size: calc((100vw - 360px) / 1560 * 2 + 12px);
   color: #339900;
   margin-top: 20px;
   cursor: pointer;
@@ -3114,14 +3114,14 @@ footer .copy {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: calc((100vw - 360px) / 1560 * 6 + 12px);
+  font-size: calc((100vw - 360px) / 1560 * 2 + 16px);
   color: #1A1A1A;
 }
 .catalog_detail_section .left_info .content_tabs .item_tab_content.rev .top .popup_form_trigger {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: calc((100vw - 360px) / 1560 * 0 + 14px);
+  font-size: calc((100vw - 360px) / 1560 * 2 + 12px);
   color: #339900;
   width: -webkit-max-content;
   width: -moz-max-content;
@@ -3152,7 +3152,7 @@ footer .copy {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 350;
-  font-size: calc((100vw - 360px) / 1560 * 4 + 12px);
+  font-size: calc((100vw - 360px) / 1560 * 0 + 16px);
   color: #1A1A1A;
   line-height: 32px;
   border-bottom: 1px solid #E6E6E6;
@@ -3179,14 +3179,14 @@ footer .copy {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: calc((100vw - 360px) / 1560 * 6 + 12px);
+  font-size: calc((100vw - 360px) / 1560 * 2 + 16px);
   color: #3BB200;
 }
 .catalog_detail_section .left_info .content_tabs .item_tab_content.rev .list_rev .item .top .info h4 {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: calc((100vw - 360px) / 1560 * 4 + 12px);
+  font-size: calc((100vw - 360px) / 1560 * 0 + 16px);
   color: #1A1A1A;
   display: flex;
   gap: 16px;
@@ -3196,14 +3196,14 @@ footer .copy {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: calc((100vw - 360px) / 1560 * 0 + 14px);
+  font-size: calc((100vw - 360px) / 1560 * 2 + 12px);
   color: #999999;
 }
 .catalog_detail_section .left_info .content_tabs .item_tab_content.rev .list_rev .item h5 {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 600;
-  font-size: calc((100vw - 360px) / 1560 * 0 + 14px);
+  font-size: calc((100vw - 360px) / 1560 * 2 + 12px);
   color: #999999;
 }
 .catalog_detail_section .left_info .content_tabs .item_tab_content.rev .list_rev .section_link {
@@ -3213,7 +3213,7 @@ footer .copy {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: calc((100vw - 360px) / 1560 * 6 + 12px);
+  font-size: calc((100vw - 360px) / 1560 * 2 + 16px);
   color: #1A1A1A;
   margin-bottom: 8px;
 }
@@ -3221,7 +3221,7 @@ footer .copy {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 350;
-  font-size: calc((100vw - 360px) / 1560 * 4 + 12px);
+  font-size: calc((100vw - 360px) / 1560 * 0 + 16px);
   line-height: 24px;
   color: #666666;
   margin-bottom: 48px;
@@ -3270,7 +3270,7 @@ footer .copy {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: calc((100vw - 360px) / 1560 * 0 + 14px);
+  font-size: calc((100vw - 360px) / 1560 * 2 + 12px);
   line-height: 20px;
   color: #fff;
   display: flex;
@@ -3318,7 +3318,7 @@ footer .copy {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 350;
-  font-size: calc((100vw - 360px) / 1560 * 4 + 12px);
+  font-size: calc((100vw - 360px) / 1560 * 0 + 16px);
   line-height: 32px;
   color: #666666;
 }
@@ -3326,7 +3326,7 @@ footer .copy {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: calc((100vw - 360px) / 1560 * 6 + 12px);
+  font-size: calc((100vw - 360px) / 1560 * 2 + 16px);
   color: #1A1A1A;
   margin-bottom: 20px;
 }
@@ -3337,14 +3337,14 @@ footer .copy {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: calc((100vw - 360px) / 1560 * 4 + 12px);
+  font-size: calc((100vw - 360px) / 1560 * 0 + 16px);
   color: #1A1A1A;
 }
 .catalog_detail_section .left_info .content_tabs .item_tab_content.delivery .info div a {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 350;
-  font-size: calc((100vw - 360px) / 1560 * 4 + 12px);
+  font-size: calc((100vw - 360px) / 1560 * 0 + 16px);
   color: #339900;
   text-decoration: none;
 }
@@ -3352,7 +3352,7 @@ footer .copy {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 350;
-  font-size: calc((100vw - 360px) / 1560 * 4 + 12px);
+  font-size: calc((100vw - 360px) / 1560 * 0 + 16px);
   color: #666666;
 }
 .catalog_detail_section .left_info .content_tabs .item_tab_content.payment a {
@@ -3362,7 +3362,7 @@ footer .copy {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: calc((100vw - 360px) / 1560 * 6 + 12px);
+  font-size: calc((100vw - 360px) / 1560 * 2 + 16px);
   color: #1A1A1A;
   margin-bottom: 20px;
   margin-top: 20px;
@@ -3389,7 +3389,7 @@ footer .copy {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 350;
-  font-size: calc((100vw - 360px) / 1560 * 4 + 12px);
+  font-size: calc((100vw - 360px) / 1560 * 0 + 16px);
   color: #666666;
   justify-content: space-between;
   align-items: center;
@@ -3408,7 +3408,7 @@ footer .copy {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 350;
-  font-size: calc((100vw - 360px) / 1560 * 4 + 12px);
+  font-size: calc((100vw - 360px) / 1560 * 0 + 16px);
   text-align: right;
   color: #1A1A1A;
 }
@@ -3430,7 +3430,7 @@ footer .copy {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 700;
-  font-size: calc((100vw - 360px) / 1560 * 14 + 18px);
+  font-size: calc((100vw - 360px) / 1560 * 8 + 24px);
   color: #1A1A1A;
 }
 .catalog_detail_section .right_info .prices .old_price {
@@ -3452,7 +3452,7 @@ footer .copy {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: calc((100vw - 360px) / 1560 * 4 + 12px);
+  font-size: calc((100vw - 360px) / 1560 * 0 + 16px);
   color: #666666;
 }
 .catalog_detail_section .right_info .info .nds span {
@@ -3462,7 +3462,7 @@ footer .copy {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: calc((100vw - 360px) / 1560 * 0 + 14px);
+  font-size: calc((100vw - 360px) / 1560 * 2 + 12px);
 }
 .catalog_detail_section .right_info .info .count.green {
   color: #339900;
@@ -3489,7 +3489,7 @@ footer .copy {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: calc((100vw - 360px) / 1560 * 0 + 14px);
+  font-size: calc((100vw - 360px) / 1560 * 2 + 12px);
   line-height: 20px;
   color: #fff;
   display: flex;
@@ -3510,7 +3510,7 @@ footer .copy {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: calc((100vw - 360px) / 1560 * 0 + 14px);
+  font-size: calc((100vw - 360px) / 1560 * 2 + 12px);
   line-height: 20px;
   color: #339900;
   text-decoration: none;
@@ -3540,7 +3540,7 @@ footer .copy {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: calc((100vw - 360px) / 1560 * 0 + 14px);
+  font-size: calc((100vw - 360px) / 1560 * 2 + 12px);
   color: #666666;
   align-items: center;
   gap: 8px;
@@ -3568,7 +3568,7 @@ footer .copy {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: calc((100vw - 360px) / 1560 * 4 + 12px);
+  font-size: calc((100vw - 360px) / 1560 * 0 + 16px);
   color: #666666;
   gap: 16px;
   margin-top: 34px;
@@ -3590,7 +3590,7 @@ footer .copy {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 350;
-  font-size: calc((100vw - 360px) / 1560 * 4 + 12px);
+  font-size: calc((100vw - 360px) / 1560 * 0 + 16px);
   color: #666666;
   line-height: 44px;
 }
@@ -3637,7 +3637,7 @@ footer .copy {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 350;
-  font-size: calc((100vw - 360px) / 1560 * 4 + 12px);
+  font-size: calc((100vw - 360px) / 1560 * 0 + 16px);
   line-height: 24px;
   color: #1A1A1A;
   margin-top: 10px;
@@ -3646,7 +3646,7 @@ footer .copy {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: calc((100vw - 360px) / 1560 * 0 + 14px);
+  font-size: calc((100vw - 360px) / 1560 * 2 + 12px);
 }
 .catalog_detail_section .right_info .items_list .wrapper_items .item .price {
   font-family: "Inter", sans-serif;
@@ -3669,5 +3669,45 @@ footer .copy {
 @media (max-width: 1280px) {
   header .trigger_icons {
     padding-left: 5.5%;
+  }
+
+  .default_menu_theme {
+    gap: 30px;
+  }
+
+  .tabs .tabs_content .items_wrapper {
+    justify-content: flex-start;
+  }
+  .tabs .tabs_content .items_wrapper .item {
+    min-width: 168px;
+  }
+  .tabs .tabs_content .items_wrapper .item .icon img {
+    max-width: 144px;
+    width: 100%;
+    height: auto;
+  }
+}
+@media (max-width: 1240px) {
+  header .trigger_icons {
+    padding-left: 4.5%;
+  }
+
+  .default_menu_theme {
+    gap: 20px;
+  }
+}
+@media (max-width: 1156px) {
+  header .trigger_icons {
+    padding-left: 3.5%;
+  }
+  header .header_phones a {
+    white-space: nowrap;
+  }
+  header .menu_col ul li a {
+    white-space: nowrap;
+  }
+
+  .default_menu_theme {
+    gap: 10px;
   }
 }

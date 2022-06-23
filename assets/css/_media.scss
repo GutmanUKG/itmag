@@ -14,4 +14,73 @@
       padding-left: 5.5%;
     }
   }
+
+  .default_menu_theme{
+    gap: 30px;
+  }
+  .tabs{
+    .tabs_content{
+      .items_wrapper{
+        justify-content: flex-start;
+        .item{
+          min-width: 168px;
+          .icon{
+            img{
+              max-width: 144px;
+              width: 100%;
+              height: auto;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@media(max-width: 1240px){
+  header{
+    .trigger_icons{
+      padding-left: 4.5%;
+    }
+  }
+
+  .default_menu_theme{
+    gap: 20px;
+  }
+}
+
+
+@media(max-width: 1156px){
+  header{
+    .trigger_icons{
+      padding-left: 3.5%;
+    }
+    .header_phones{
+      a{
+        white-space: nowrap;
+      }
+    }
+    .menu_col{
+      ul{
+        li{
+          a{
+            white-space: nowrap;
+          }
+        }
+      }
+    }
+  }
+  .default_menu_theme{
+    gap: 10px;
+  }
+}
+
+//Начало планшетной версии
+@media(max-width: 1090px){
+
+}
+//Начало мобильной версии
+@media(max-width: 767px){
+
 }
