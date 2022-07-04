@@ -1,5 +1,11 @@
 "use strict";
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -80,6 +86,46 @@ document.addEventListener('DOMContentLoaded', function () {
     }]);
 
     return AccardionMenu;
+  }(); //Sliders
+
+
+  var SliderOwl = /*#__PURE__*/function () {
+    function SliderOwl(_ref2) {
+      var _ref2$wrapperClass = _ref2.wrapperClass,
+          wrapperClass = _ref2$wrapperClass === void 0 ? null : _ref2$wrapperClass,
+          _ref2$ShowMedia = _ref2.ShowMedia,
+          ShowMedia = _ref2$ShowMedia === void 0 ? false : _ref2$ShowMedia,
+          _ref2$MediaSize = _ref2.MediaSize,
+          MediaSize = _ref2$MediaSize === void 0 ? 1000 : _ref2$MediaSize,
+          _ref2$params = _ref2.params,
+          params = _ref2$params === void 0 ? {} : _ref2$params;
+
+      _classCallCheck(this, SliderOwl);
+
+      this.wrapperClass = wrapperClass;
+      this.ShowMedia = ShowMedia;
+      this.MediaSize = MediaSize;
+      this.params = params;
+    }
+
+    _createClass(SliderOwl, [{
+      key: "init",
+      value: function init() {
+        var wrapper = document.querySelector(this.wrapperClass);
+        wrapper.classList.add('owl-carousel');
+        wrapper.classList.add('owl-theme');
+
+        if (this.ShowMedia) {
+          if (document.body.clientWidth <= this.MediaSize) {
+            $(this.wrapperClass).owlCarousel(_objectSpread({}, this.params));
+          }
+        } else {
+          $(this.wrapperClass).owlCarousel(_objectSpread({}, this.params));
+        }
+      }
+    }]);
+
+    return SliderOwl;
   }(); //Функция считает сколько было проскроленно
 
 
@@ -103,27 +149,27 @@ document.addEventListener('DOMContentLoaded', function () {
   window.addEventListener("scroll", optimizedHandler); //Переключатель классов
 
   var TogglerClases = /*#__PURE__*/function () {
-    function TogglerClases(_ref2) {
-      var _ref2$triger = _ref2.triger,
-          triger = _ref2$triger === void 0 ? null : _ref2$triger,
-          _ref2$toggleEl = _ref2.toggleEl,
-          toggleEl = _ref2$toggleEl === void 0 ? null : _ref2$toggleEl,
-          _ref2$listener = _ref2.listener,
-          listener = _ref2$listener === void 0 ? 'click' : _ref2$listener,
-          _ref2$classActive = _ref2.classActive,
-          classActive = _ref2$classActive === void 0 ? null : _ref2$classActive,
-          _ref2$closeBtn = _ref2.closeBtn,
-          closeBtn = _ref2$closeBtn === void 0 ? '.close_btn' : _ref2$closeBtn,
-          _ref2$overlay = _ref2.overlay,
-          overlay = _ref2$overlay === void 0 ? '.overlay' : _ref2$overlay,
-          _ref2$showOveraly = _ref2.showOveraly,
-          showOveraly = _ref2$showOveraly === void 0 ? true : _ref2$showOveraly,
-          _ref2$bodyClass = _ref2.bodyClass,
-          bodyClass = _ref2$bodyClass === void 0 ? '' : _ref2$bodyClass,
-          _ref2$listenerOut = _ref2.listenerOut,
-          listenerOut = _ref2$listenerOut === void 0 ? null : _ref2$listenerOut,
-          _ref2$isScrollTop = _ref2.isScrollTop,
-          isScrollTop = _ref2$isScrollTop === void 0 ? false : _ref2$isScrollTop;
+    function TogglerClases(_ref3) {
+      var _ref3$triger = _ref3.triger,
+          triger = _ref3$triger === void 0 ? null : _ref3$triger,
+          _ref3$toggleEl = _ref3.toggleEl,
+          toggleEl = _ref3$toggleEl === void 0 ? null : _ref3$toggleEl,
+          _ref3$listener = _ref3.listener,
+          listener = _ref3$listener === void 0 ? 'click' : _ref3$listener,
+          _ref3$classActive = _ref3.classActive,
+          classActive = _ref3$classActive === void 0 ? null : _ref3$classActive,
+          _ref3$closeBtn = _ref3.closeBtn,
+          closeBtn = _ref3$closeBtn === void 0 ? '.close_btn' : _ref3$closeBtn,
+          _ref3$overlay = _ref3.overlay,
+          overlay = _ref3$overlay === void 0 ? '.overlay' : _ref3$overlay,
+          _ref3$showOveraly = _ref3.showOveraly,
+          showOveraly = _ref3$showOveraly === void 0 ? true : _ref3$showOveraly,
+          _ref3$bodyClass = _ref3.bodyClass,
+          bodyClass = _ref3$bodyClass === void 0 ? '' : _ref3$bodyClass,
+          _ref3$listenerOut = _ref3.listenerOut,
+          listenerOut = _ref3$listenerOut === void 0 ? null : _ref3$listenerOut,
+          _ref3$isScrollTop = _ref3.isScrollTop,
+          isScrollTop = _ref3$isScrollTop === void 0 ? false : _ref3$isScrollTop;
 
       _classCallCheck(this, TogglerClases);
 
@@ -222,15 +268,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
   var animateTranslate = /*#__PURE__*/function () {
-    function animateTranslate(_ref3) {
-      var _ref3$elements = _ref3.elements,
-          elements = _ref3$elements === void 0 ? null : _ref3$elements,
-          _ref3$classActive = _ref3.classActive,
-          classActive = _ref3$classActive === void 0 ? '' : _ref3$classActive,
-          _ref3$listener = _ref3.listener,
-          listener = _ref3$listener === void 0 ? 'mouseover' : _ref3$listener,
-          _ref3$listenerOut = _ref3.listenerOut,
-          listenerOut = _ref3$listenerOut === void 0 ? null : _ref3$listenerOut;
+    function animateTranslate(_ref4) {
+      var _ref4$elements = _ref4.elements,
+          elements = _ref4$elements === void 0 ? null : _ref4$elements,
+          _ref4$classActive = _ref4.classActive,
+          classActive = _ref4$classActive === void 0 ? '' : _ref4$classActive,
+          _ref4$listener = _ref4.listener,
+          listener = _ref4$listener === void 0 ? 'mouseover' : _ref4$listener,
+          _ref4$listenerOut = _ref4.listenerOut,
+          listenerOut = _ref4$listenerOut === void 0 ? null : _ref4$listenerOut;
 
       _classCallCheck(this, animateTranslate);
 
@@ -285,15 +331,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
   var animateVariable = /*#__PURE__*/function () {
-    function animateVariable(_ref4) {
-      var _ref4$elements = _ref4.elements,
-          elements = _ref4$elements === void 0 ? null : _ref4$elements,
-          _ref4$listener = _ref4.listener,
-          listener = _ref4$listener === void 0 ? 'mouseover' : _ref4$listener,
-          _ref4$listenerOut = _ref4.listenerOut,
-          listenerOut = _ref4$listenerOut === void 0 ? null : _ref4$listenerOut,
-          _ref4$animateName = _ref4.animateName,
-          animateName = _ref4$animateName === void 0 ? '' : _ref4$animateName;
+    function animateVariable(_ref5) {
+      var _ref5$elements = _ref5.elements,
+          elements = _ref5$elements === void 0 ? null : _ref5$elements,
+          _ref5$listener = _ref5.listener,
+          listener = _ref5$listener === void 0 ? 'mouseover' : _ref5$listener,
+          _ref5$listenerOut = _ref5.listenerOut,
+          listenerOut = _ref5$listenerOut === void 0 ? null : _ref5$listenerOut,
+          _ref5$animateName = _ref5.animateName,
+          animateName = _ref5$animateName === void 0 ? '' : _ref5$animateName;
 
       _classCallCheck(this, animateVariable);
 
@@ -340,21 +386,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
   var ToggleTabs = /*#__PURE__*/function () {
-    function ToggleTabs(_ref5) {
-      var _ref5$itemsTabs = _ref5.itemsTabs,
-          itemsTabs = _ref5$itemsTabs === void 0 ? null : _ref5$itemsTabs,
-          _ref5$wrapperItemsCon = _ref5.wrapperItemsContent,
-          wrapperItemsContent = _ref5$wrapperItemsCon === void 0 ? null : _ref5$wrapperItemsCon,
-          _ref5$itemsContent = _ref5.itemsContent,
-          itemsContent = _ref5$itemsContent === void 0 ? null : _ref5$itemsContent,
-          _ref5$classActive = _ref5.classActive,
-          classActive = _ref5$classActive === void 0 ? 'show' : _ref5$classActive,
-          _ref5$animationName = _ref5.animationName,
-          animationName = _ref5$animationName === void 0 ? 'animate__fadeInRight' : _ref5$animationName,
-          _ref5$topLink = _ref5.topLink,
-          topLink = _ref5$topLink === void 0 ? null : _ref5$topLink,
-          _ref5$line = _ref5.line,
-          line = _ref5$line === void 0 ? false : _ref5$line;
+    function ToggleTabs(_ref6) {
+      var _ref6$itemsTabs = _ref6.itemsTabs,
+          itemsTabs = _ref6$itemsTabs === void 0 ? null : _ref6$itemsTabs,
+          _ref6$wrapperItemsCon = _ref6.wrapperItemsContent,
+          wrapperItemsContent = _ref6$wrapperItemsCon === void 0 ? null : _ref6$wrapperItemsCon,
+          _ref6$itemsContent = _ref6.itemsContent,
+          itemsContent = _ref6$itemsContent === void 0 ? null : _ref6$itemsContent,
+          _ref6$classActive = _ref6.classActive,
+          classActive = _ref6$classActive === void 0 ? 'show' : _ref6$classActive,
+          _ref6$animationName = _ref6.animationName,
+          animationName = _ref6$animationName === void 0 ? 'animate__fadeInRight' : _ref6$animationName,
+          _ref6$topLink = _ref6.topLink,
+          topLink = _ref6$topLink === void 0 ? null : _ref6$topLink,
+          _ref6$line = _ref6.line,
+          line = _ref6$line === void 0 ? false : _ref6$line;
 
       _classCallCheck(this, ToggleTabs);
 
@@ -433,13 +479,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
   var selectList = /*#__PURE__*/function () {
-    function selectList(_ref6) {
-      var _ref6$triggerEl = _ref6.triggerEl,
-          triggerEl = _ref6$triggerEl === void 0 ? null : _ref6$triggerEl,
-          _ref6$popupList = _ref6.popupList,
-          popupList = _ref6$popupList === void 0 ? "" : _ref6$popupList,
-          _ref6$classActive = _ref6.classActive,
-          classActive = _ref6$classActive === void 0 ? '' : _ref6$classActive;
+    function selectList(_ref7) {
+      var _ref7$triggerEl = _ref7.triggerEl,
+          triggerEl = _ref7$triggerEl === void 0 ? null : _ref7$triggerEl,
+          _ref7$popupList = _ref7.popupList,
+          popupList = _ref7$popupList === void 0 ? "" : _ref7$popupList,
+          _ref7$classActive = _ref7.classActive,
+          classActive = _ref7$classActive === void 0 ? '' : _ref7$classActive;
 
       _classCallCheck(this, selectList);
 
@@ -478,11 +524,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
   var toggleImgs = /*#__PURE__*/function () {
-    function toggleImgs(_ref7) {
-      var _ref7$mainImg = _ref7.mainImg,
-          mainImg = _ref7$mainImg === void 0 ? null : _ref7$mainImg,
-          _ref7$imgList = _ref7.imgList,
-          imgList = _ref7$imgList === void 0 ? null : _ref7$imgList;
+    function toggleImgs(_ref8) {
+      var _ref8$mainImg = _ref8.mainImg,
+          mainImg = _ref8$mainImg === void 0 ? null : _ref8$mainImg,
+          _ref8$imgList = _ref8.imgList,
+          imgList = _ref8$imgList === void 0 ? null : _ref8$imgList;
 
       _classCallCheck(this, toggleImgs);
 
@@ -521,13 +567,13 @@ document.addEventListener('DOMContentLoaded', function () {
   }();
 
   var catalogSort = /*#__PURE__*/function () {
-    function catalogSort(_ref8) {
-      var _ref8$elements = _ref8.elements,
-          elements = _ref8$elements === void 0 ? null : _ref8$elements,
-          _ref8$count = _ref8.count,
-          count = _ref8$count === void 0 ? 5 : _ref8$count,
-          _ref8$showLenght = _ref8.showLenght,
-          showLenght = _ref8$showLenght === void 0 ? false : _ref8$showLenght;
+    function catalogSort(_ref9) {
+      var _ref9$elements = _ref9.elements,
+          elements = _ref9$elements === void 0 ? null : _ref9$elements,
+          _ref9$count = _ref9.count,
+          count = _ref9$count === void 0 ? 5 : _ref9$count,
+          _ref9$showLenght = _ref9.showLenght,
+          showLenght = _ref9$showLenght === void 0 ? false : _ref9$showLenght;
 
       _classCallCheck(this, catalogSort);
 
@@ -586,11 +632,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
   var sliceText = /*#__PURE__*/function () {
-    function sliceText(_ref9) {
-      var _ref9$elements = _ref9.elements,
-          elements = _ref9$elements === void 0 ? null : _ref9$elements,
-          _ref9$count = _ref9.count,
-          count = _ref9$count === void 0 ? 500 : _ref9$count;
+    function sliceText(_ref10) {
+      var _ref10$elements = _ref10.elements,
+          elements = _ref10$elements === void 0 ? null : _ref10$elements,
+          _ref10$count = _ref10.count,
+          count = _ref10$count === void 0 ? 500 : _ref10$count;
 
       _classCallCheck(this, sliceText);
 
@@ -692,6 +738,12 @@ document.addEventListener('DOMContentLoaded', function () {
       bodyClass: 'active_left_menu_from_fixed'
     });
     ShowCatalogLeftFixed.init();
+    var ShowCatalogLeftTablet = new TogglerClases({
+      triger: '#catalog_btn_tablet',
+      toggleEl: '.left_menu_catalog',
+      classActive: 'left_menu_catalog_active'
+    });
+    ShowCatalogLeftTablet.init();
   } catch (e) {} //Вызов поисковика
 
 
@@ -721,6 +773,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
   try {
+    var sliderInfo = new SliderOwl({
+      wrapperClass: '.special_item_list',
+      showMedia: true,
+      MediaSize: 1090,
+      params: {
+        loop: false,
+        nav: false,
+        items: 4
+      }
+    }); // sliderInfo.init()
+
     $('.banners_slider').owlCarousel({
       loop: true,
       nav: false,

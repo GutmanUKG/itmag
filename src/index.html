@@ -34,7 +34,7 @@
 </head>
 <body class="">
     <header>
-        <div class="container">
+        <div class="container desktop_header">
             <div class="row header_bar">
                 <div class="col-5 header_phones">
                     <a href="tel:8 (727) 321 80 90">
@@ -210,6 +210,91 @@
                 </div>
             </div>
         </div>
+        <!--Шапка для планшетной версии-->
+        <div class="container tablet_header">
+           <div class="row tablet_header_top">
+               <div class="col-2 tablet_logo">
+                   <a href="#">
+                       <svg width="85" height="32" viewBox="0 0 85 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <mask id="mask0_1401_26836" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="1" y="2" width="84" height="30">
+                               <path d="M50.5056 18.9437C50.5056 17.8546 50.8143 16.8799 51.4317 16.0195C52.0599 15.1592 52.9209 14.4785 54.0148 13.9776C55.1088 13.4766 56.3597 13.2261 57.7678 13.2261C58.2118 13.2261 58.6776 13.2533 59.165 13.3078C59.6632 13.3622 60.1614 13.433 60.6596 13.5202C60.3022 11.745 59.0187 10.8574 56.8092 10.8574C55.4987 10.8574 54.1827 11.3529 52.8613 12.344L51.253 8.37435C52.3794 7.82982 53.4895 7.42687 54.5835 7.1655C55.6774 6.90413 56.7172 6.77344 57.7028 6.77344C59.2733 6.77344 60.6325 7.07293 61.7806 7.67191C62.9395 8.26 63.8385 9.09858 64.4775 10.1876C65.1166 11.2658 65.4361 12.5346 65.4361 13.9939V23.5053H61.5044L61.1958 21.6881C60.5892 22.3306 59.8473 22.837 58.97 23.2073C58.1035 23.5776 57.1504 23.7627 56.1106 23.7627C54.4643 23.7627 53.1159 23.3162 52.0653 22.4232C51.0255 21.5302 50.5056 20.3703 50.5056 18.9437ZM55.1846 17.8655C55.1846 18.41 55.3904 18.8511 55.8019 19.1887C56.2244 19.5154 56.7767 19.6788 57.4591 19.6788C58.3905 19.6788 59.1704 19.3956 59.7986 18.8293C60.4376 18.263 60.7571 17.566 60.7571 16.7383V16.4116C60.3564 16.2809 59.9231 16.1775 59.4574 16.1012C59.0025 16.025 58.553 15.9869 58.1089 15.9869C57.1883 15.9869 56.468 16.1502 55.9482 16.4769C55.4391 16.8037 55.1846 17.2665 55.1846 17.8655Z" fill="#1A1A1A"/>
+                               <path d="M75.218 6.77344C77.1604 6.77344 78.9455 7.4592 80.3691 8.79953C80.3691 8.79953 80.5303 7.32166 80.5479 7.03085H85V21.446C85 23.5372 84.6057 25.4416 83.8092 26.9991C83.0235 28.5566 81.9159 29.7656 80.4864 30.626C79.0678 31.4974 77.3983 32 75.4777 32C74.4193 32 73.2953 31.8529 72.1059 31.5589C70.9165 31.2648 69.6997 30.8074 68.4558 30.1865L69.8121 26.4038C71.4152 27.2104 73.1413 27.8814 74.9606 27.8814C76.5865 27.8814 77.9166 27.3204 78.8659 26.2313C79.934 25.0183 80.3664 23.2825 80.3664 21.7034C78.9731 23.0967 77.1664 23.7643 75.218 23.7643C70.4946 23.7643 67.4954 19.8329 67.4954 15.2681C67.4954 10.7088 70.572 6.77344 75.218 6.77344ZM76.2477 19.6792C78.6966 19.6792 80.3664 17.6411 80.3664 15.2681C80.3664 12.8951 78.6966 10.857 76.2477 10.857C73.7988 10.857 72.1157 12.8951 72.1157 15.2681C72.1157 17.6411 73.7988 19.6792 76.2477 19.6792Z" fill="#1A1A1A"/>
+                               <path d="M26.826 23.5038H22.1892V7.02934H26.5684L26.6811 8.84032C27.8189 7.4624 29.3591 6.77344 31.3019 6.77344C33.7813 6.77344 35.5362 7.85062 36.5666 10.005C37.997 7.8635 39.6422 6.77344 41.9601 6.77344C47.0691 6.77344 48.4462 10.8906 48.4462 15.5016V23.5038H43.8094V14.7518C43.8094 12.6924 42.8599 10.8906 40.7236 10.8906C38.6642 10.8906 37.6377 12.6924 37.6377 14.7518V23.5038H33.0009V14.7518C33.0009 12.6924 31.9712 10.8744 29.9119 10.8744C27.8525 10.8744 26.8228 12.6924 26.8228 14.7518L26.826 23.5038Z" fill="#1A1A1A"/>
+                               <path d="M1 7.03296H5.63359V23.5074H1V7.03296Z" fill="#1A1A1A"/>
+                               <path d="M15.4961 2.91211H10.8625V7.03073L10.8676 7.03287H8.28833V11.1515H10.8593V17.7119C10.8593 19.6585 11.3691 21.1567 12.3887 22.2064C13.4192 23.2454 14.8898 23.7649 16.8003 23.7649C17.6983 23.7649 18.6903 23.5845 19.6149 23.2499V19.3887C19.1257 19.5646 18.555 19.6639 18.0884 19.6639C17.337 19.6639 16.7144 19.4452 16.2206 19.0078C15.7377 18.5594 15.4961 17.9469 15.4961 17.1705V11.1515H19.6149V7.03287H15.4914L15.4961 7.03073V2.91211Z" fill="#1A1A1A"/>
+                           </mask>
+                           <g mask="url(#mask0_1401_26836)">
+                               <circle cx="3.3166" cy="3.32471" r="102.525" fill="#1A1A1A"/>
+                               <circle cx="3.31661" cy="2.91234" r="1.33333" fill="#54CC00"/>
+                           </g>
+                           <path d="M0.404297 2.9123L3.31669 0L6.22908 2.9123L3.31669 5.82461L0.404297 2.9123Z" fill="#54CC00"/>
+                       </svg>
+
+                   </a>
+               </div>
+               <div class="col-9 offset-1 header_phones tablet_header_phones justify-content-end">
+                   <a href="tel:8 (727) 321 80 90">
+                       <img src="./img/icons/phone.png" alt="phone">
+                       8 (727) 321 80 90
+                   </a>
+                   <a href="tel:8 (702) 006 57 28">
+                       <img src="./img/icons/smartphone.png" alt="phone">
+                       8 (702) 006 57 28
+                   </a>
+                   <a href="mailto:shop@itmag.kz">
+                       <img src="./img/icons/mail.png" alt="mail">
+                       shop@itmag.kz
+                   </a>
+               </div>
+           </div>
+            <div class="tablet_header_menu row">
+                <a href="" id="catalog_btn_tablet" class="col-1">
+                    <div class="icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" id="catalog_svg">
+                            <path d="M22 9C22.5523 9 23 8.55228 23 8C23 7.44772 22.5523 7 22 7V9ZM2 7C1.44772 7 1 7.44772 1 8C1 8.55228 1.44772 9 2 9V7ZM22 7L2 7V9L22 9V7Z" fill="#1A1A1A"/>
+                            <path d="M12 17C12.5523 17 13 16.5523 13 16C13 15.4477 12.5523 15 12 15V17ZM2 15C1.44771 15 1 15.4477 1 16C1 16.5523 1.44771 17 2 17V15ZM12 15L2 15V17H12V15Z" fill="#1A1A1A" class="default_line"/>
+                            <path d="M22 17C22.5523 17 23 16.5523 23 16C23 15.4477 22.5523 15 22 15V17ZM2 15C1.44772 15 1 15.4477 1 16C1 16.5523 1.44772 17 2 17V15ZM22 15L2 15V17L22 17V15Z" fill="#1A1A1A" class="active_line"/>
+                        </svg>
+                    </div>
+                </a>
+                <div class="col-7 wrapper_search_tablet">
+                    <form action="" id="search_tablet">
+                        <input type="text" placeholder="Поиск" class="search_input">
+                    </form>
+                </div>
+                <div class="col-4 trigger_icons justify-content-end">
+                    <div class="items_count">
+                        <a href="#" class="item_count">
+                            <img src="./img/icons/comparison_icon.png" alt="comparison" class="dark">
+                            <img src="./img/icons/Comparison_icon_green.png" alt="green_icon" class="green">
+                            <span class="count">
+                            4
+                        </span>
+                        </a>
+                        <a href="#" class="item_count">
+                            <img src="./img/icons/favorite_icon.png" alt="comparison" class="dark">
+                            <img src="./img/icons/Favorite_icon_green.png" alt="" class="green">
+                            <span class="count">
+                            3
+                        </span>
+                        </a>
+                        <a href="#" class="item_count">
+                            <img src="./img/icons/shopping cart_icon.png" alt="comparison" class="dark">
+                            <img src="./img/icons/Shopping cart_icon_green.png" alt="comparison" class="green">
+                            <span class="count">
+                            3
+                        </span>
+                        </a>
+                    </div>
+                    <a href="#" class="user">
+                        <img src="./img/icons/user_icons.png" alt="user_icons" class="dark">
+                        <img src="./img/icons/User_icons_green.png" alt="user_icons" class="green">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!--Шапка для планшетной версии-->
         <div class="menu_wrapper">
             <div class="container">
                 <div class="row">

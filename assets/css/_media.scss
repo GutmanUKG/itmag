@@ -78,7 +78,21 @@
 
 //Начало планшетной версии
 @media(max-width: 1090px){
+  .desktop_header,
+  .menu_wrapper{
+    display: none;
+  }
 
+  .tablet_header{
+    display: block;
+  }
+  header{
+    padding-top: 24px;
+    padding-bottom: 20px;
+  }
+  .left_menu_catalog{
+    width: 40%;
+  }
 }
 //Начало мобильной версии
 @media(max-width: 767px){

@@ -60,6 +60,40 @@ document.addEventListener('DOMContentLoaded', ()=>{
         }
     }
 
+
+    //Sliders
+    class SliderOwl{
+        constructor({
+                        wrapperClass = null,
+                        ShowMedia = false,
+                        MediaSize = 1000,
+                        params = {}
+                    }){
+            this.wrapperClass =wrapperClass
+            this.ShowMedia = ShowMedia
+            this.MediaSize = MediaSize
+            this.params = params
+        }
+        init(){
+            let wrapper = document.querySelector(this.wrapperClass)
+            wrapper.classList.add('owl-carousel')
+            wrapper.classList.add('owl-theme')
+            if(this.ShowMedia){
+                if(document.body.clientWidth <= this.MediaSize){
+                    $(this.wrapperClass).owlCarousel({
+                        ...this.params
+                    })
+                }
+
+            }else{
+                $(this.wrapperClass).owlCarousel({
+                    ...this.params
+                })
+            }
+        }
+    }
+
+
     //Функция считает сколько было проскроленно
     function showScrollMenu(){
         console.log('scroll')
@@ -549,6 +583,14 @@ document.addEventListener('DOMContentLoaded', ()=>{
             bodyClass: 'active_left_menu_from_fixed'
         })
         ShowCatalogLeftFixed.init()
+
+
+        const ShowCatalogLeftTablet = new TogglerClases({
+            triger: '#catalog_btn_tablet',
+            toggleEl: '.left_menu_catalog',
+            classActive: 'left_menu_catalog_active'
+        })
+        ShowCatalogLeftTablet.init()
     }catch (e) {}
 
 //Вызов поисковика
@@ -582,6 +624,17 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
 //Слайдер основной на главной
     try{
+        const sliderInfo = new SliderOwl({
+            wrapperClass: '.special_item_list',
+            showMedia: true,
+            MediaSize: 1090,
+            params: {
+                loop:false,
+                nav:false,
+                items: 4,
+            }
+        })
+        // sliderInfo.init()
         $('.banners_slider').owlCarousel({
             loop:true,
             nav:false,

@@ -3127,6 +3127,65 @@ footer{
     }
   }
 }
+.tablet_header{
+  display: none;
+  .tablet_header_top{
+    padding-bottom: 24px;
+    .tablet_logo{
+      a{
 
+        svg{
+          g{
+            circle{
+              &:last-child{
+               transition: 0.3s all;
+              }
+            }
+          }
+        }
+        &:hover{
+          svg{
+            g{
+              circle{
+                &:last-child{
+                  r: 100px
+                }
+              }
+            }
+          }
+        }
 
+      }
+    }
+  }
+}
+#search_tablet{
+  position: relative;
+  input{
+    width: 100%;
+    background: #fff;
+    border-radius: 40px;
+    outline: none;
+    border: none;
+    padding: 10px 10px 10px 48px;
+    box-sizing: border-box;
+    font-family: $inter;
+    font-style: normal;
+    font-weight: 400;
+    font-size: $size_16;
+    color: #999999;
+  }
+  &:before{
+    content: "";
+    display: block;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    background: url("../img/icons/Search_icon.png") center no-repeat;
+    background-size: contain;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px;
+  }
+}
 @import "media";
