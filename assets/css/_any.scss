@@ -5,7 +5,9 @@
 }
 $inter:'Inter',sans-serif;
 //end fonts
-
+body{
+  //transition: 0.3s all;
+}
 
 @media(min-width: 1400px){
   .container{
