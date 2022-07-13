@@ -478,6 +478,11 @@ header{
                   }
                 }
               }
+              .accardion_missing{
+                &:after{
+                  display: none;
+                }
+              }
               .popup_list{
                 display: none;
                 &_show{
@@ -1187,9 +1192,13 @@ header{
         width: calc(16.66666667% - 16px);
         cursor: pointer;
         margin-bottom: 40px;
+        a{
+          display: block;
+        }
         &.green{
           .count{
             color: $four_green;
+
           }
         }
         &.orange{
@@ -1210,6 +1219,11 @@ header{
             font-weight: 350;
             font-size: 16px;
             color: $dark;
+            max-width: 168px;
+            width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
           }
         }
         .count{
@@ -1242,6 +1256,9 @@ header{
           box-sizing: border-box;
           background: $grey_bg;
           margin-bottom: 10px;
+          height: 168px;
+          display: flex;
+          align-items: center;
           img{
             width: 144px;
             height: 144px;
@@ -1252,6 +1269,8 @@ header{
       }
     }
   }
+
+
 }
 
 //single_banner
@@ -1543,6 +1562,7 @@ header{
         transition: 0.3s all;
         width: 176px;
         height: 88px;
+        object-fit: contain;
       }
     }
   }
@@ -1887,6 +1907,7 @@ footer{
   .trigger_icons{
     width: max-content;
     padding-left: 0;
+    //margin-left: auto;
   }
   .wrapper_search{
     max-width: 180px;
@@ -1935,6 +1956,17 @@ footer{
 
     }
     .action_menu_fixed{
+      .action_menu{
+        ul{
+          li{
+            a{
+              img{
+                display: none;
+              }
+            }
+          }
+        }
+      }
       margin-left: 20px;
       ul{
 
@@ -2511,6 +2543,7 @@ footer{
         }
       }
     }
+
     .tabs{
       max-width: 800px;
       width: 100%;
@@ -2547,6 +2580,7 @@ footer{
           }
         }
       }
+
     }
     .content_tabs{
       max-width: 800px;

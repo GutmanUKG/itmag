@@ -79,15 +79,17 @@ document.addEventListener('DOMContentLoaded', ()=>{
             let wrapper = document.querySelector(this.wrapperClass)
             wrapper.classList.add('owl-carousel')
             wrapper.classList.add('owl-theme')
-            console.log(this.ShowMedia)
             if(this.ShowMedia){
-
                 if(document.body.clientWidth <= this.MediaSize){
                     $(this.wrapperClass).owlCarousel({
                         ...this.params
                     })
                 }
 
+            }else{
+                $(this.wrapperClass).owlCarousel({
+                    ...this.params
+                })
             }
         }
     }
@@ -517,49 +519,24 @@ document.addEventListener('DOMContentLoaded', ()=>{
     }
     //Класс для переноса обектов
     class relocateElements {
-        constructor({element = null, elementRel = null, removeClass = null, copy = false}) {
+        constructor({element = null, elementRel = null}) {
             this.element = document.querySelector(element)
             this.elementRel = document.querySelector(elementRel)
-            this.removeClass = removeClass
-            this.copy = copy
         }
 
         relocate() {
-            if(this.copy != true){
-                this.elementRel.appendChild(this.element)
-                if(this.removeClass != null){
-                    this.element.classList.remove(this.removeClass)
-                }
-            }else{
-                let copyEl = this.element.cloneNode(true);
-                this.elementRel.appendChild(copyEl)
-                if(this.removeClass != null){
-                    copyEl.classList.remove(this.removeClass)
-                }
-            }
-
+            console.log(this.element)
+            this.elementRel.appendChild(this.element)
         }
     }
 
 
-
-    //добавление меню в фиксированое меню
     const actionMenuForFixed = new relocateElements({
         element: '.action_menu',
         elementRel: '.action_menu_fixed'
     })
     actionMenuForFixed.relocate()
-
-
-    const phonesToTabs = new relocateElements({
-        element: '.header_phones',
-        elementRel: '.tablet_header_phones ',
-        removeClass: 'col-5',
-        copy: true
-    })
-    phonesToTabs.relocate()
-
-    //Фильтр на странице каталога
+//Фильтр на странице каталога
     const sortFilterTop = new selectList({
         triggerEl: '.popup_filter',
         popupList: '.select_list',
@@ -568,7 +545,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     sortFilterTop.init()
 
 
-    //обрезка текста
+//обрезка текста
     try{
         const seoText = new sliceText({
             elements: '.seo_text',
@@ -576,7 +553,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         })
         seoText.slile()
     }catch (e) {}
-    //Переключение табов на главной
+//Переключение табов на главной
     try {
         const tabs = new ToggleTabs({
             itemsTabs: '.item_tab',
@@ -587,21 +564,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         })
         tabs.init()
     }catch (e) {}
-
-    try{
-        const tabsToggleSectionBtn = new ToggleTabs({
-            itemsTabs: '.item_tab',
-            wrapperItemsContent: '.items_wrapper',
-            topLink: '.link_for_tabs',
-            line: true
-        })
-        tabsToggleSectionBtn.init()
-    }catch(e){
-        console.log(e)
-    }
-
-
-    //Анимация ссылок
+//Анимация ссылок
     const sectionLink = new animateVariable({
             elements: '.section_link',
             listener: 'mouseover',
@@ -612,7 +575,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
 
 
-    //Подлючение аккардиона к меню
+//Подлючение аккардиона к меню
     const accardionMenu = new AccardionMenu({
             container: '.left_menu_catalog ',
             classElements: '.item_list',
@@ -648,7 +611,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         ShowCatalogLeftTablet.init()
     }catch (e) {}
 
-    //Вызов поисковика
+//Вызов поисковика
     try{
         const serachToggle = new TogglerClases({
             triger: '.search_input',
@@ -660,7 +623,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         })
         serachToggle.init()
     }catch(e){}
-    //Анимация елементов под главным слайдером
+//Анимация елементов под главным слайдером
     try {
         const specialItemAnimate = new TogglerClases({
             triger: '.special_item',
@@ -677,31 +640,19 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
 
 
-    //Слайдер основной на главной
+//Слайдер основной на главной
     try{
         const sliderInfo = new SliderOwl({
             wrapperClass: '.special_item_list',
-            ShowMedia: true,
+            showMedia: true,
             MediaSize: 1090,
             params: {
                 loop:false,
                 nav:false,
-                items: 3,
-                margin: 16,
-                dots:false,
-                autoWidth:true,
-                responsive  : {
-                    746:{
-                      items: 3
-                    },
-                    745:{
-                        items: 2.5,
-                        autoWidth:true,
-                    }
-                }
+                items: 4,
             }
         })
-        sliderInfo.init()
+        // sliderInfo.init()
         $('.banners_slider').owlCarousel({
             loop:true,
             nav:false,
@@ -714,18 +665,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
             loop:true,
             nav:false,
             items: 6,
-            dots:false,
-            responsive:{
-                1091:{
-                    items: 6
-                },
-                1090:{
-                    items: 5
-                },
-                700:{
-                    items: 4
-                }
-            }
+            dots:false
         })
         let owl = $('.brands_list');
         owl.owlCarousel();
@@ -740,29 +680,16 @@ document.addEventListener('DOMContentLoaded', ()=>{
             owl.trigger('prev.owl.carousel', [300]);
         })
 
-        if(document.body.clientWidth <= 780){
-            owl.trigger('destroy.owl.carousel')
-            owl.classList.remove('owl-carousel')
-            owl.classList.remove('owl-theme')
-        }
     }catch (e) {}
 
-    //Слайдеры на главной
+//Слайдеры на главной
     try{
            $('.reviews_list').owlCarousel({
                loop:true,
                nav:false,
                items: 3,
                dots:false,
-               margin: 16,
-               responsive:{
-                   1091:{
-                       items: 3
-                   },
-                   700:{
-                       items: 2
-                   }
-               }
+               margin: 16
            })
            let owlReviews = $('.reviews_list');
            owlReviews.owlCarousel();
@@ -777,13 +704,13 @@ document.addEventListener('DOMContentLoaded', ()=>{
                owlReviews.trigger('prev.owl.carousel', [300]);
            })
        }catch (e) {}
-    //Обрезка кол-ва елементов в меню каталога
+//Обрезка кол-ва елементов в меню каталога
     const optionalList = new catalogSort({
         elements:'.wrapper_optional_list',
         count: 5
     })
     optionalList.init()
-    //Обрезка кол-во елементов меню
+//Обрезка кол-во елементов меню
     try{
         const catalogPageMenu = new catalogSort({
             elements: '.catalog_list_toggler_item',
@@ -792,7 +719,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         })
         catalogPageMenu.init()
     }catch(e){}
-    //Обрезка кол-во брендов в фильтре
+//Обрезка кол-во брендов в фильтре
     try{
             const catalogPageMenuBrand = new catalogSort({
                 elements: '.select_list',
@@ -800,7 +727,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
             })
         catalogPageMenuBrand.init()
         }catch(e){}
-    //Обрезка кол-ва картинок в переключателе
+//Обрезка кол-ва картинок в переключателе
     try {
         const imgListDetail = new catalogSort({
             elements: '.wrapper_imgs_list',
@@ -811,7 +738,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
 
     }catch(e){}
-    //Переключение картинок на детальной странице
+//Переключение картинок на детальной странице
     try {
         const toggleImgsDetailPage = new toggleImgs({
             mainImg: '.full_img',
@@ -819,7 +746,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         })
         toggleImgsDetailPage.init()
     }catch(e){}
-    //Табы на детальной странице товара
+//Табы на детальной странице товара
     try{
         const tabsDetailPage = new ToggleTabs({
             itemsTabs: '.item_tab',
@@ -831,7 +758,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     }catch(e){}
 
 
-    //Обрезка кол-во елементов в фильтре
+//Обрезка кол-во елементов в фильтре
     try {
         const fillterCategoryList = new catalogSort({
             elements: '.category_list_fillter',
@@ -840,7 +767,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         fillterCategoryList.init()
     }catch (e) {}
 
-    //Фильтр цены
+//Фильтр цены
     try{
         let minToggle = document.querySelector('.min-toggle');
         let maxToggle = document.querySelector('.max-toggle');
@@ -914,7 +841,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
 
     }catch (e) {}
-    //обрезка текста на подробной странице
+//обрезка текста на подробной странице
     try{
         const detailDescrText = new sliceText({
             elements: '.descr_slice',

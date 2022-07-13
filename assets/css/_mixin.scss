@@ -79,6 +79,40 @@
   }
 }
 
+@mixin section_btn{
+  background: $three_green;
+  text-decoration: none;
+  font-size: 14px;
+  font-family: $inter;
+  font-style: normal;
+  font-weight: 500;
+  color: #FFFFFF;
+  padding: 12px 18px 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 200px;
+  width: 100%;
+  border-radius: 60px;
+  transition: 0.3s all;
+  span{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    &:after{
+      content: '';
+      display: block;
+      width: 6px;
+      height: 8px;
+      background: url("../img/icons/arrow_light.svg") center no-repeat;
+    }
+  }
+  &:hover{
+    background: $second_green;
+    color: $white;
+  }
+}
+
 @mixin link_btn{
   text-decoration: none;
   display: block;
@@ -122,5 +156,17 @@
     background: url("../img/icons/stars.png") center no-repeat;
     width: 16px;
     height: 16px;
+  }
+}
+
+.count{
+  &.green{
+    color: $four_green !important;
+  }
+  &.orange{
+    color: #D6A100 !important;
+  }
+  &.red{
+    color: #E8003A !important;
   }
 }

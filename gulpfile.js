@@ -11,9 +11,9 @@ const browserSync = require('browser-sync');
 
 gulp.task('build_js', function(){
     return gulp.src('assets/js/*')
-        .pipe(babel({
-            presets: ['@babel/env']
-        }))
+        // .pipe(babel({
+        //     presets: ['@babel/env']
+        // }))
         .pipe(gulp.dest('src/js'))
         .pipe(browserSync.stream());
 })

@@ -626,3 +626,9 @@ button.favorite{
 .btn_show_text{
   cursor: pointer;
 }
+
+.link_for_tabs{
+  @include section_btn;
+  margin: 0 auto;
+  display: none;
+}
