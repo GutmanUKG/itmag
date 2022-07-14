@@ -542,22 +542,26 @@ document.addEventListener('DOMContentLoaded', ()=>{
     }
 
 
+    try{
+        //добавление меню в фиксированое меню
+        const actionMenuForFixed = new relocateElements({
+            element: '.action_menu',
+            elementRel: '.action_menu_fixed'
+        })
+        actionMenuForFixed.relocate()
 
-    //добавление меню в фиксированое меню
-    const actionMenuForFixed = new relocateElements({
-        element: '.action_menu',
-        elementRel: '.action_menu_fixed'
-    })
-    actionMenuForFixed.relocate()
 
+        const phonesToTabs = new relocateElements({
+            element: '.header_phones',
+            elementRel: '.tablet_header_phones ',
+            removeClass: 'col-5',
+            copy: true
+        })
+        phonesToTabs.relocate()
+    }catch(e){
 
-    const phonesToTabs = new relocateElements({
-        element: '.header_phones',
-        elementRel: '.tablet_header_phones ',
-        removeClass: 'col-5',
-        copy: true
-    })
-    phonesToTabs.relocate()
+    }
+
 
     //Фильтр на странице каталога
     const sortFilterTop = new selectList({
@@ -922,4 +926,68 @@ document.addEventListener('DOMContentLoaded', ()=>{
         })
         detailDescrText.slile()
     }catch (e) {}
+
+
+
+    function relocateMenuForTab(){
+        const infoMenu = document.querySelector('.info_menu')
+        const popupMenu = document.querySelector('.left_menu_catalog_list')
+        const leftMenuCatalog = document.querySelector('.left_menu_catalog')
+        popupMenu.classList.add('mobile_left_menu')
+        leftMenuCatalog.classList.add('mobile_tabs_active')
+        popupMenu.appendChild(infoMenu)
+    }
+
+
+    function tabsInleftMenu(){
+        const leftMenuCatalogMobile = document.querySelector('.left_menu_catalog_mobile')
+        const tabItem = leftMenuCatalogMobile.querySelectorAll('.tab')
+        const mobileLeftMenu = document.querySelector('.mobile_left_menu')
+        const mobileTtabsActive = document.querySelector('.mobile_tabs_active ')
+        const closeBtn = mobileTtabsActive.querySelector('.close_btn')
+        tabItem.forEach((item,id)=>{
+            item.addEventListener('click', (e)=>{
+                e.preventDefault()
+                clearClass(tabItem, 'active')
+                item.classList.add('active')
+                mobileLeftMenu.children[id].style.display = 'flex'
+            })
+        })
+        let elementsFirstMenu = mobileLeftMenu.children[0].querySelectorAll('li');
+        elementsFirstMenu.forEach(item=>{
+            item.addEventListener('click', (e)=>{
+                if(item.children[1] != null && item.children[1] != undefined){
+                    e.preventDefault()
+                    item.children[1].classList.add('active_mobile_popup_menu')
+                    closeBtn.style.zIndex = '600'
+                    closeBtn.classList.add('back_menu')
+                    closePopupMenu(item.children[1])
+                }else{
+                    console.log('not submenu')
+                }
+            })
+
+
+        })
+        function closePopupMenu(element){
+            console.log(element)
+            closeBtn.addEventListener('click', (e)=>{
+                if(closeBtn.classList.contains('back_menu')){
+                    element.classList.remove('active_mobile_popup_menu')
+                    closeBtn.classList.remove('back_menu')
+                }
+            })
+        }
+        function clearClass(element, className){
+            for(let i = 0; i < element.length; i++){
+                element[i].classList.remove(className)
+                mobileLeftMenu.children[i].style.display = 'none'
+            }
+        }
+    }
+
+    if(document.body.clientWidth <= 1090){
+        relocateMenuForTab()
+        tabsInleftMenu()
+    }
 });

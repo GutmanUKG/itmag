@@ -997,6 +997,9 @@ header .menu_wrapper .info_menu ul li a:hover {
   left: -200%;
   transition: 0.3s all;
 }
+.left_menu_catalog .left_menu_catalog_mobile {
+  display: none;
+}
 .left_menu_catalog .row > * {
   padding-left: calc(var(--bs-gutter-x) * 0.5);
 }
@@ -1110,6 +1113,11 @@ header .menu_wrapper .info_menu ul li a:hover {
 }
 .left_menu_catalog .row .left_menu_catalog_list ul li .sub_menu_list .item_list ul li a:hover {
   color: #3BB200;
+}
+.left_menu_catalog .row .left_menu_catalog_list ul li .active_mobile_popup_menu {
+  left: 0;
+  z-index: 500;
+  width: 100%;
 }
 .left_menu_catalog .row .left_menu_catalog_list ul li a {
   display: flex;
@@ -1287,6 +1295,7 @@ header .menu_wrapper .info_menu ul li a:hover {
   left: 100%;
   top: calc(0vh + 68px);
   transform: translateY(50%);
+  z-index: 600;
 }
 .serach_result .close_btn:before {
   background: #fff;
@@ -3765,6 +3774,50 @@ footer .copy {
   left: 10px;
 }
 
+.mobile_tabs_active {
+  padding-right: 16px;
+}
+.mobile_tabs_active .close_btn {
+  margin-left: auto;
+}
+.mobile_tabs_active .left_menu_catalog_mobile {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+.mobile_tabs_active .left_menu_catalog_mobile .tab {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: calc((100vw - 360px) / 1560 * 0 + 16px);
+  color: #666666;
+}
+.mobile_tabs_active .left_menu_catalog_mobile .tab:after {
+  content: "";
+  width: 32px;
+  height: 2px;
+  display: block;
+}
+.mobile_tabs_active .left_menu_catalog_mobile .tab.active {
+  color: #1A1A1A;
+}
+.mobile_tabs_active .left_menu_catalog_mobile .tab.active:after {
+  background: #54CC00;
+}
+
+.mobile_left_menu {
+  display: flex;
+}
+.mobile_left_menu .info_menu {
+  display: none;
+}
+.mobile_left_menu .info_menu .default_menu_theme {
+  align-items: flex-start;
+}
+
 @media (max-width: 1399px) {
   .container {
     max-width: 1320px;
@@ -3820,6 +3873,10 @@ footer .copy {
   }
 }
 @media (max-width: 1090px) {
+  .left_menu_catalog {
+    width: 100%;
+  }
+
   .section {
     padding-top: 30px;
   }
@@ -4050,10 +4107,6 @@ html {
   header {
     padding-top: 24px;
     padding-bottom: 20px;
-  }
-
-  .left_menu_catalog {
-    width: 40%;
   }
 }
 @media (max-width: 780px) {

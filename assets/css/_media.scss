@@ -78,6 +78,9 @@
 
 //Начало планшетной версии
 @media(max-width: 1090px){
+  .left_menu_catalog{
+    width: 100%;
+  }
   .section{
     padding-top: 30px;
   }
@@ -343,9 +346,7 @@
     padding-top: 24px;
     padding-bottom: 20px;
   }
-  .left_menu_catalog{
-    width: 40%;
-  }
+
 }
 @media (max-width:780px) {
 
