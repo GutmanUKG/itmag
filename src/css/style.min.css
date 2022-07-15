@@ -3808,11 +3808,47 @@ footer .copy {
   background: #54CC00;
 }
 
+.mobile_tabs_active {
+  overflow-y: scroll;
+}
+
 .mobile_left_menu {
   display: flex;
 }
 .mobile_left_menu .info_menu {
   display: none;
+  flex-direction: column;
+  width: 100%;
+  gap: 40px;
+}
+.mobile_left_menu .info_menu .header_phones {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.mobile_left_menu .info_menu .header_phones a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  gap: 5px;
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: calc((100vw - 360px) / 1560 * 2 + 12px);
+  line-height: 20px;
+  color: #666666;
+}
+.mobile_left_menu .info_menu .menu_col {
+  margin-left: 0;
+}
+.mobile_left_menu .info_menu .menu_col:after {
+  content: "";
+  display: block;
+  height: 1px;
+  width: 298px;
+  background: #F2F2F2;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 .mobile_left_menu .info_menu .default_menu_theme {
   align-items: flex-start;

@@ -3263,10 +3263,48 @@ footer{
     }
   }
 }
+.mobile_tabs_active{
+  overflow-y: scroll;
+}
 .mobile_left_menu{
   display: flex;
+
   .info_menu{
     display: none;
+    flex-direction: column;
+    width: 100%;
+    gap: 40px;
+    .header_phones{
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      a{
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        gap: 5px;
+
+        font-family: $inter;
+        font-style: normal;
+        font-weight: 400;
+        font-size: $size_14;
+        line-height: 20px;
+        color: $dark_grey;
+      }
+    }
+    .menu_col{
+      margin-left: 0;
+      &:after{
+        content: '';
+        display: block;
+        height: 1px;
+        width: 298px;
+        //width: 100%;
+        background: #F2F2F2;
+        margin-top: 30px;
+        margin-bottom: 30px;
+      }
+    }
     .default_menu_theme{
       align-items: flex-start;
     }

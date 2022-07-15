@@ -930,10 +930,18 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
 
     function relocateMenuForTab(){
+
         const infoMenu = document.querySelector('.info_menu')
         const popupMenu = document.querySelector('.left_menu_catalog_list')
         const leftMenuCatalog = document.querySelector('.left_menu_catalog')
+        let menuTabSecond = leftMenuCatalog.querySelector('.info_menu')
+        const headerPhones = document.querySelector('.header_phones')
+        const menuCol = document.querySelector('.menu_col')
         popupMenu.classList.add('mobile_left_menu')
+
+        infoMenu.appendChild(menuCol)
+        infoMenu.appendChild(headerPhones)
+
         leftMenuCatalog.classList.add('mobile_tabs_active')
         popupMenu.appendChild(infoMenu)
     }
