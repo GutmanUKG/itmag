@@ -80,6 +80,7 @@
 @media(max-width: 1090px){
   .left_menu_catalog{
     width: 100%;
+    z-index: 1002;
   }
   .section{
     padding-top: 30px;
@@ -349,7 +350,24 @@
 
 }
 @media (max-width:780px) {
+  .tabs_content_item{
+    .owl-nav{
+      display: none;
+    }
+    .owl-stage{
+      display: flex;
+    }
 
+  }
+  header {
+    .trigger_icons,
+    .header_phones{
+      display: none !important;
+    }
+  }
+  .mobile_fixed_menu{
+    display: block;
+  }
   .brands{
     .top{
       justify-content: center !important;

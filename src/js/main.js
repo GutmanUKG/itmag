@@ -928,13 +928,11 @@ document.addEventListener('DOMContentLoaded', ()=>{
     }catch (e) {}
 
 
-
+    //Меню планшетной версии
     function relocateMenuForTab(){
-
         const infoMenu = document.querySelector('.info_menu')
         const popupMenu = document.querySelector('.left_menu_catalog_list')
         const leftMenuCatalog = document.querySelector('.left_menu_catalog')
-        let menuTabSecond = leftMenuCatalog.querySelector('.info_menu')
         const headerPhones = document.querySelector('.header_phones')
         const menuCol = document.querySelector('.menu_col')
         popupMenu.classList.add('mobile_left_menu')
@@ -967,7 +965,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
                 if(item.children[1] != null && item.children[1] != undefined){
                     e.preventDefault()
                     item.children[1].classList.add('active_mobile_popup_menu')
-                    closeBtn.style.zIndex = '600'
+                    closeBtn.style.zIndex = '2500'
                     closeBtn.classList.add('back_menu')
                     closePopupMenu(item.children[1])
                 }else{
@@ -997,5 +995,32 @@ document.addEventListener('DOMContentLoaded', ()=>{
     if(document.body.clientWidth <= 1090){
         relocateMenuForTab()
         tabsInleftMenu()
+    }
+    function relocateHeaderOptions (){
+        const itemsCount = document.querySelector('.items_count')
+        const mobileFixedOptionList = document.querySelector('.menu_fixed_list')
+        const userLink = document.querySelector('.user');
+        itemsCount.appendChild(userLink)
+        mobileFixedOptionList.appendChild(itemsCount)
+    }
+    if (document.body.clientWidth < 781){
+        relocateHeaderOptions()
+
+
+        const sliderTabs = new SliderOwl({
+            wrapperClass: '.tabs_content_item',
+            ShowMedia: true,
+            MediaSize: 781,
+            params: {
+                loop:false,
+                nav:false,
+                items: 4,
+                margin: 16,
+                dots:false,
+                autoWidth:true,
+
+            }
+        })
+        sliderTabs.init()
     }
 });
