@@ -156,6 +156,7 @@ header{
       a{
         position: relative;
         z-index: 20;
+        display: inline-block;
         img{
           width: 24px;
           height: 24px;
@@ -2009,6 +2010,35 @@ footer{
     align-items: flex-start;
     flex-wrap: wrap;
     gap: 64px;
+    .catalog_list_toggler_item_title{
+      margin-bottom: 20px;
+      font-family: $inter;
+      font-style: normal;
+      font-weight: 400;
+      font-size: $size_18;
+      line-height: 28px;
+      color: $dark;
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      justify-content: flex-start;
+      align-items: flex-start;
+      &:after{
+        content: '';
+        display: block;
+        height: 1px;
+        width: 32px;
+        background: $four_green;
+        transition: 0.3s all;
+        transform: scaleX(0);
+      }
+      &:hover{
+        color: $four_green;
+        &:after{
+          transform: scaleX(1);
+        }
+      }
+    }
     .catalog_list_toggler_item{
       flex: 0 0 auto;
       width: calc(33.33% - 60px);
@@ -3362,7 +3392,7 @@ footer{
           font-weight: 500;
           color: #FFFFFF;
           z-index: 2;
-          width: 20px;
+          min-width: 20px;
           height: 20px;
           background: $second_green;
           border-radius: 50%;
@@ -3389,5 +3419,9 @@ footer{
 
 .mobile_fixed_option_list{
   display: flex;
+}
+
+.bx-filter .bx-filter-input-checkbox .bx-filter-param-text{
+  white-space: break-spaces;
 }
 @import "media";

@@ -1,6 +1,5 @@
 "use strict"
 document.addEventListener('DOMContentLoaded', ()=>{
-    console.log('Check gitLab')
     let isToggle = true;
 
 
@@ -542,25 +541,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
     }
 
 
-    try{
-        //добавление меню в фиксированое меню
-        const actionMenuForFixed = new relocateElements({
-            element: '.action_menu',
-            elementRel: '.action_menu_fixed'
-        })
-        actionMenuForFixed.relocate()
-
-
-        const phonesToTabs = new relocateElements({
-            element: '.header_phones',
-            elementRel: '.tablet_header_phones ',
-            removeClass: 'col-5',
-            copy: true
-        })
-        phonesToTabs.relocate()
-    }catch(e){
-
-    }
 
 
     //Фильтр на странице каталога
@@ -601,7 +581,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         })
         tabsToggleSectionBtn.init()
     }catch(e){
-        console.log(e)
+
     }
 
 
@@ -765,6 +745,9 @@ document.addEventListener('DOMContentLoaded', ()=>{
                    },
                    700:{
                        items: 2
+                   },
+                   0:{
+                     items: 1
                    }
                }
            })
@@ -936,10 +919,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
         const headerPhones = document.querySelector('.header_phones')
         const menuCol = document.querySelector('.menu_col')
         popupMenu.classList.add('mobile_left_menu')
-
         infoMenu.appendChild(menuCol)
         infoMenu.appendChild(headerPhones)
-
         leftMenuCatalog.classList.add('mobile_tabs_active')
         popupMenu.appendChild(infoMenu)
     }
@@ -969,14 +950,12 @@ document.addEventListener('DOMContentLoaded', ()=>{
                     closeBtn.classList.add('back_menu')
                     closePopupMenu(item.children[1])
                 }else{
-                    console.log('not submenu')
                 }
             })
 
 
         })
         function closePopupMenu(element){
-            console.log(element)
             closeBtn.addEventListener('click', (e)=>{
                 if(closeBtn.classList.contains('back_menu')){
                     element.classList.remove('active_mobile_popup_menu')
@@ -995,6 +974,27 @@ document.addEventListener('DOMContentLoaded', ()=>{
     if(document.body.clientWidth <= 1090){
         relocateMenuForTab()
         tabsInleftMenu()
+
+
+        try{
+            //добавление меню в фиксированое меню
+            const actionMenuForFixed = new relocateElements({
+                element: '.action_menu',
+                elementRel: '.action_menu_fixed'
+            })
+            actionMenuForFixed.relocate()
+
+
+            const phonesToTabs = new relocateElements({
+                element: '.header_phones',
+                elementRel: '.tablet_header_phones ',
+                removeClass: 'col-5',
+                copy: true
+            })
+            phonesToTabs.relocate()
+        }catch(e){
+
+        }
     }
     function relocateHeaderOptions (){
         const itemsCount = document.querySelector('.items_count')
@@ -1005,8 +1005,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
     }
     if (document.body.clientWidth < 781){
         relocateHeaderOptions()
-
-
         const sliderTabs = new SliderOwl({
             wrapperClass: '.tabs_content_item',
             ShowMedia: true,
@@ -1022,5 +1020,12 @@ document.addEventListener('DOMContentLoaded', ()=>{
             }
         })
         sliderTabs.init()
+    }
+
+
+    if(document.body.clientWidth < 768){
+        const logoTablet = document.querySelector('.tablet_logo')
+        const catalogBtnTablet = document.querySelector('#catalog_btn_tablet')
+        catalogBtnTablet.after(logoTablet)
     }
 });
